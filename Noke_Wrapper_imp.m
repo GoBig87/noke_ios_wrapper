@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
-#import "NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h"
-#import "NokeMobileLibrary.framework/Headers/NokeMobileLibrary-umbrella.h"
+#import "NokeMobileLibrary-Swift.h"
+#import "NokeMobileLibrary-umbrella.h"
 #import <Foundation/NSError.h>
 #import <Foundation/NSString.h>
 #include "Noke_Wrapper_imp.h"
@@ -12,7 +12,7 @@
 
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
 
-    [[@objc class NokeDeviceManager sharedInstance] setDelegate:self];
+    [[NokeDeviceManager sharedInstance] setDelegate:self];
     //Set api key
     NSString* myApiKey = @"debug";
     [NokeDeviceManager setAPIKey:myApiKey];
