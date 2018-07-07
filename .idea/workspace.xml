@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="" />
+    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Noke_Wrapper_imp.m" beforeDir="false" afterPath="$PROJECT_DIR$/Noke_Wrapper_imp.m" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,8 +46,8 @@
       <file leaf-file-name="Noke_Wrapper_imp.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="31" column="39" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="39" />
+            <state relative-caret-position="210">
+              <caret line="14" column="23" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -73,6 +75,7 @@
       <find>changeDefaultUploadUrl</find>
       <find>noke</find>
       <find>include_dirs</find>
+      <find>NokeManagerBluetoothState</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -472,8 +475,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="31" column="39" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="39" />
+        <state relative-caret-position="210">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="23" />
         </state>
       </provider>
     </entry>

@@ -12,16 +12,17 @@
 
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
 
-    [[NokeDeviceManager sharedInstance] setDelegate:self];
+    NokeDeviceManager *noke_device_manager = [[NokeDeviceManager alloc]init];
+    //[[NokeDeviceManager sharedInstance] setDelegate:self];
     //Set api key
     NSString* myApiKey = @"debug";
-    [NokeDeviceManager setAPIKey:myApiKey];
+    [noke_device_manager setAPIKey:myApiKey];
     //Set upload url
     NSString* uploadUrl = @"https://coreapi-sandbox.appspot.com/upload/";
-    [NokeDeviceManager changeDefaultUploadUrl:uploadUrl];
+    [noke_device_manager changeDefaultUploadUrl:uploadUrl];
     //Set up lock
     NSString* lockName = @"lock Name";
-    NokeDevice* noke = [[NokeDevice alloc] init:lockName mac:NSlockMacAddr];
+    NokeDevice* noke = [[NokeDevice alloc]init name:lockName mac:NSlockMacAddr];
     //Add lock
     [NokeDeviceManager addNoke:noke];
     //Check for bluetooth status, if on start scanning
@@ -73,7 +74,7 @@
             break
     }
 }
-- (void) nokeDeviceDidUpdateState:(int)state noke:(NokeDevice)noke lockMacAddr:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
+- (void) nokeDeviceDidUpdateState:(int)state noke:(NokeDevice*)noke lockMacAddr:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
         char* token;
         bool looping = true;
         while looping{
