@@ -13,7 +13,7 @@
 
     [[NokeDeviceManager sharedInstance] setDelegate:self];
     //Set api key
-    NSString* myApiKey = @'';
+    NSString* myApiKey = @'debug';
     [NokeDeviceManager setAPIKey:myApiKey];
     //Set upload url
     NSString* uploadUrl = @'"https://coreapi-sandbox.appspot.com/upload/"';
