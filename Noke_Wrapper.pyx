@@ -5,7 +5,7 @@ cdef extern from "Noke_Wrapper_imp.h":
 
 def requestUnlock(util,mac):
 
-    cdef char macChar = mac.encode('utf-8')
+    cdef char* macChar = mac.encode('utf-8')
 
     request_Unlock(macChar, callback, reqTokenFunc, <void*>util)
 
