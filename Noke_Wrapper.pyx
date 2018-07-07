@@ -1,6 +1,6 @@
 cdef extern from "Noke_Wrapper_imp.h":
     ctypedef void (*callbackfunc)(const char *name, void *user_data)
-    ctypedef char (*clientfunc)(const char *session, const char *mac, void *util)
+    ctypedef char* (*clientfunc)(const char *session, const char *mac, void *util)
     void request_Unlock(char* macChar, callbackfunc call_back, clientfunc client_func, void *user_data)
 
 def requestUnlock(util,mac):
