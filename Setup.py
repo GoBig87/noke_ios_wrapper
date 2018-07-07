@@ -15,7 +15,7 @@ def read(file_path):
 
 def determine_base_flags():
     flags = {
-        'include_dirs': [join(src_path, 'dist','Frameworks')],
+        'include_dirs': [join('Users','MacUser','PycharmProjects','Find4','.buildozer','ios','platform','kivy-ios','dist','frameworks')],
         'library_dirs': [],
         'extra_link_args': [],
         'extra_compile_args': []}
