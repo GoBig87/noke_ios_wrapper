@@ -30,7 +30,6 @@
 }
 
 - (void) bluetoothManagerDidUpdateState:(int)state noke:(NokeDevice*)noke lockMacAddr:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
-    if let state = state {
         switch (state) {
         case .unknown:
             NSString* unknown = @"Unknown State"
