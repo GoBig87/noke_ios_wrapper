@@ -13,7 +13,7 @@ def read(file_path):
 
 def determine_base_flags():
     flags = {
-        'include_dirs': [join(src_path, 'dist','Frameworks','NokeMobileLibrary')],
+        'include_dirs': [join(src_path, 'dist','Frameworks')],
         'library_dirs': [],
         'extra_link_args': [],
         'extra_compile_args': []}
