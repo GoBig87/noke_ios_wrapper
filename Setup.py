@@ -14,7 +14,7 @@ def read(file_path):
 def determine_base_flags():
     flags = {
         'libraries': ['libStripe'],
-        'include_dirs': [join(src_path, 'dist','Frameworks','NokeMobileLibrary.framework','Headers')],
+        'include_dirs': [join(src_path, 'dist','Frameworks','NokeMobileLibrary')],
         'library_dirs': [],
         'extra_link_args': [],
         'extra_compile_args': []}
