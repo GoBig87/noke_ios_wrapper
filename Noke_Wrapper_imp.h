@@ -1,7 +1,8 @@
 #import <Foundation/Foundation.h>
-typedef void (*tokenfunc) (const char *name, void *user_data);
+typedef void (*callbackfunc) (const char *name, void *callback);
+typedef char* (*clientfunc) (const char *session, const char *macAddr, void *reqTokenFunc);
 
-@interface retToken : NSObject
-- (void) retrieveTokenObjC:(char*)lockMacAddr anduser_func:(tokenfunc)user_func anduser_data:(void*)user_data;
+@interface NokeTokenReq : NSObject
+- (void) unlockNoke:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
 @end
-void retrieveToken(char* lockMacAddr,tokenfunc user_func, void *user_data);
+void request_Unlock(char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util);
