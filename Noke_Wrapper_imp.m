@@ -12,7 +12,7 @@
 
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
 
-    [[NokeDeviceManager sharedInstance] setDelegate:self];
+    [[@objc class NokeDeviceManager sharedInstance] setDelegate:self];
     //Set api key
     NSString* myApiKey = @"debug";
     [NokeDeviceManager setAPIKey:myApiKey];
