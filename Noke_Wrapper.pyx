@@ -1,6 +1,6 @@
 cdef extern from "Noke_Wrapper_imp.h":
     ctypedef void (*callbackfunc)(const char *name, void *user_data)
-    ctypedef char* (clientfunc)(const char *session, const char *mac, void *util)
+    ctypedef char (*clientfunc)(const char *session, const char *mac, void *util)
     void request_Unlock(char* macChar, callbackfunc call_back, clientfunc client_func, void *user_data)
 
 def requestUnlock(util,mac):
@@ -13,7 +13,7 @@ def requestUnlock(util,mac):
 cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))
 
-cdef char* reqTokenFunc(const char *session, const char *mac, void *util):
+cdef char reqTokenFunc(const char *session, const char *mac, void *util):
     #cdef char* rsp_char
     rsp = (<object> util).sendNokeMessage(session.decode('utf-8'),mac.decode('utf-8'))
     if rsp:
