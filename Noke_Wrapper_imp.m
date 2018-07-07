@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 #import "NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h"
 #import <Foundation/NSError.h>
 #import <Foundation/NSString.h>
