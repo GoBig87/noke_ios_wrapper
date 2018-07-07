@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
-#import <NokeMobileLibrary>/<NokeMobileLibrary>-Swift.h
+//#import <NokeMobileLibrary>/<NokeMobileLibrary>-Swift.h
 #import <Foundation/NSError.h>
 #import <Foundation/NSString.h>
-
+@import <NokeMobileLibrary>.swift
 #include "Noke_Wrapper_imp.h"
 
 @implementation NokeTokenReq
