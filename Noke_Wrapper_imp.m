@@ -15,10 +15,10 @@
     [[NokeDeviceManager sharedInstance] setDelegate:self];
     //Set api key
     NSString* myApiKey = @"debug";
-    [DeviceManager setAPIKey:myApiKey];
+    [NokeDeviceManager setAPIKey:myApiKey];
     //Set upload url
     NSString* uploadUrl = @"https://coreapi-sandbox.appspot.com/upload/";
-    [DeviceManager changeDefaultUploadUrl:uploadUrl];
+    [NokeDeviceManager changeDefaultUploadUrl:uploadUrl];
     //Set up lock
     NSString* lockName = @"lock Name";
     NokeDevice* noke = [[NokeDevice alloc] init:lockName mac:NSlockMacAddr];
