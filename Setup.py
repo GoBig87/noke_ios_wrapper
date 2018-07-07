@@ -7,6 +7,8 @@ from copy import deepcopy
 from os.path import dirname, join, sep
 from os import environ
 
+src_path = build_path = dirname(__file__)
+
 def read(file_path):
     with open(file_path) as fp:
         return fp.read()
