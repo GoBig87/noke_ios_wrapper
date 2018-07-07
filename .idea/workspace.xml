@@ -46,8 +46,8 @@
       <file leaf-file-name="Noke_Wrapper_imp.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="35" lean-forward="true" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+            <state relative-caret-position="30">
+              <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -65,8 +65,8 @@
       <file leaf-file-name="NokeMobileLibrary-Swift.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="203" column="4" selection-start-line="203" selection-start-column="4" selection-end-line="203" selection-end-column="4" />
+            <state relative-caret-position="47">
+              <caret line="191" column="50" lean-forward="true" selection-start-line="191" selection-start-column="50" selection-end-line="191" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -105,8 +105,8 @@
     <findStrings>
       <find>CBPeripheralDelegate</find>
       <find>tokenCallback</find>
-      <find>NokeDeviceManager</find>
       <find>&quot;</find>
+      <find>NokeDeviceManager</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -359,23 +359,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="203" column="4" selection-start-line="203" selection-start-column="4" selection-end-line="203" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeDeviceManager.swift">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeSDK-Bridging-Header.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="191" column="50" lean-forward="true" selection-start-line="191" selection-start-column="50" selection-end-line="191" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="35" lean-forward="true" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        <state relative-caret-position="30">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
         </state>
       </provider>
     </entry>
