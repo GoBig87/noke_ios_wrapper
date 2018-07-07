@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
-#import "NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h"
-#import "NokeMobileLibrary.framework/Headers/NokeMobileLibrary-umbrella.h"
+#import <NokeMobileLibrary>/<NokeMobileLibrary>-Swift.h
+//#import "NokeMobileLibrary.framework/Headers/NokeMobileLibrary-umbrella.h"
 #import <Foundation/NSError.h>
 #import <Foundation/NSString.h>
 #include "Noke_Wrapper_imp.h"
