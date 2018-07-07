@@ -14,13 +14,13 @@
 
     [[NokeDeviceManager sharedInstance] setDelegate:self];
     //Set api key
-    NSString* myApiKey = @'debug';
+    NSString* myApiKey = @"debug";
     [NokeDeviceManager setAPIKey:myApiKey];
     //Set upload url
     NSString* uploadUrl = @"https://coreapi-sandbox.appspot.com/upload/";
     [NokeDeviceManager changeDefaultUploadUrl:uploadUrl];
     //Set up lock
-    NSString* lockName = @'Lock Name';
+    NSString* lockName = @"lock Name";
     NokeDevice* noke = [[NokeDevice alloc] init:lockName mac:NSlockMacAddr];
     //Add lock
     [NokeDeviceManager addNoke:noke];
@@ -33,17 +33,17 @@
     if let state = state {
         switch (state) {
         case .unknown:
-            NSString* unknown = @'Unknown State'
+            NSString* unknown = @"Unknown State"
             const char* unknownChar = [unknown UTF8String];
             callbackfunc(unknownChar,util)
             break
         case .resetting:
-            NSString* reset = @'Resesting'
+            NSString* reset = @"Resesting"
             const char* resetChar = [reset UTF8String];
             callbackfunc(resetChar,util)
             break
         case .unsupported:
-            NSString* unsupported = @'Unsupported'
+            NSString* unsupported = @"Unsupported"
             const char* unsupportedChar = [unsupported UTF8String];
             callbackfunc(unsupportedChar,util)
             break
