@@ -20,8 +20,8 @@
     NSString* uploadUrl = @"https://coreapi-sandbox.appspot.com/upload/";
     [NokeDeviceManager changeDefaultUploadUrl:uploadUrl];
     //Set up lock
-    NSString* name = @'Lock Name';
-    NokeDevice* noke = [[NokeDevice alloc] init:name mac:NSlockMacAddr];
+    NSString* lockName = @'Lock Name';
+    NokeDevice* noke = [[NokeDevice alloc] init:lockName mac:NSlockMacAddr];
     //Add lock
     [NokeDeviceManager addNoke:noke];
     //Check for bluetooth status, if on start scanning
