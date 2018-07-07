@@ -1,0 +1,8 @@
+version: "Apple Swift version 4.1.2 (swiftlang-902.0.54 clang-902.0.39.2)"
+options: "cb4a2e64c8a71e8635307066fbf90993"
+build_time: [1530394033, 82145000]
+inputs:
+  "/Users/MacUser/Downloads/noke-mobile-library-ios-master/NokeMobileLibrary/Classes/NokeDefines.swift": [1527861412, 0]
+  "/Users/MacUser/Downloads/noke-mobile-library-ios-master/NokeMobileLibrary/Classes/NokeDevice.swift": [1527861412, 0]
+  "/Users/MacUser/Downloads/noke-mobile-library-ios-master/NokeMobileLibrary/Classes/NokeDeviceManager.swift": [1527861412, 0]
+  "/Users/MacUser/Downloads/noke-mobile-library-ios-master/NokeMobileLibrary/Classes/Reachability.swift": [1527861412, 0]

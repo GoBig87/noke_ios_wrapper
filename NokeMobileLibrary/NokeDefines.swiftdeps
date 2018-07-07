@@ -1,0 +1,192 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "NokeDeviceManagerError"
+- "Constants"
+provides-nominal:
+- "17NokeMobileLibrary0A18DeviceManagerErrorO"
+- "17NokeMobileLibrary9ConstantsV"
+provides-member:
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", ""]
+- ["17NokeMobileLibrary9ConstantsV", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- "Constants"
+- "FloatLiteralType"
+- "Int"
+- "IntegerLiteralType"
+- "NokeDeviceManagerError"
+- !private "~="
+depends-member:
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["17NokeMobileLibrary9ConstantsV", "ADDLOCKPART1_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "ADDLOCKPART2_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "ADDLOCK_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "AESKEYLEN"]
+- ["17NokeMobileLibrary9ConstantsV", "APP_Dest"]
+- ["17NokeMobileLibrary9ConstantsV", "APP_ResponseType"]
+- ["17NokeMobileLibrary9ConstantsV", "BASE_KeyType"]
+- ["17NokeMobileLibrary9ConstantsV", "BATTERYDATA_ResultType"]
+- ["17NokeMobileLibrary9ConstantsV", "CKLEN"]
+- ["17NokeMobileLibrary9ConstantsV", "CLEARLOCKS_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "CLEARQC_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "DATAPACKET"]
+- ["17NokeMobileLibrary9ConstantsV", "ENABLELIMITEDKEY_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "ERRORPACKET"]
+- ["17NokeMobileLibrary9ConstantsV", "EnableLimitedKeys_ServerType"]
+- ["17NokeMobileLibrary9ConstantsV", "FIRMWAREUPDATE_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "GETBATTERY_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "GETLOGS_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "GETQC_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "INVALIDCMD_ResultType"]
+- ["17NokeMobileLibrary9ConstantsV", "INVALIDDATA_ResultType"]
+- ["17NokeMobileLibrary9ConstantsV", "INVALIDKEY_ResultType"]
+- ["17NokeMobileLibrary9ConstantsV", "INVALIDPERMISSION_ResultType"]
+- ["17NokeMobileLibrary9ConstantsV", "INVALID_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "INVALID_ResponseType"]
+- ["17NokeMobileLibrary9ConstantsV", "INVALID_ResultType"]
+- ["17NokeMobileLibrary9ConstantsV", "KEYLEN"]
+- ["17NokeMobileLibrary9ConstantsV", "Key_ServerType"]
+- ["17NokeMobileLibrary9ConstantsV", "LCK_KeyType"]
+- ["17NokeMobileLibrary9ConstantsV", "LOCKEDPACKET"]
+- ["17NokeMobileLibrary9ConstantsV", "LOCK_Dest"]
+- ["17NokeMobileLibrary9ConstantsV", "Log_ServerType"]
+- ["17NokeMobileLibrary9ConstantsV", "LongPress_ServerType"]
+- ["17NokeMobileLibrary9ConstantsV", "MCK_KeyType"]
+- ["17NokeMobileLibrary9ConstantsV", "OFFLINE_COMMAND_LENGTH"]
+- ["17NokeMobileLibrary9ConstantsV", "OFFLINE_KEY_LENGTH"]
+- ["17NokeMobileLibrary9ConstantsV", "PACKETSIZE"]
+- ["17NokeMobileLibrary9ConstantsV", "QCDISABLED"]
+- ["17NokeMobileLibrary9ConstantsV", "QCFULL"]
+- ["17NokeMobileLibrary9ConstantsV", "QCK_KeyType"]
+- ["17NokeMobileLibrary9ConstantsV", "QCONETIME"]
+- ["17NokeMobileLibrary9ConstantsV", "QC_ServerType"]
+- ["17NokeMobileLibrary9ConstantsV", "QcLockout_ServerType"]
+- ["17NokeMobileLibrary9ConstantsV", "REMOVELIMITEDKEY_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "REMOVELOCK_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "RESET_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "Radio_ServerType"]
+- ["17NokeMobileLibrary9ConstantsV", "Reset_ServerType"]
+- ["17NokeMobileLibrary9ConstantsV", "SERVER_Dest"]
+- ["17NokeMobileLibrary9ConstantsV", "SERVER_ResponseType"]
+- ["17NokeMobileLibrary9ConstantsV", "SETKEY_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "SETLONGPRESSTIME_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "SETQCLOCKOUT_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "SETQC_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "SETRADIOTX_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "SETTIMEOUT_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "SETUPFOB_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "SETUP_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "SHUTDOWN_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "SHUTDOWN_ResultType"]
+- ["17NokeMobileLibrary9ConstantsV", "STARTBYTE"]
+- ["17NokeMobileLibrary9ConstantsV", "SUCCESSPACKET"]
+- ["17NokeMobileLibrary9ConstantsV", "SUCCESS_ResultType"]
+- ["17NokeMobileLibrary9ConstantsV", "Sleep_ServerType"]
+- ["17NokeMobileLibrary9ConstantsV", "TEST_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "UNLOCK_PK"]
+- ["17NokeMobileLibrary9ConstantsV", "Unlock_ServerType"]
+- ["17NokeMobileLibrary9ConstantsV", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s9DecodableP", "_getBuiltinLogicValue"]
+- !private ["s9EncodableP", "_getBuiltinLogicValue"]
+- ["s9EquatableP", "RawValue"]
+- ["s9EquatableP", ""]
+- ["s9EquatableP", "_Default_RawValue"]
+- !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- ["s9EquatableP", "hashValue"]
+- ["s9EquatableP", "init"]
+- ["s9EquatableP", "rawValue"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s8HashableP", "RawValue"]
+- ["s8HashableP", ""]
+- ["s8HashableP", "_Default_RawValue"]
+- !private ["s8HashableP", "_getBuiltinLogicValue"]
+- ["s8HashableP", "hashValue"]
+- ["s8HashableP", "init"]
+- ["s8HashableP", "rawValue"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "RawValue"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "_Default_RawValue"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "deinit"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "hashValue"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "init"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeAPIErrorAPIKey"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeAPIErrorCompanyNotFound"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeAPIErrorInput"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeAPIErrorInternalServer"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeAPIErrorInvalidEndpoint"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeAPIErrorLockNotFound"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeAPIErrorRequestMethod"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeAPIErrorUnknown"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeDeviceBatteryDataResult"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeDeviceErrorInvalidCmd"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeDeviceErrorInvalidData"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeDeviceErrorInvalidKey"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeDeviceErrorInvalidPermission"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeDeviceErrorInvalidResult"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeDeviceErrorUnknown"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeDeviceShutdownResult"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeDeviceSuccessResult"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeGoUnlockError"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeGoUploadError"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "nokeLibraryErrorInvalidOfflineKey"]
+- ["17NokeMobileLibrary0A18DeviceManagerErrorO", "rawValue"]
+- ["s16RawRepresentableP", "RawValue"]
+- ["s16RawRepresentableP", ""]
+- ["s16RawRepresentableP", "_Default_RawValue"]
+- ["s16RawRepresentableP", "hashValue"]
+- ["s16RawRepresentableP", "init"]
+- ["s16RawRepresentableP", "rawValue"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+depends-nominal:
+- !private "Sb"
+- !private "s7CVarArgP"
+- "17NokeMobileLibrary9ConstantsV"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "s9DecodableP"
+- !private "s9EncodableP"
+- "s9EquatableP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s8HashableP"
+- !private "s25LosslessStringConvertibleP"
+- "17NokeMobileLibrary0A18DeviceManagerErrorO"
+- "s16RawRepresentableP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/MacUser/Downloads/noke-mobile-library-ios-master/NokeMobileLibrary/Classes/TI_aes_128.h"
+- "/Users/MacUser/Downloads/noke-mobile-library-ios-master/Example/Pods/Target Support Files/NokeMobileLibrary/NokeMobileLibrary-umbrella.h"
+- "/Users/MacUser/Downloads/noke-mobile-library-ios-master/Example/build/Pods.build/Debug-iphoneos/NokeMobileLibrary.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreBluetooth.framework/Headers/CoreBluetooth.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "35c00cfe4cb37d5ac7d0fcdb88b0edb3"
