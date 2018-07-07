@@ -1,6 +1,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h"
+#import "NokeMobileLibrary.framework/Headers/nokeDevice.h"
+#import "NokeMobileLibrary.framework/Headers/nokeSDK.h"
 #import <Foundation/NSError.h>
 #import <Foundation/NSString.h>
 //@import <NokeMobileLibrary>.swift
@@ -8,7 +10,7 @@
 
 @implementation NokeTokenReq
 
-- (void)  unlockNoke:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util; {
+- (void) unlockNoke:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util; {
 
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
 
