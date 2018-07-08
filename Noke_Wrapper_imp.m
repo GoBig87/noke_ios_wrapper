@@ -99,7 +99,7 @@
             status = @"Connected";
             statusChar = [status UTF8String];
             callback(statusChar,util);
-            token = client_func(nokeChar,macChar,util);
+            token = client_func(sessionChar,macChar,util);
             commandString= [NSString stringWithUTF8String:token];
             [noke sendCommands:commandString];
             break;
