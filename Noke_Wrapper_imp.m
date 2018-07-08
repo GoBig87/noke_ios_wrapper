@@ -72,25 +72,28 @@
 - (void) nokeDeviceDidUpdateState:(int)state noke:(NokeDevice*)noke callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
     char* token;
     bool looping = true;
+    NSString *status;
+    const char* statusChar;
     while looping{
         switch (state) {
         case NokeDeviceConnectionStateNokeDeviceConnectionStateDiscovered:
             NSLog(@"Noke Discovered");
-            NSString* nokeDiscovered = @"Noke Discovered";
-            const char* nokeDiscoveredChar = [nokeDiscovered UTF8String];
-            callback(nokeDiscoveredChar,util);
+            status = @"Noke Discovered";
+            statusChar = [status UTF8String];
+            callback(statusChar,util);
             [[NokeDeviceManager sharedInstance] stopScan];
             [[NokeDeviceManager sharedInstance] connectToNokeDevice:noke];
             break;
         case NokeDeviceConnectionStateNokeDeviceConnectionStateConnecting:
             NSLog(@"Connecting");
-            NSString* nokeConnected = @"Connecting";
+            status = @"Connecting";
+            statusChar = [status UTF8String];
+            callback(statusChar,util);
             break;
         case NokeDeviceConnectionStateNokeDeviceConnectionStateConnected:
-            NSLog(@"Connected, returning session");
-            NSString* nokeConnected = @"Connected";
-            const char* nokeConnectedChar = [nokeConnected UTF8String];
-            callback(nokeConnectedChar,util);
+            status = @"Connected";
+            statusChar = [status UTF8String];
+            callback(statusChar,util);
             const char* nokeChar  = [noke.session UTF8String];
             token = client_func(nokeChar,session_data);
             NSString *commandString = [NSString stringWithUTF8String:token];
@@ -98,24 +101,28 @@
             break;
         case NokeDeviceConnectionStateNokeDeviceConnectionStateSyncing:
             NSLog(@"Synching");
-            NSString* nokeSynching = @"Synching";
-            const char* nokeSynchingChar = [nokeSynching UTF8String];
+            status = @"Synching";
+            statusChar = [status UTF8String];
+            callback(statusChar,util);
         case NokeDeviceConnectionStateNokeDeviceConnectionStateUnlocked:
             NSLog(@"Unlocked");
-            NSString* nokeSynching = @"Unlocked";
-            const char* nokeSynchingChar = [nokeSynching UTF8String];
+            status = @"Unlocked";
+            statusChar = [status UTF8String];
+            callback(statusChar,util);
             looping = false;
             break;
         case NokeDeviceConnectionStateNokeDeviceConnectionStateDisconnected:
             NSLog(@"Disconnected");
-            NSString* nokeDisconnected = @"Disconnected";
-            const char* nokeDisconnectedChar = [nokeDisconnected UTF8String];
+            status = @"Disconnected";
+            statusChar = [status UTF8String];
+            callback(statusChar,util);
             looping = false;
             break;
         default:
             NSLog(@"Unknown State");
-            NSString* nokeUnknownState = @"Unknown State";
-            const char* nokeUnknownStateChar = [nokeUnknownState UTF8String];
+            status = @"Unknown State";
+            statusChar = [status UTF8String];
+            callback(statusChar,util);
             break;
         }
     }
