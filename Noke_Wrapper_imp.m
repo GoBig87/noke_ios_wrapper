@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h"
-//#import "NokeMobileLibrary.framework/Headers/NokeMobileLibrary-umbrella.h"
 #import <Foundation/NSError.h>
 #import <Foundation/NSString.h>
 #include "Noke_Wrapper_imp.h"
@@ -11,23 +10,19 @@
 - (void) unlockNoke:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util; {
 
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
-
-    //NokeDeviceManager *noke_device_manager = [[NokeDeviceManager alloc]init];
     [[NokeDeviceManager sharedInstance] setDelegate:self];
-    //Set api key
+
     NSString* apiKey = @"debug";
     [NokeDeviceManager setAPIKey:apiKey];
-    //Set upload url
+
     NSString* uploadUrl = @"https://coreapi-sandbox.appspot.com/upload/";
     [NokeDeviceManager changeDefaultUploadUrl:uploadUrl];
-    //Set up lock
+
     NSString* lockName = @"lock Name";
     NokeDevice* noke = [[NokeDevice alloc]init name:lockName mac:NSlockMacAddr];
-    //Add lock
     [NokeDeviceManager addNoke:noke];
-    //Check for bluetooth status, if on start scanning
+
     [bluetoothManagerDidUpdateState NokeDeviceConnectionState:state callback_func:callbackfunc client_func:client_func util:util];
-    //
 }
 
 - (void) bluetoothManagerDidUpdateState:(int)state noke:(NokeDevice*)noke lockMacAddr:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
