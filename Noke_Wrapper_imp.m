@@ -19,7 +19,7 @@
     [NokeDeviceManager changeDefaultUploadUrl:uploadUrl];
 
     NSString* lockName = @"lock Name";
-    NokeDevice* noke = [[NokeDevice alloc]init name:lockName mac:NSlockMacAddr];
+    NokeDevice* noke = [[NokeDevice alloc] init:lockName mac:NSlockMacAddr];
     [NokeDeviceManager addNoke:noke];
 
     [bluetoothManagerDidUpdateState NokeDeviceConnectionState:state callback_func:callbackfunc client_func:client_func util:util];
