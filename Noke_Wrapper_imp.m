@@ -5,12 +5,12 @@
 #import <Foundation/NSString.h>
 #include "Noke_Wrapper_imp.h"
 
-@implementation NokeTokenReq
+@implementation NokeTokenReq:NSObject<NokeDeviceManagerDelegate>
 
 - (void) unlockNoke:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util; {
 
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
-    NokeDeviceManager *nokeDM = [NokeDeviceManager alloc];
+    [[NokeDeviceManager sharedInstance] setDelegate:self];
 
     NSString* apiKey = @"debug";
     [nokeDM setAPIKey:apiKey];
