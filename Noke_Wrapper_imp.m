@@ -26,45 +26,47 @@
 }
 
 - (void) bluetoothManagerDidUpdateState:(NokeManagerBluetoothState)state callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
+    NSString *status;
+    const char* statusChar;
     switch (state) {
     case NokeManagerBluetoothStateUnknown:
-        NSString* unknown = @"Unknown State";
-        const char* unknownChar = [unknown UTF8String];
-        callback(unknownChar,util);
+        status = @"Unknown State";
+        statusChar = [status UTF8String];
+        callback(statusChar,util);
         break;
     case NokeManagerBluetoothStateResetting:
-        NSString* reset = @"Resesting";
-        const char* resetChar = [reset UTF8String];
-        callback(resetChar,util);
+        status = @"Resesting";
+        statusChar = [status UTF8String];
+        callback(statusChar,util);
         break;
     case NokeManagerBluetoothStateUnsupported:
-        NSString* unsupported = @"Unsupported";
-        const char* unsupportedChar = [unsupported UTF8String];
-        callback(unsupportedChar,util);
+        status = @"Unsupported";
+        statusChar = [status UTF8String];
+        callback(statusChar,util);
         break;
     case NokeManagerBluetoothStateUnauthorized:
-        NSString* unauthorized = @"Unauthorized";
-        const char* unauthorizedChar = [unauthorized UTF8String];
-        callback(unauthorizedChar,util);
+        status = @"Unauthorized";
+        statusChar = [status UTF8String];
+        callback(statusChar,util);
         break;
     case NokeManagerBluetoothStatePoweredOff:
-        NSString* poweredOff = @"Power Off";
-        const char* poweredOffChar = [poweredOff UTF8String];
-        callback(poweredOffChar,util);
+        status = @"Power Off";
+        statusChar = [status UTF8String];
+        callback(statusChar,util);
         break;
     case NokeManagerBluetoothStatePoweredOn:
-        NSString* poweredOn = @"Power On";
-        const char* poweredOnChar = [poweredOn UTF8String];
-        callback(poweredOnChar,util);
+        status = @"Power On";
+        statusChar = [status UTF8String];
+        callback(statusChar,util);
         [[NokeDeviceManager sharedInstance] startScanForNokeDevices];
         NSLog(@"NOKE MANAGER ON");
         NokeDeviceConnectionState state;
         [self nokeDeviceDidUpdateState:state noke:noke];
         break;
     default:
-        NSString* defaultStr = @"Defualt";
-        const char* defaultChar = [defaultStr UTF8String];
-        callback(defaultChar,util);
+        status = @"Defualt";
+        statusChar = [status UTF8String];
+        callback(statusChar,util);
         NSLog(@"Defualt");
         break;
     }
