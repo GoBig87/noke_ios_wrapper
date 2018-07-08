@@ -203,6 +203,50 @@ SWIFT_CLASS("_TtC17NokeMobileLibrary10NokeDevice")
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
 
+/// Connection states of Noke Devices
+/// <ul>
+///   <li>
+///     Disconnected: Noke device is not connected to phone
+///   </li>
+///   <li>
+///     Discovered: Noke device is broadcasting and is discovered by phone
+///   </li>
+///   <li>
+///     Connecting: Phone has initialized a connection and is waiting for response
+///   </li>
+///   <li>
+///     Connected: Noke device is successfully connected to phone
+///   </li>
+///   <li>
+///     Syncing: Phone is sending commands to Noke device
+///   </li>
+///   <li>
+///     Unlocked: Noke device is unlocked
+///   </li>
+/// </ul>
+typedef SWIFT_ENUM(NSInteger, NokeDeviceConnectionState) {
+  NokeDeviceConnectionStateNokeDeviceConnectionStateDisconnected = 0,
+  NokeDeviceConnectionStateNokeDeviceConnectionStateDiscovered = 1,
+  NokeDeviceConnectionStateNokeDeviceConnectionStateConnecting = 2,
+  NokeDeviceConnectionStateNokeDeviceConnectionStateConnected = 3,
+  NokeDeviceConnectionStateNokeDeviceConnectionStateSyncing = 4,
+  NokeDeviceConnectionStateNokeDeviceConnectionStateUnlocked = 5,
+};
+
+/// Lock states of Noke Devices
+/// <ul>
+///   <li>
+///     Unlocked: Noke device unlocked OR Device has been locked but phone never received updated status
+///   </li>
+///   <li>
+///     Locked: Noke device locked
+///   </li>
+/// </ul>
+typedef SWIFT_ENUM(NSInteger, NokeDeviceLockState) {
+  NokeDeviceLockStateNokeDeviceLockStateUnlocked = 0,
+  NokeDeviceLockStateNokeDeviceLockStateLocked = 1,
+};
+
 @class CBCentralManager;
 @class NSNumber;
 
@@ -221,6 +265,88 @@ SWIFT_CLASS("_TtC17NokeMobileLibrary17NokeDeviceManager")
 - (void)centralManager:(CBCentralManager * _Nonnull)central didConnectPeripheral:(CBPeripheral * _Nonnull)peripheral;
 - (void)centralManager:(CBCentralManager * _Nonnull)central didDisconnectPeripheral:(CBPeripheral * _Nonnull)peripheral error:(NSError * _Nullable)error;
 @end
+
+enum NokeDeviceManagerError : NSInteger;
+enum NokeManagerBluetoothState : NSInteger;
+
+/// Delegate for interacting with the NokeDeviceManager
+SWIFT_PROTOCOL("_TtP17NokeMobileLibrary25NokeDeviceManagerDelegate_")
+@protocol NokeDeviceManagerDelegate
+/// Called when a Noke device updates its state.  Please see the NokeDeviceConnectionState enum type for all possible states
+/// <ul>
+///   <li>
+///     Parameters:
+///   </li>
+///   <li>
+///     state: NokeDeviceConnectionState. Possible states include:
+///     <ul>
+///       <li>
+///         Disconnected
+///       </li>
+///       <li>
+///         Discovered
+///       </li>
+///       <li>
+///         Connecting
+///       </li>
+///       <li>
+///         Connected
+///       </li>
+///       <li>
+///         Syncing
+///       </li>
+///       <li>
+///         Unlocked
+///       </li>
+///     </ul>
+///   </li>
+///   <li>
+///     noke: The Noke device that was updated
+///   </li>
+/// </ul>
+- (void)nokeDeviceDidUpdateStateTo:(enum NokeDeviceConnectionState)state noke:(NokeDevice * _Nonnull)noke;
+/// Called when the Noke Mobile library encounters an error. Please see error types for possible errors
+/// \param error The NokeDeviceManagerError that was thrown
+///
+/// \param message English description of error
+///
+/// \param noke Device associated with the error if applicable
+///
+- (void)nokeErrorDidOccurWithError:(enum NokeDeviceManagerError)error message:(NSString * _Nonnull)message noke:(NokeDevice * _Nullable)noke;
+- (void)bluetoothManagerDidUpdateStateWithState:(enum NokeManagerBluetoothState)state;
+@end
+
+typedef SWIFT_ENUM(NSInteger, NokeDeviceManagerError) {
+  NokeDeviceManagerErrorNokeAPIErrorInternalServer = 1,
+  NokeDeviceManagerErrorNokeAPIErrorAPIKey = 2,
+  NokeDeviceManagerErrorNokeAPIErrorInput = 3,
+  NokeDeviceManagerErrorNokeAPIErrorRequestMethod = 4,
+  NokeDeviceManagerErrorNokeAPIErrorInvalidEndpoint = 5,
+  NokeDeviceManagerErrorNokeAPIErrorCompanyNotFound = 6,
+  NokeDeviceManagerErrorNokeAPIErrorLockNotFound = 7,
+  NokeDeviceManagerErrorNokeAPIErrorUnknown = 99,
+  NokeDeviceManagerErrorNokeGoUnlockError = 100,
+  NokeDeviceManagerErrorNokeGoUploadError = 101,
+  NokeDeviceManagerErrorNokeDeviceSuccessResult = 260,
+  NokeDeviceManagerErrorNokeDeviceErrorInvalidKey = 261,
+  NokeDeviceManagerErrorNokeDeviceErrorInvalidCmd = 262,
+  NokeDeviceManagerErrorNokeDeviceErrorInvalidPermission = 263,
+  NokeDeviceManagerErrorNokeDeviceShutdownResult = 264,
+  NokeDeviceManagerErrorNokeDeviceErrorInvalidData = 265,
+  NokeDeviceManagerErrorNokeDeviceBatteryDataResult = 266,
+  NokeDeviceManagerErrorNokeDeviceErrorInvalidResult = 267,
+  NokeDeviceManagerErrorNokeDeviceErrorUnknown = 268,
+  NokeDeviceManagerErrorNokeLibraryErrorInvalidOfflineKey = 301,
+};
+
+typedef SWIFT_ENUM(NSInteger, NokeManagerBluetoothState) {
+  NokeManagerBluetoothStateUnknown = 0,
+  NokeManagerBluetoothStateResetting = 1,
+  NokeManagerBluetoothStateUnsupported = 2,
+  NokeManagerBluetoothStateUnauthorized = 3,
+  NokeManagerBluetoothStatePoweredOff = 4,
+  NokeManagerBluetoothStatePoweredOn = 5,
+};
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
