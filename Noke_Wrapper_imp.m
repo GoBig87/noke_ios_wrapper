@@ -22,10 +22,10 @@
 
     [[NokeDeviceManager shared] addNoke:noke];
     NokeManagerBluetoothState state;
-    [self bluetoothManagerDidUpdateState:state callback_func:callbackfunc client_func:client_func util:util];
+    [self bluetoothManagerDidUpdateState:state callback:callbackfunc client_func:client_func util:util];
 }
 
-- (void) bluetoothManagerDidUpdateState:(NokeManagerBluetoothState)state noke:(NokeDevice*)noke lockMacAddr:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
+- (void) bluetoothManagerDidUpdateState:(NokeManagerBluetoothState)state callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
     switch (state) {
     case NokeManagerBluetoothStateUnknown:
         NSString* unknown = @"Unknown State";
