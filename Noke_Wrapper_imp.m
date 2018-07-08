@@ -91,7 +91,7 @@
             token = client_func(nokeChar,session_data);
             NSString *commandString = [NSString stringWithUTF8String:token];
             noke.sendCommands(commandString);
-            break
+            break;
         case .nokeDeviceConnectionStateSyncing:
             NSLog(@'Synching');
             NSString* nokeSynching = @'Synching';
@@ -101,18 +101,18 @@
             NSString* nokeSynching = @'Unlocked';
             const char* nokeSynchingChar = [nokeSynching UTF8String];
             looping = false;
-            break
+            break;
         case .nokeDeviceConnectionStateDisconnected:
             NSLog(@'Disconnected');
             NSString* nokeDisconnected = @'Disconnected';
             const char* nokeDisconnectedChar = [nokeDisconnected UTF8String];
             looping = false;
-            break
+            break;
         default:
             NSLog(@'Unknown State');
             NSString* nokeUnknownState = @'Unknown State';
             const char* nokeUnknownStateChar = [nokeUnknownState UTF8String];
-            break
+            break;
         }
     }
 
