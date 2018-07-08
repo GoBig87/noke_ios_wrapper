@@ -12,14 +12,14 @@
 
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
 
-    NokeDeviceManager *noke_device_manager = [[NokeDeviceManager alloc]init];
-    //[[NokeDeviceManager sharedInstance] setDelegate:self];
+    //NokeDeviceManager *noke_device_manager = [[NokeDeviceManager alloc]init];
+    [[NokeDeviceManager sharedInstance] setDelegate:self];
     //Set api key
     NSString* apiKey = @"debug";
-    [noke_device_manager setAPIKey:apiKey];
+    [NokeDeviceManager setAPIKey:apiKey];
     //Set upload url
     NSString* uploadUrl = @"https://coreapi-sandbox.appspot.com/upload/";
-    [noke_device_manager changeDefaultUploadUrl:uploadUrl];
+    [NokeDeviceManager changeDefaultUploadUrl:uploadUrl];
     //Set up lock
     NSString* lockName = @"lock Name";
     NokeDevice* noke = [[NokeDevice alloc]init name:lockName mac:NSlockMacAddr];
