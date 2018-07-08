@@ -75,7 +75,10 @@
     char* token;
     bool looping = true;
     NSString *status;
+    NSString *commandString;
     const char* statusChar;
+    const char* sessionChar  = [noke.session UTF8String];
+    const char* macChar      = [noke.mac UTF8String];
     while (looping){
         switch (state) {
         case NokeDeviceConnectionStateNokeDeviceConnectionStateDiscovered:
@@ -96,10 +99,8 @@
             status = @"Connected";
             statusChar = [status UTF8String];
             callback(statusChar,util);
-            const char* sessionChar  = [noke.session UTF8String];
-            const char* macChar      = [noke.mac UTF8String];
-            token = client_func(nokeChar,util);
-            NSString *commandString = [NSString stringWithUTF8String:token];
+            token = client_func(nokeChar,macChar,util);
+            commandString= [NSString stringWithUTF8String:token];
             [noke sendCommands:commandString];
             break;
         case NokeDeviceConnectionStateNokeDeviceConnectionStateSyncing:
