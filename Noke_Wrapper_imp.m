@@ -15,8 +15,8 @@
     NokeDeviceManager *noke_device_manager = [[NokeDeviceManager alloc]init];
     //[[NokeDeviceManager sharedInstance] setDelegate:self];
     //Set api key
-    NSString* myApiKey = @"debug";
-    [noke_device_manager setAPIKey:myApiKey];
+    NSString* apiKey = @"debug";
+    [noke_device_manager setAPIKey:apiKey];
     //Set upload url
     NSString* uploadUrl = @"https://coreapi-sandbox.appspot.com/upload/";
     [noke_device_manager changeDefaultUploadUrl:uploadUrl];
@@ -26,7 +26,7 @@
     //Add lock
     [NokeDeviceManager addNoke:noke];
     //Check for bluetooth status, if on start scanning
-    [bluetoothManagerDidUpdateState state:NokeManagerBluetoothState callback_func:callbackfunc client_func:client_func util:util];
+    [bluetoothManagerDidUpdateState NokeDeviceConnectionState:state callback_func:callbackfunc client_func:client_func util:util];
     //
 }
 

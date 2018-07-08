@@ -46,8 +46,17 @@
       <file leaf-file-name="Noke_Wrapper_imp.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="23" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="23" />
+            <state relative-caret-position="225">
+              <caret line="15" column="60" lean-forward="true" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NokeMobileLibrary-Swift.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="201" column="46" lean-forward="true" selection-start-line="201" selection-start-column="24" selection-end-line="201" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -76,6 +85,7 @@
       <find>noke</find>
       <find>include_dirs</find>
       <find>NokeManagerBluetoothState</find>
+      <find>Noke</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -108,6 +118,17 @@
             <path>
               <item name="noke_ios_wrapper" type="b2602c69:ProjectViewProjectNode" />
               <item name="noke_ios_wrapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="noke_ios_wrapper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="noke_ios_wrapper" type="462c0819:PsiDirectoryNode" />
+              <item name="NokeMobileLibrary.framework" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="noke_ios_wrapper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="noke_ios_wrapper" type="462c0819:PsiDirectoryNode" />
+              <item name="NokeMobileLibrary.framework" type="462c0819:PsiDirectoryNode" />
+              <item name="Headers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -442,13 +463,6 @@
     <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-umbrella.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2580">
-          <caret line="172" column="45" selection-start-line="172" selection-start-column="45" selection-end-line="172" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/NokeMobileLibrary">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18975">
@@ -473,10 +487,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="201" column="46" lean-forward="true" selection-start-line="201" selection-start-column="24" selection-end-line="201" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="23" />
+        <state relative-caret-position="225">
+          <caret line="15" column="60" lean-forward="true" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
         </state>
       </provider>
     </entry>
