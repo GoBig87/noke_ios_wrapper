@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
-#import "ios-sdk/nokeSDK.h"
-#import "ios-sdk/nokeDevice.h"
+#import "NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h"
 #import <Foundation/NSError.h>
 #import <Foundation/NSString.h>
 #include "Noke_Wrapper_imp.h"
@@ -13,15 +12,15 @@
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
 
     NSString* apiKey = @"debug";
-    [[nokeSDK sharedInstance] setAPIKey:apiKey];
+    [[NokeDeviceManager shared] setAPIKey:apiKey];
 
     NSString* uploadUrl = @"https://coreapi-sandbox.appspot.com/upload/";
-    [[nokeSDK sharedInstance] changeDefaultUploadUrl:uploadUrl];
+    [[NokeDeviceManager shared] changeDefaultUploadUrl:uploadUrl];
 
     NSString* lockName = @"lock Name";
     NokeDevice *noke = [NokeDevice alloc];
     [noke init:lockName mac:NSlockMacAddr];
-    [[nokeSDK sharedInstance] addNoke:noke];
+    [[NokeDeviceManager shared] addNoke:noke];
 
     [self bluetoothManagerDidUpdateState:NokeManagerBluetoothState callback_func:callbackfunc client_func:client_func util:util];
 }
