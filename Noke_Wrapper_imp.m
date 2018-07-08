@@ -18,7 +18,7 @@
     [[NokeDeviceManager shared] changeDefaultUploadUrl:uploadUrl];
 
     NSString* lockName = @"lock Name";
-    NokeDevice *noke = [[NokeDevice alloc]init:lockName mac:NSlockMacAddr];
+    NokeDevice *noke = [[NokeDevice alloc]initWithName:lockName mac:NSlockMacAddr];
 
     [[NokeDeviceManager shared] addNoke:noke];
     NokeManagerBluetoothState state;
