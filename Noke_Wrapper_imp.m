@@ -5,24 +5,22 @@
 #import <Foundation/NSString.h>
 #include "Noke_Wrapper_imp.h"
 
-@protocol NokeDeviceManagerDelegate;
-
-@implementation NokeTokenReq <NokeDeviceManagerDelegate>
+@implementation NokeTokenReq<NokeDeviceManagerDelegate>
 
 - (void) unlockNoke:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util; {
 
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
-    [[NokeDeviceManager sharedInstance] setDelegate:self];
+    NokeDeviceManager *SharedNokeDeviceManager = [NokeDeviceManager shared];
 
     NSString* apiKey = @"debug";
-    [nokeDM setAPIKey:apiKey];
+    [SharedNokeDeviceManager setAPIKey:apiKey];
 
     NSString* uploadUrl = @"https://coreapi-sandbox.appspot.com/upload/";
-    [nokeDM changeDefaultUploadUrl:uploadUrl];
+    [SharedNokeDeviceManager changeDefaultUploadUrl:uploadUrl];
 
     NSString* lockName = @"lock Name";
     NokeDevice *noke = [NokeDevice alloc];
-    [noke init:lockName mac:NSlockMacAddr];
+    [SharedNokeDeviceManager init:lockName mac:NSlockMacAddr];
     [nokeDM addNoke:noke];
 
     [self bluetoothManagerDidUpdateState:NokeManagerBluetoothState callback_func:callbackfunc client_func:client_func util:util];
