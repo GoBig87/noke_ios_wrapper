@@ -96,7 +96,8 @@
             status = @"Connected";
             statusChar = [status UTF8String];
             callback(statusChar,util);
-            const char* nokeChar  = [noke.session UTF8String];
+            const char* sessionChar  = [noke.session UTF8String];
+            const char* macChar      = [noke.mac UTF8String];
             token = client_func(nokeChar,util);
             NSString *commandString = [NSString stringWithUTF8String:token];
             [noke sendCommands:commandString];
