@@ -72,7 +72,7 @@
     }
 }
 - (void) nokeDeviceDidUpdateState:(NokeDeviceConnectionState)state noke:(NokeDevice*)noke callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
-    char token;
+    const char* token;
     bool looping = true;
     NSString *status;
     NSString *commandString;
