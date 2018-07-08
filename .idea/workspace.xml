@@ -6,11 +6,13 @@
       <change afterPath="$PROJECT_DIR$/ios-sdk/ActivityViewController.m" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ios-sdk/LockDetailsViewController.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ios-sdk/LockDetailsViewController.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios-sdk/LockDetailsViewController.xib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios-sdk/LocksView.xib" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ios-sdk/LocksViewController.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios-sdk/LocksViewController.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios-sdk/LoginViewController.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios-sdk/LoginViewController.m" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ios-sdk/activityItem.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ios-sdk/activityItem.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Noke_Wrapper_imp.m" beforeDir="false" afterPath="$PROJECT_DIR$/Noke_Wrapper_imp.m" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,16 +66,16 @@
       <file leaf-file-name="nokeSDK.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ios-sdk/nokeSDK.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="34" column="57" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="57" />
+            <state relative-caret-position="221">
+              <caret line="120" column="33" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nokeSDK.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="nokeSDK.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ios-sdk/nokeSDK.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="150">
               <caret line="35" column="45" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="45" />
             </state>
           </provider>
@@ -84,9 +86,18 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="LockDetailsViewController.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LockDetailsViewController.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ios-sdk/LockDetailsViewController.h">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="LocksViewController.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ios-sdk/LocksViewController.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="158" column="102" lean-forward="true" selection-start-line="158" selection-start-column="102" selection-end-line="158" selection-end-column="102" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -117,6 +128,10 @@
       <find>init</find>
       <find>dele</find>
       <find>uplo</find>
+      <find>_currentNokeDevice</find>
+      <find>currentNokeDevice</find>
+      <find>NokeDevice</find>
+      <find>addNokeDevice</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -199,7 +214,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="823" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="823" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -224,13 +240,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Noke_Wrapper.pyx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -494,24 +503,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ios-sdk/nokeSDK.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="34" column="57" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ios-sdk/nokeSDK.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="35" column="45" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -520,6 +515,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ios-sdk/LockDetailsViewController.h">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios-sdk/LocksViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="158" column="102" lean-forward="true" selection-start-line="158" selection-start-column="102" selection-end-line="158" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios-sdk/nokeSDK.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="120" column="33" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios-sdk/nokeSDK.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="35" column="45" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="45" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
