@@ -71,7 +71,7 @@
         break;
     }
 }
-- (void) nokeDeviceDidUpdateState:(int)state noke:(NokeDevice*)noke callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
+- (void) nokeDeviceDidUpdateState:(NokeDeviceConnectionState)state noke:(NokeDevice*)noke callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
     char* token;
     bool looping = true;
     NSString *status;
