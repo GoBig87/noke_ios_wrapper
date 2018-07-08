@@ -23,7 +23,7 @@
     [noke init:lockName mac:NSlockMacAddr];
     [nokeDM addNoke:noke];
 
-    [bluetoothManagerDidUpdateState NokeDeviceConnectionState:state callback_func:callbackfunc client_func:client_func util:util];
+    [self bluetoothManagerDidUpdateState:NokeDeviceConnectionState callback_func:callbackfunc client_func:client_func util:util];
 }
 
 - (void) bluetoothManagerDidUpdateState:(NokeDeviceConnectionState)state noke:(NokeDevice*)noke lockMacAddr:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
