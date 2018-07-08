@@ -58,7 +58,7 @@
         status = @"Power On";
         statusChar = [status UTF8String];
         callback(statusChar,util);
-        [[NokeDeviceManager sharedInstance] startScanForNokeDevices];
+        [[NokeDeviceManager shared] startScanForNokeDevices];
         NSLog(@"NOKE MANAGER ON");
         NokeDeviceConnectionState state;
         [self nokeDeviceDidUpdateState:state noke:noke callback:callback client_func:client_func util:util];
@@ -83,8 +83,8 @@
             status = @"Noke Discovered";
             statusChar = [status UTF8String];
             callback(statusChar,util);
-            [[NokeDeviceManager sharedInstance] stopScan];
-            [[NokeDeviceManager sharedInstance] connectToNokeDevice:noke];
+            [[NokeDeviceManager shared] stopScan];
+            [[NokeDeviceManager shared] connectToNokeDevice:noke];
             break;
         case NokeDeviceConnectionStateNokeDeviceConnectionStateConnecting:
             NSLog(@"Connecting");
@@ -97,7 +97,7 @@
             statusChar = [status UTF8String];
             callback(statusChar,util);
             const char* nokeChar  = [noke.session UTF8String];
-            token = client_func(nokeChar,session_data);
+            token = client_func(nokeChar,util);
             NSString *commandString = [NSString stringWithUTF8String:token];
             [noke sendCommands:commandString];
             break;
