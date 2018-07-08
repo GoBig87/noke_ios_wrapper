@@ -18,41 +18,41 @@
     [[NokeDeviceManager shared] changeDefaultUploadUrl:uploadUrl];
 
     NSString* lockName = @"lock Name";
-    NokeDevice *noke = [NokeDevice alloc];
-    [noke init:lockName mac:NSlockMacAddr];
-    [[NokeDeviceManager shared] addNoke:noke];
+    NokeDevice *noke = [NokeDevice alloc]init:lockName mac:NSlockMacAddr];
 
-    [self bluetoothManagerDidUpdateState:NokeManagerBluetoothState callback_func:callbackfunc client_func:client_func util:util];
+    [[NokeDeviceManager shared] addNoke:noke];
+    NokeManagerBluetoothState state;
+    [self bluetoothManagerDidUpdateState:state callback_func:callbackfunc client_func:client_func util:util];
 }
 
 - (void) bluetoothManagerDidUpdateState:(NokeManagerBluetoothState)state noke:(NokeDevice*)noke lockMacAddr:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
     switch (state) {
-    case state.unknown:
+    case NokeManagerBluetoothStateUnknown:
         NSString* unknown = @"Unknown State";
         const char* unknownChar = [unknown UTF8String];
         callbackfunc(unknownChar,util);
         break;
-    case state.resetting:
+    case NokeManagerBluetoothStateResetting:
         NSString* reset = @"Resesting";
         const char* resetChar = [reset UTF8String];
         callbackfunc(resetChar,util);
         break;
-    case state.unsupported:
+    case NokeManagerBluetoothStateUnsupported:
         NSString* unsupported = @"Unsupported";
         const char* unsupportedChar = [unsupported UTF8String];
         callbackfunc(unsupportedChar,util);
         break;
-    case state.unauthorized:
+    case NokeManagerBluetoothStateUnauthorized:
         NSString* unauthorized = @"Unauthorized";
         const char* unauthorizedChar = [unauthorized UTF8String];
         callbackfunc(unauthorizedChar,util);
         break;
-    case state.poweredOff:
+    case NokeManagerBluetoothStatePoweredOff:
         NSString* poweredOff = @"Power Off";
         const char* poweredOffChar = [poweredOff UTF8String];
         callbackfunc(poweredOffChar,util);
         break;
-    case state.poweredOn:
+    case NokeManagerBluetoothStatePoweredOn:
         NSString* poweredOn = @"Power On";
         const char* poweredOnChar = [poweredOn UTF8String];
         callbackfunc(poweredOnChar,util);
