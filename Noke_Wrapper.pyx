@@ -13,7 +13,7 @@ def requestUnlock(util,mac):
 cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))
 
-cdef char* reqTokenFunc(const char *session, const char *mac, void *util):
+cdef char reqTokenFunc(const char *session, const char *mac, void *util):
     #cdef char* rsp_char
     rsp = (<object> util).sendNokeMessage(session.decode('utf-8'),mac.decode('utf-8'))
     if rsp:
