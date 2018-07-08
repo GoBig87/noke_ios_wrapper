@@ -25,7 +25,7 @@
     [self bluetoothManagerDidUpdateState:state noke:noke callback:callback client_func:client_func util:util];
 }
 
-- (void) bluetoothManagerDidUpdateState:(NokeManagerBluetoothState)state noke:(NokeDevice)noke callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
+- (void) bluetoothManagerDidUpdateState:(NokeManagerBluetoothState)state noke:(NokeDevice*)noke callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
     NSString *status;
     const char* statusChar;
     switch (state) {
