@@ -136,5 +136,5 @@
 @end
 void request_Unlock(char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
     NokeTokenReq* nokeTokenRequest = [[NokeTokenReq alloc] init];
-    [NokeTokenReq unlockNoke:lockMacAddr callback:callback client_func:client_func util:util];
+    [nokeTokenRequest unlockNoke:lockMacAddr callback:callback client_func:client_func util:util];
 }
