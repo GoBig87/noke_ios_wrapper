@@ -20,8 +20,8 @@
 
     NSString* lockName = @"lock Name";
     NokeDevice *noke = [NokeDevice alloc];
-    [SharedNokeDeviceManager init:lockName mac:NSlockMacAddr];
-    [nokeDM addNoke:noke];
+    [noke init:lockName mac:NSlockMacAddr];
+    [SharedNokeDeviceManager addNoke:noke];
 
     [self bluetoothManagerDidUpdateState:NokeManagerBluetoothState callback_func:callbackfunc client_func:client_func util:util];
 }
