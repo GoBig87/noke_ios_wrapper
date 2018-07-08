@@ -10,24 +10,23 @@
 - (void) unlockNoke:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util; {
 
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
-    [[NokeDeviceManager sharedInstance] setDelegate:self];
+    NokeDeviceManager nokeDM = [NokeDeviceManager alloc];
 
     NSString* apiKey = @"debug";
-    [NokeDeviceManager setAPIKey:apiKey];
+    [nokeDM setAPIKey:apiKey];
 
     NSString* uploadUrl = @"https://coreapi-sandbox.appspot.com/upload/";
-    [NokeDeviceManager changeDefaultUploadUrl:uploadUrl];
+    [nokeDM changeDefaultUploadUrl:uploadUrl];
 
     NSString* lockName = @"lock Name";
     NokeDevice* noke = [NokeDevice alloc];
-    NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
-    [noke init:lockName mac:NSlockMacAddr]
-    [NokeDeviceManager addNoke:noke];
+    [noke init:lockName mac:NSlockMacAddr];
+    [nokeDM addNoke:noke];
 
     [bluetoothManagerDidUpdateState NokeDeviceConnectionState:state callback_func:callbackfunc client_func:client_func util:util];
 }
 
-- (void) bluetoothManagerDidUpdateState:(int)state noke:(NokeDevice*)noke lockMacAddr:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
+- (void) bluetoothManagerDidUpdateState:(NokeDeviceConnectionState)state noke:(NokeDevice*)noke lockMacAddr:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
         switch (state) {
         case .unknown:
             NSString* unknown = @"Unknown State"
