@@ -191,6 +191,57 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 /// Class stores information about the Noke device and contains methods for interacting with the Noke device
 SWIFT_CLASS("_TtC17NokeMobileLibrary10NokeDevice")
 @interface NokeDevice : NSObject <CBPeripheralDelegate, NSCoding>
+/// Name of the Noke device (strictly cosmetic)
+@property (nonatomic, copy) NSString * _Nonnull name;
+/// MAC address of Noke device. This can be found in the peripheral name
+@property (nonatomic, copy) NSString * _Nonnull mac;
+/// Serial number of Noke device. Laser engraved onto the device during manufacturing
+@property (nonatomic, copy) NSString * _Nonnull serial;
+/// UUID of the lock.  Unique identifier assigned by iOS upon connection
+@property (nonatomic, copy) NSString * _Nonnull uuid;
+/// Firmware and hardware version of the lock. Follows format: ‘3P-2.10’ where ‘3P’ is the hardware version and ‘2.10’ is the firmware version
+@property (nonatomic, copy) NSString * _Nonnull version;
+/// Tracking key used to track Noke device usage and activity
+@property (nonatomic, copy) NSString * _Nonnull trackingKey;
+/// Byte array read from the session characteristic upon connecting to the Noke device
+@property (nonatomic, copy) NSString * _Nullable session;
+/// Battery level of the Noke device in millivolts
+@property (nonatomic) uint64_t battery;
+/// Initializes a new Noke device with provided properties
+/// <ul>
+///   <li>
+///     Parameters:
+///   </li>
+///   <li>
+///     name: Name of the noke device (strictly for UI purposes)
+///   </li>
+///   <li>
+///     mac: MAC address of noke device.  NokeDeviceManager will scan for this mac address
+///   </li>
+/// </ul>
+/// -Returns: A beautiful, ready-to-use, Noke device just for you
+- (nullable instancetype)initWithName:(NSString * _Nonnull)name mac:(NSString * _Nonnull)mac OBJC_DESIGNATED_INITIALIZER;
+/// Initializes a new Noke device with provided properties. This is mostly used when loading cached locks from user defaults, but can also be used to initialize a Noke device when more properties are known
+/// -Returns: A beautiful, ready-to-use, Noke device just for you
+/// \param name Name of the noke device (strictly for UI purposes)
+///
+/// \param mac MAC address of noke device.  NokeDeviceManager will scan for this mac address
+///
+/// \param serial Serial address of the Noke device, laser-engraved on the device during manufacturing
+///
+/// \param uuid Unique identifier of the Noke device, assigned by iOS
+///
+/// \param version Hardware and firmware version of the Noke device
+///
+/// \param trackingKey Tracking key of the Noke device used to track activity
+///
+/// \param battery Battery level of the lock in millivolts
+///
+/// \param unlockCmd Unlock command used for offline unlocking
+///
+/// \param offlineKey Key used to encrypt the offline unlock command
+///
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name mac:(NSString * _Nonnull)mac serial:(NSString * _Nonnull)serial uuid:(NSString * _Nonnull)uuid version:(NSString * _Nonnull)version trackingKey:(NSString * _Nonnull)trackingKey battery:(uint64_t)battery unlockCmd:(NSString * _Nonnull)unlockCmd offlineKey:(NSString * _Nonnull)offlineKey OBJC_DESIGNATED_INITIALIZER;
 /// Method used to encode class to be stored in User Defaults
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 /// Method used to decode class to reload from User Defaults
@@ -199,6 +250,48 @@ SWIFT_CLASS("_TtC17NokeMobileLibrary10NokeDevice")
 - (void)peripheral:(CBPeripheral * _Nonnull)peripheral didDiscoverServices:(NSError * _Nullable)error;
 - (void)peripheral:(CBPeripheral * _Nonnull)peripheral didDiscoverCharacteristicsForService:(CBService * _Nonnull)service error:(NSError * _Nullable)error;
 - (void)peripheral:(CBPeripheral * _Nonnull)peripheral didUpdateValueForCharacteristic:(CBCharacteristic * _Nonnull)characteristic error:(NSError * _Nullable)error;
+/// Makes the necessary checks and then requests the unlock commands from the server (or generates the unlock command if offline)
+/// This method is also responsible for sending the command to the lock after it’s received
+/// Before unlocking, please check:
+/// <ul>
+///   <li>
+///     unlock URL is set on the NokeDeviceManager
+///   </li>
+///   <li>
+///     unlock endpoint has been properly implemented on server
+///   </li>
+///   <li>
+///     Noke Device is provided with valid offline key and command (if unlocking offline)
+///   </li>
+///   <li>
+///     A internet connection is present (if unlocking online)
+///   </li>
+/// </ul>
+- (void)unlock;
+/// Sends a command string from the Noke Core API to the Noke device
+/// \param commands A command string from the Core API. Commands are delimited by ‘+’
+///
+- (void)sendCommands:(NSString * _Nonnull)commands;
+/// Sets offline key and command used for unlocking offline
+/// <ul>
+///   <li>
+///     Parameters:
+///     -key: String used to encrypt the command to the lock. Received from the Core API
+///     -command: String sent to the lock to unlock offline. Received from the Core API
+///   </li>
+/// </ul>
+- (void)setOfflineValuesWithKey:(NSString * _Nonnull)key command:(NSString * _Nonnull)command;
+/// Sets offline values before offline unlocking
+/// <ul>
+///   <li>
+///     Parameters:
+///     -key: String used to encrypt the command to the lock. Received from the Core API
+///     -command: String sent to the lock to unlock offline. Received from the Core API
+///   </li>
+/// </ul>
+- (void)offlineUnlockWithKey:(NSString * _Nonnull)key command:(NSString * _Nonnull)command;
+/// Unlocks the lock using the offline key and the unlock command.  If the keys and commands have been set, no internet connection is required.
+- (void)offlineUnlock;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
@@ -247,23 +340,130 @@ typedef SWIFT_ENUM(NSInteger, NokeDeviceLockState) {
   NokeDeviceLockStateNokeDeviceLockStateLocked = 1,
 };
 
+@protocol NokeDeviceManagerDelegate;
 @class CBCentralManager;
 @class NSNumber;
 
 /// Manages bluetooth interactions with Noke Devices
 SWIFT_CLASS("_TtC17NokeMobileLibrary17NokeDeviceManager")
 @interface NokeDeviceManager : NSObject <CBCentralManagerDelegate>
+/// URL string for uploading data
+@property (nonatomic, copy) NSString * _Nonnull uploadUrl;
+/// URL string for fetching unlock commands
+@property (nonatomic, copy) NSString * _Nonnull unlockUrl;
+/// Delegate for NokeDeviceManager, calls protocol methods
+@property (nonatomic, strong) id <NokeDeviceManagerDelegate> _Nullable delegate;
 /// Initializes a new NokeDeviceManager
 ///
 /// returns:
 /// NokeDeviceManager
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+/// Used for getting the shared instance of NokeDeviceManager
+///
+/// returns:
+/// Shared instance of NokeDeviceManager
++ (NokeDeviceManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+/// Begins bluetooth scanning for Noke Devices that have been added to the device array
+- (void)startScanForNokeDevices;
+/// Stops bluetooth scanning
+- (void)stopScan;
+/// Initializes connection to Noke Device
+/// \param noke The Noke device for the connection
+///
+- (void)connectToNokeDevice:(NokeDevice * _Nonnull)noke;
+/// Disconnects Noke Device from phone
+/// \param noke The Noke device from which to disconnect
+///
+- (void)disconnectNokeDevice:(NokeDevice * _Nonnull)noke;
+/// Allows NokeDeviceManager to discover devices that haven’t been added to the device array
+/// public func setAllowAllNokeDevices(_ allow: Bool){
+/// allowAllNokeDevices = allow
+/// }
 /// MARK: Central Manager Delegate Methods
 - (void)centralManagerDidUpdateState:(CBCentralManager * _Nonnull)central;
 - (void)centralManager:(CBCentralManager * _Nonnull)central didDiscoverPeripheral:(CBPeripheral * _Nonnull)peripheral advertisementData:(NSDictionary<NSString *, id> * _Nonnull)advertisementData RSSI:(NSNumber * _Nonnull)RSSI;
 - (void)centralManager:(CBCentralManager * _Nonnull)central didConnectPeripheral:(CBPeripheral * _Nonnull)peripheral;
 - (void)centralManager:(CBCentralManager * _Nonnull)central didDisconnectPeripheral:(CBPeripheral * _Nonnull)peripheral error:(NSError * _Nullable)error;
+/// MARK: Noke Device Array Methods
+/// \code
+/// Adds Noke Device to array of managed Noke Devices
+///
+/// - Parameter noke: The noke device to be added
+///
+/// \endcode
+- (void)addNoke:(NokeDevice * _Nonnull)noke;
+/// Removes device from nokeDevices array
+/// \param noke The noke device to be removed
+///
+- (void)removeNokeWithNoke:(NokeDevice * _Nonnull)noke;
+/// Removes device from nokeDevices array
+/// \param mac The mac address of the noke device to be removed
+///
+- (void)removeNokeWithMac:(NSString * _Nonnull)mac;
+- (void)removeAllNoke;
+/// Gets a count of all the devices in the nokeDevice array
+///
+/// returns:
+/// Count of devices as Int
+- (NSInteger)getNokeCount SWIFT_WARN_UNUSED_RESULT;
+/// Returns an array of all the devices in the nokeDevice array
+///
+/// returns:
+/// Array of NokeDevice objects
+- (NSArray<NokeDevice *> * _Nonnull)getAllNoke SWIFT_WARN_UNUSED_RESULT;
+/// Gets noke device from array with matching UUID
+/// <ul>
+///   <li>
+///     Parameters: UUID of intended Noke device
+///   </li>
+/// </ul>
+///
+/// returns:
+/// Noke device with requested UUID
+- (NokeDevice * _Nullable)nokeWithUUID:(NSString * _Nonnull)uuid SWIFT_WARN_UNUSED_RESULT;
+/// Gets noke device from array with matching MAC address
+/// <ul>
+///   <li>
+///     Parameters: MAC address of intended Noke device
+///   </li>
+/// </ul>
+///
+/// returns:
+/// Noke device with requested MAC address
+- (NokeDevice * _Nullable)nokeWithMac:(NSString * _Nonnull)mac SWIFT_WARN_UNUSED_RESULT;
+/// Gets noke device from array with matching peripheral
+/// <ul>
+///   <li>
+///     Parameters: Peripheral of intended Noke device
+///   </li>
+/// </ul>
+///
+/// returns:
+/// Noke device with requested peripheral
+- (NokeDevice * _Nullable)nokeWithPeripheral:(CBPeripheral * _Nonnull)peripheral SWIFT_WARN_UNUSED_RESULT;
+/// Saves noke devices to user defaults for offline access
+- (void)saveNokeDevices;
+/// Loads noke devices from user defaults
+- (void)loadNokeDevices;
+/// Sets Mobile API Key for uploading logs to the Core API
+- (void)setAPIKey:(NSString * _Nonnull)apiKey;
+/// Sets Upload URL for uploading Noke device responses to the Core API
+- (void)changeDefaultUploadUrl:(NSString * _Nonnull)newUploadURL;
+/// Saves upload packets to user defaults to ensure they’re cached before uploading
+- (void)cacheUploadQueue;
+/// Bundles lock responses with the mac, timestamp, and session and then adds the object to the global upload queue
+/// \param response 40 char hex string response from Noke device
+///
+/// \param session 40 char hex string read from the session characteristic of the Noke device when connecting
+///
+/// \param mac MAC address of the Noke device
+///
+- (void)addUploadPacketToQueueWithResponse:(NSString * _Nonnull)response session:(NSString * _Nonnull)session mac:(NSString * _Nonnull)mac;
+/// Clears all Noke device repsonses from the upload queue
+- (void)clearUploadQueue;
+/// Formats data and sends it to Noke Core API for parsing and storing
+- (void)uploadData;
 @end
 
 enum NokeDeviceManagerError : NSInteger;

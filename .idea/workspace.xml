@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="" />
+    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h" beforeDir="false" afterPath="$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NokeMobileLibrary.framework/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/NokeMobileLibrary.framework/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NokeMobileLibrary.framework/Modules/NokeMobileLibrary.swiftmodule/arm64.swiftdoc" beforeDir="false" afterPath="$PROJECT_DIR$/NokeMobileLibrary.framework/Modules/NokeMobileLibrary.swiftmodule/arm64.swiftdoc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NokeMobileLibrary.framework/Modules/NokeMobileLibrary.swiftmodule/arm64.swiftmodule" beforeDir="false" afterPath="$PROJECT_DIR$/NokeMobileLibrary.framework/Modules/NokeMobileLibrary.swiftmodule/arm64.swiftmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NokeMobileLibrary.framework/NokeMobileLibrary" beforeDir="false" afterPath="$PROJECT_DIR$/NokeMobileLibrary.framework/NokeMobileLibrary" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,25 +47,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Noke_Wrapper_imp.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Noke_Wrapper_imp.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-229">
-              <caret line="78" column="19" lean-forward="true" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+            <state relative-caret-position="635">
+              <caret line="73" column="60" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NokeMobileLibrary-Swift.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="229" column="62" selection-start-line="229" selection-start-column="2" selection-end-line="229" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TI_aes_128.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TI_aes_128.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/TI_aes_128.h">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -98,6 +95,7 @@
       <find>callbackfunc</find>
       <find>lockMacAddr</find>
       <find>bluetoothManagerDidUpdateState</find>
+      <find>nokeDeviceDidUpdateState</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -132,17 +130,6 @@
             <path>
               <item name="noke_ios_wrapper" type="b2602c69:ProjectViewProjectNode" />
               <item name="noke_ios_wrapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="noke_ios_wrapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noke_ios_wrapper" type="462c0819:PsiDirectoryNode" />
-              <item name="NokeMobileLibrary.framework" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="noke_ios_wrapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noke_ios_wrapper" type="462c0819:PsiDirectoryNode" />
-              <item name="NokeMobileLibrary.framework" type="462c0819:PsiDirectoryNode" />
-              <item name="Headers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -481,9 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/TI_aes_128.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -500,10 +484,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-229">
-          <caret line="78" column="19" lean-forward="true" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+        <state relative-caret-position="635">
+          <caret line="73" column="60" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/TI_aes_128.h">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
