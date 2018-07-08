@@ -77,7 +77,7 @@
             NSLog(@"Noke Discovered");
             NSString* nokeDiscovered = @"Noke Discovered";
             const char* nokeDiscoveredChar = [nokeDiscovered UTF8String];
-            callbackfunc(nokeDiscoveredChar,util);
+            callback(nokeDiscoveredChar,util);
             [NokeDeviceManager sharedInstance].stopScan();
             [NokeDeviceManager sharedInstance].connectToNokeDevice(noke);
             break;
@@ -85,7 +85,7 @@
             NSLog(@"Connected, returning session");
             NSString* nokeConnected = @"Connected";
             const char* nokeConnectedChar = [nokeConnected UTF8String];
-            callbackfunc(nokeConnectedChar,util);
+            callback(nokeConnectedChar,util);
             const char* nokeChar  = [noke.session UTF8String];
             token = client_func(nokeChar,session_data);
             NSString *commandString = [NSString stringWithUTF8String:token];
