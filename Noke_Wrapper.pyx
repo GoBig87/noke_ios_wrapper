@@ -5,7 +5,6 @@ cdef extern from "Noke_Wrapper_imp.h":
 
 def requestUnlock(util,mac):
 
-    #cdef bytes mac_bytes = mac.encode('utf-8')
     cdef bytes mac_bytes = mac.encode('utf-8')
 
     request_Unlock(mac_bytes, callback, reqTokenFunc, <void*>util)

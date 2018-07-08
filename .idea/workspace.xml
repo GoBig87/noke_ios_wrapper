@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Noke_Wrapper.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/Noke_Wrapper.pyx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noke_Wrapper_imp.m" beforeDir="false" afterPath="$PROJECT_DIR$/Noke_Wrapper_imp.m" afterDir="false" />
-    </list>
+    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,11 +23,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Noke_Wrapper.pyx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Noke_Wrapper.pyx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Noke_Wrapper.pyx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+            <state relative-caret-position="240">
+              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -44,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Noke_Wrapper_imp.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Noke_Wrapper_imp.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-256">
@@ -105,8 +102,8 @@
         <option value="$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h" />
         <option value="$PROJECT_DIR$/Setup.py" />
         <option value="$PROJECT_DIR$/ios-sdk/activityItem.h" />
-        <option value="$PROJECT_DIR$/Noke_Wrapper.pyx" />
         <option value="$PROJECT_DIR$/Noke_Wrapper_imp.m" />
+        <option value="$PROJECT_DIR$/Noke_Wrapper.pyx" />
       </list>
     </option>
   </component>
@@ -475,17 +472,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Noke_Wrapper.pyx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-256">
           <caret line="74" column="8" lean-forward="true" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Noke_Wrapper.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
         </state>
       </provider>
     </entry>
