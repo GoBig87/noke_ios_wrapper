@@ -10,7 +10,7 @@
 - (void) unlockNoke:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util; {
 
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
-    NokeDeviceManager nokeDM = [NokeDeviceManager alloc];
+    NokeDeviceManager *nokeDM = [NokeDeviceManager alloc];
 
     NSString* apiKey = @"debug";
     [nokeDM setAPIKey:apiKey];
@@ -19,7 +19,7 @@
     [nokeDM changeDefaultUploadUrl:uploadUrl];
 
     NSString* lockName = @"lock Name";
-    NokeDevice* noke = [NokeDevice alloc];
+    NokeDevice *noke = [NokeDevice alloc];
     [noke init:lockName mac:NSlockMacAddr];
     [nokeDM addNoke:noke];
 
