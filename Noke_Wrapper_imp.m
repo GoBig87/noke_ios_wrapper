@@ -18,7 +18,7 @@
     [[NokeDeviceManager shared] changeDefaultUploadUrl:uploadUrl];
 
     NSString* lockName = @"lock Name";
-    NokeDevice *noke = [NokeDevice alloc]init:lockName mac:NSlockMacAddr];
+    NokeDevice *noke = [[NokeDevice alloc]init:lockName mac:NSlockMacAddr];
 
     [[NokeDeviceManager shared] addNoke:noke];
     NokeManagerBluetoothState state;
@@ -56,9 +56,10 @@
         NSString* poweredOn = @"Power On";
         const char* poweredOnChar = [poweredOn UTF8String];
         callback(poweredOnChar,util);
-        [NokeDeviceManager sharedInstance].startScanForNokeDevices();
+        [[NokeDeviceManager sharedInstance] startScanForNokeDevices];
         NSLog(@"NOKE MANAGER ON");
-        [nokeDeviceDidUpdateState state:NokeDeviceConnectionState noke:noke ];
+        NokeDeviceConnectionState state;
+        [self nokeDeviceDidUpdateState:state noke:noke];
         break;
     default:
         NSString* defaultStr = @"Defualt";
@@ -68,20 +69,24 @@
         break;
     }
 }
-- (void) nokeDeviceDidUpdateState:(int)state noke:(NokeDevice*)noke lockMacAddr:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
+- (void) nokeDeviceDidUpdateState:(int)state noke:(NokeDevice*)noke callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
     char* token;
     bool looping = true;
     while looping{
         switch (state) {
-        case .nokeDeviceConnectionStateDiscovered:
+        case NokeDeviceConnectionStateNokeDeviceConnectionStateDiscovered:
             NSLog(@"Noke Discovered");
             NSString* nokeDiscovered = @"Noke Discovered";
             const char* nokeDiscoveredChar = [nokeDiscovered UTF8String];
             callback(nokeDiscoveredChar,util);
-            [NokeDeviceManager sharedInstance].stopScan();
-            [NokeDeviceManager sharedInstance].connectToNokeDevice(noke);
+            [[NokeDeviceManager sharedInstance] stopScan];
+            [[NokeDeviceManager sharedInstance] connectToNokeDevice:noke];
             break;
-        case .nokeDeviceConnectionStateConnected:
+        case NokeDeviceConnectionStateNokeDeviceConnectionStateConnecting:
+            NSLog(@"Connecting");
+            NSString* nokeConnected = @"Connecting";
+            break;
+        case NokeDeviceConnectionStateNokeDeviceConnectionStateConnected:
             NSLog(@"Connected, returning session");
             NSString* nokeConnected = @"Connected";
             const char* nokeConnectedChar = [nokeConnected UTF8String];
@@ -89,19 +94,19 @@
             const char* nokeChar  = [noke.session UTF8String];
             token = client_func(nokeChar,session_data);
             NSString *commandString = [NSString stringWithUTF8String:token];
-            noke.sendCommands(commandString);
+            [noke sendCommands:commandString];
             break;
-        case .nokeDeviceConnectionStateSyncing:
+        case NokeDeviceConnectionStateNokeDeviceConnectionStateSyncing:
             NSLog(@"Synching");
             NSString* nokeSynching = @"Synching";
             const char* nokeSynchingChar = [nokeSynching UTF8String];
-        case .nokeDeviceConnectionStateUnlocked:
+        case NokeDeviceConnectionStateNokeDeviceConnectionStateUnlocked:
             NSLog(@"Unlocked");
             NSString* nokeSynching = @"Unlocked";
             const char* nokeSynchingChar = [nokeSynching UTF8String];
             looping = false;
             break;
-        case .nokeDeviceConnectionStateDisconnected:
+        case NokeDeviceConnectionStateNokeDeviceConnectionStateDisconnected:
             NSLog(@"Disconnected");
             NSString* nokeDisconnected = @"Disconnected";
             const char* nokeDisconnectedChar = [nokeDisconnected UTF8String];
