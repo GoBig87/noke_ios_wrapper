@@ -23,49 +23,48 @@
     [noke init:lockName mac:NSlockMacAddr];
     [nokeDM addNoke:noke];
 
-    [self bluetoothManagerDidUpdateState:NokeDeviceConnectionState callback_func:callbackfunc client_func:client_func util:util];
+    [self bluetoothManagerDidUpdateState:NokeManagerBluetoothState callback_func:callbackfunc client_func:client_func util:util];
 }
 
-- (void) bluetoothManagerDidUpdateState:(NokeDeviceConnectionState)state noke:(NokeDevice*)noke lockMacAddr:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
+- (void) bluetoothManagerDidUpdateState:(NokeManagerBluetoothState)state noke:(NokeDevice*)noke lockMacAddr:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
     switch (state) {
-    case .unknown:
-        NSString* unknown = @"Unknown State"
+    case state.unknown:
+        NSString* unknown = @"Unknown State";
         const char* unknownChar = [unknown UTF8String];
-        callbackfunc(unknownChar,util)
+        callbackfunc(unknownChar,util);
         break
-    case .resetting:
-        NSString* reset = @"Resesting"
+    case state.resetting:
+        NSString* reset = @"Resesting";
         const char* resetChar = [reset UTF8String];
-        callbackfunc(resetChar,util)
+        callbackfunc(resetChar,util);
         break
-    case .unsupported:
-        NSString* unsupported = @"Unsupported"
+    case state.unsupported:
+        NSString* unsupported = @"Unsupported";
         const char* unsupportedChar = [unsupported UTF8String];
-        callbackfunc(unsupportedChar,util)
+        callbackfunc(unsupportedChar,util);
         break
-    case .unauthorized:
-        NSString* unauthorized = @'Unauthorized'
+    case state.unauthorized:
+        NSString* unauthorized = @'Unauthorized';
         const char* unauthorizedChar = [unauthorized UTF8String];
-        callbackfunc(unauthorizedChar,util)
+        callbackfunc(unauthorizedChar,util);
         break
-    case .poweredOff:
-        NSString* poweredOff = @'Power Off'
+    case state.poweredOff:
+        NSString* poweredOff = @'Power Off';
         const char* poweredOffChar = [poweredOff UTF8String];
-        callbackfunc(poweredOffChar,util)
+        callbackfunc(poweredOffChar,util);
         break
-    case .poweredOn:
+    case state.poweredOn:
         NSString* poweredOn = @'Power On'
         const char* poweredOnChar = [poweredOn UTF8String];
-        callbackfunc(poweredOnChar,util)
+        callbackfunc(poweredOnChar,util);
         [NokeDeviceManager sharedInstance].startScanForNokeDevices();
         NSLog(@"NOKE MANAGER ON");
-        [nokeDeviceDidUpdateState state:NokeDeviceConnectionState noke:noke ]
-        //statusLabel.text = "Scanning for Noke Devices"
+        [nokeDeviceDidUpdateState state:NokeDeviceConnectionState noke:noke ];
         break
     default:
-        NSString* defaultStr = @'Defualt'
+        NSString* defaultStr = @'Defualt';
         const char* defaultChar = [defaultStr UTF8String];
-        callbackfunc(defaultChar,util)
+        callbackfunc(defaultChar,util);
         NSLog(@"Defualt");
         break
 }
