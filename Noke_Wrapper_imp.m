@@ -5,7 +5,9 @@
 #import <Foundation/NSString.h>
 #include "Noke_Wrapper_imp.h"
 
-@implementation NokeTokenReq:NSObject<NokeDeviceManagerDelegate>
+@protocol NokeDeviceManagerDelegate;
+
+@implementation NokeTokenReq <NokeDeviceManagerDelegate>
 
 - (void) unlockNoke:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util; {
 
