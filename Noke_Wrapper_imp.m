@@ -76,7 +76,7 @@
     bool looping = true;
     NSString *status;
     const char* statusChar;
-    while looping{
+    while (looping){
         switch (state) {
         case NokeDeviceConnectionStateNokeDeviceConnectionStateDiscovered:
             NSLog(@"Noke Discovered");
