@@ -22,10 +22,10 @@
 
     [[NokeDeviceManager shared] addNoke:noke];
     NokeManagerBluetoothState state;
-    [self bluetoothManagerDidUpdateState:state callback:callback client_func:client_func util:util];
+    [self bluetoothManagerDidUpdateState:state noke:noke callback:callback client_func:client_func util:util];
 }
 
-- (void) bluetoothManagerDidUpdateState:(NokeManagerBluetoothState)state callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
+- (void) bluetoothManagerDidUpdateState:(NokeManagerBluetoothState)state noke:(NokeDevice)noke callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
     NSString *status;
     const char* statusChar;
     switch (state) {
@@ -61,7 +61,7 @@
         [[NokeDeviceManager sharedInstance] startScanForNokeDevices];
         NSLog(@"NOKE MANAGER ON");
         NokeDeviceConnectionState state;
-        [self nokeDeviceDidUpdateState:state noke:noke];
+        [self nokeDeviceDidUpdateState:state noke:noke callback:callback client_func:client_func util:util];
         break;
     default:
         status = @"Defualt";
