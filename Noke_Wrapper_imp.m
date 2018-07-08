@@ -11,18 +11,17 @@
 - (void) unlockNoke:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util; {
 
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
-    NokeDeviceManager *SharedNokeDeviceManager = [NokeDeviceManager shared];
 
     NSString* apiKey = @"debug";
-    [SharedNokeDeviceManager setAPIKey:apiKey];
+    [[nokeSDK sharedInstance] setAPIKey:apiKey];
 
     NSString* uploadUrl = @"https://coreapi-sandbox.appspot.com/upload/";
-    [SharedNokeDeviceManager changeDefaultUploadUrl:uploadUrl];
+    [[nokeSDK sharedInstance] changeDefaultUploadUrl:uploadUrl];
 
     NSString* lockName = @"lock Name";
     NokeDevice *noke = [NokeDevice alloc];
     [noke init:lockName mac:NSlockMacAddr];
-    [SharedNokeDeviceManager addNoke:noke];
+    [[nokeSDK sharedInstance] addNoke:noke];
 
     [self bluetoothManagerDidUpdateState:NokeManagerBluetoothState callback_func:callbackfunc client_func:client_func util:util];
 }
