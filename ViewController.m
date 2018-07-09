@@ -13,13 +13,13 @@
 @synthesize mac = _mac;
 @synthesize callback = _callback;
 @synthesize util = _util;
-@synthesize client_func = _client_func;
+@synthesize client = _client;
 
 - (NokeViewController *) init:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
 {
     _callback = callback;
     _util = util;
-    _client_func = client_func;
+    _client = client_func;
 
     return self;
 }

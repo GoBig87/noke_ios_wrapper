@@ -9,7 +9,7 @@ typedef const char* (clientfunc) (const char *session, const char *macAddr, void
     callbackfunc callback;
 }
 
-@property (nonatomic, assign) clientfunc client_func;
+@property (nonatomic, assign) clientfunc client;
 @property (nonatomic, assign) callbackfunc callback;
 @property (void*) util;
 
