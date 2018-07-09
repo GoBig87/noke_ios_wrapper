@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Noke_Wrapper.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/Noke_Wrapper.pyx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Noke_Wrapper_imp.h" beforeDir="false" afterPath="$PROJECT_DIR$/Noke_Wrapper_imp.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Noke_Wrapper_imp.m" beforeDir="false" afterPath="$PROJECT_DIR$/Noke_Wrapper_imp.m" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +30,8 @@
       <file leaf-file-name="Noke_Wrapper.pyx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Noke_Wrapper.pyx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+            <state relative-caret-position="45">
+              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -37,17 +39,35 @@
       <file leaf-file-name="Noke_Wrapper_imp.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+            <state relative-caret-position="15">
+              <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="71" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Noke_Wrapper_imp.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Noke_Wrapper_imp.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+            <state>
+              <caret selection-end-line="4" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViewController.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ViewController.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-840">
+              <caret line="8" column="76" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViewController.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ViewController.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -55,8 +75,8 @@
       <file leaf-file-name="NokeMobileLibrary-Swift.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="222" column="37" selection-start-line="222" selection-start-column="25" selection-end-line="222" selection-end-column="37" />
+            <state relative-caret-position="521">
+              <caret line="515" column="86" lean-forward="true" selection-start-line="515" selection-start-column="47" selection-end-line="515" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -94,16 +114,17 @@
       <find>currentNokeDevice</find>
       <find>addNokeDevice</find>
       <find>uplo</find>
-      <find>NokeManagerBluetoothState</find>
       <find>callbackfunc</find>
       <find>lockMacAddr</find>
-      <find>bluetoothManagerDidUpdateState</find>
       <find>nokeDeviceDidUpdateState</find>
       <find>requestUnlock</find>
-      <find>reqTokenFunc</find>
-      <find>NokeDeviceManager</find>
       <find>nokedevi</find>
       <find>NokeDevice</find>
+      <find>delegate</find>
+      <find>bluetoothManagerDidUpdateState</find>
+      <find>NokeManagerBluetoothState</find>
+      <find>reqTokenFunc</find>
+      <find>NokeDeviceManager</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -115,9 +136,11 @@
         <option value="$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h" />
         <option value="$PROJECT_DIR$/Setup.py" />
         <option value="$PROJECT_DIR$/ios-sdk/activityItem.h" />
-        <option value="$PROJECT_DIR$/Noke_Wrapper.pyx" />
         <option value="$PROJECT_DIR$/Noke_Wrapper_imp.h" />
+        <option value="$PROJECT_DIR$/Noke_Wrapper.pyx" />
         <option value="$PROJECT_DIR$/Noke_Wrapper_imp.m" />
+        <option value="$PROJECT_DIR$/ViewController.m" />
+        <option value="$PROJECT_DIR$/ViewController.h" />
       </list>
     </option>
   </component>
@@ -138,17 +161,6 @@
             <path>
               <item name="noke_ios_wrapper" type="b2602c69:ProjectViewProjectNode" />
               <item name="noke_ios_wrapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="noke_ios_wrapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noke_ios_wrapper" type="462c0819:PsiDirectoryNode" />
-              <item name="NokeMobileLibrary.framework" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="noke_ios_wrapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noke_ios_wrapper" type="462c0819:PsiDirectoryNode" />
-              <item name="NokeMobileLibrary.framework" type="462c0819:PsiDirectoryNode" />
-              <item name="Headers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -218,21 +230,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2580">
-          <caret line="172" column="45" selection-start-line="172" selection-start-column="45" selection-end-line="172" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/NokeMobileLibrary">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18975">
-          <caret line="1083" column="3718" selection-start-line="1083" selection-start-column="3696" selection-end-line="1083" selection-end-column="3718" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeSDK-Bridging-Header.h" />
     <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-umbrella.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -483,31 +480,48 @@
     <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/TI_aes_128.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Noke_Wrapper.pyx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/ViewController.m">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="222" column="37" selection-start-line="222" selection-start-column="25" selection-end-line="222" selection-end-column="37" />
+        <state relative-caret-position="521">
+          <caret line="515" column="86" lean-forward="true" selection-start-line="515" selection-start-column="47" selection-end-line="515" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Noke_Wrapper.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+        <state>
+          <caret selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-840">
+          <caret line="8" column="76" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
         </state>
       </provider>
     </entry>
