@@ -15,12 +15,11 @@
 @synthesize util = _util;
 @synthesize client_func = _client_func;
 
-- (NokeViewController *) init:(char*)mac callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
+- (NokeViewController *) init:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
 {
     _callback = callback;
     _util = util;
     _client_func = client_func;
-    _mac = mac;
 
     return self;
 }
@@ -151,6 +150,6 @@
 @end
 
 void StartUnlock(char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
-    NokeViewController* nokeviewcontroller = [[NokeViewController alloc] init:lockMacAddr callback:callback client_func:client_func util:util];
+    NokeViewController* nokeviewcontroller = [[NokeViewController alloc] init:callback client_func:client_func util:util];
     [nokeviewcontroller unlockNoke:lockMacAddr];
 }

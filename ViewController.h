@@ -11,7 +11,7 @@ typedef const char* (clientfunc) (const char *session, const char *macAddr, void
 @property clientfunc client_func;
 @property (void*) util;
 
-- (NokeViewController *) init:(char*)mac callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
+- (NokeViewController *) init:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
 
 - (void) startUnlock:(char*)lockMacAddr;
 @end
