@@ -109,7 +109,7 @@
                 status = @"Connected";
                 statusChar = [status UTF8String];
                 self.callback(statusChar,self.util);
-                token = self.client_func(sessionChar,macChar,self.util);
+                token = self.client(sessionChar,macChar,self.util);
                 commandString= [NSString stringWithUTF8String:token];
                 [noke sendCommands:commandString];
                 break;
@@ -136,11 +136,18 @@
                 NSLog(@"Unknown State");
                 status = @"Unknown State";
                 statusChar = [status UTF8String];
-                self.callback(statusChar,self.util);
+                v
                 break;
         }
     }
+}
 
+- (void)nokeErrorDidOccurWithError:(NokeDeviceManagerError)error message:(NSString)message noke:(NokeDevice)noke{
+    NSLog(@"Error State");
+    NSString *status;
+    status = @"Error State";
+    statusChar = [status UTF8String];
+    self.callback(statusChar,self.util);
 }
 @end
 
