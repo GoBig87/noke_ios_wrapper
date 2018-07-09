@@ -108,7 +108,7 @@
             case NokeDeviceConnectionStateNokeDeviceConnectionStateConnected:
                 status = @"Connected";
                 statusChar = [status UTF8String];
-                self.mCallback(statusChar,self.util);
+                self.mCallback(statusChar,self.mUtil);
                 token = self.mClient(sessionChar,macChar,self.mUtil);
                 commandString= [NSString stringWithUTF8String:token];
                 [noke sendCommands:commandString];
