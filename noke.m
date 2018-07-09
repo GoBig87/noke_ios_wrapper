@@ -21,7 +21,7 @@
     return self;
 }
 
-- (void) startUnlock:(char*)name mac:(char*)lockMacAddr; {
+- (void) start_unlock:(char*)name mac:(char*)lockMacAddr; {
 
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
     NSString* NSname = [NSString stringWithUTF8String:name];
@@ -153,5 +153,5 @@
 
 void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
     ViewController* nokeviewcontroller = [[ViewController alloc] init:callback client_func:client_func util:util];
-    [nokeviewcontroller startUnlock:name mac:lockMacAddr];
+    [nokeviewcontroller start_unlock:name mac:lockMacAddr];
 }

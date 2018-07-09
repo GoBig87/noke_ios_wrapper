@@ -14,7 +14,7 @@ typedef const char* (*clientfunc) (const char *session, const char *macAddr, voi
 
 - (ViewController *) init:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
 
-- (void) startUnlock:(char*)name mac:(char*)lockMacAddr;
+- (void) start_unlock:(char*)name mac:(char*)lockMacAddr;
 @end
 
 void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util);
