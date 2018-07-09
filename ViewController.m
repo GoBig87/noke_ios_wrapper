@@ -6,8 +6,6 @@
 #import "NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h"
 #import "ViewController.h"
 
-@interface NokeViewController : UIViewController <NokeDeviceManagerDelegate>
-
 @implementation NokeViewController
 
 @synthesize mac = _mac;

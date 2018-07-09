@@ -4,7 +4,7 @@
 typedef void (*callbackfunc) (const char *name, void *callback);
 typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *reqTokenFunc);
 
-@interface NokeViewController : NSObject
+@interface NokeViewController : UIViewController <NokeDeviceManagerDelegate>
 
 @property (nonatomic, assign) clientfunc client;
 @property (nonatomic, assign) callbackfunc callback;
