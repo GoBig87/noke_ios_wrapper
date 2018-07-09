@@ -1,3 +1,5 @@
+STUFF = "Hi"
+
 cdef extern from "ViewController.h":
     ctypedef void (*callbackfunc)(const char *name, void *user_data)
     ctypedef const char* (*clientfunc)(const char *session, const char *mac, void *util)
