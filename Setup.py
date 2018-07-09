@@ -78,8 +78,8 @@ base_flags = determine_base_flags()
 osx_flags = {
     'extra_link_args': ['-framework', 'NokeMobileLibrary'],
     'extra_compile_args': ['-ObjC++'],
-    'depends': ['ViewController.m']}
-sources['ViewController.pyx'] = merge(base_flags, osx_flags)
+    'depends': ['noke.m']}
+sources['noke.pyx'] = merge(base_flags, osx_flags)
 
 ext_modules = get_extensions_from_sources(sources)
 
