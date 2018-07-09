@@ -142,7 +142,7 @@
     }
 }
 
-- (void)nokeErrorDidOccurWithError:(NokeDeviceManagerError)error message:(NSString*)message noke:(NokeDevice)noke{
+- (void)nokeErrorDidOccurWithError:(NokeDeviceManagerError)error message:(NSString*)message noke:(NokeDevice*)noke{
     NSLog(@"Error State");
     NSString *status;
     status = @"Error State";
