@@ -136,22 +136,22 @@
                 NSLog(@"Unknown State");
                 status = @"Unknown State";
                 statusChar = [status UTF8String];
-                v
+                self.callback(statusChar,self.util);
                 break;
         }
     }
 }
 
-- (void)nokeErrorDidOccurWithError:(NokeDeviceManagerError)error message:(NSString)message noke:(NokeDevice)noke{
+- (void)nokeErrorDidOccurWithError:(NokeDeviceManagerError)error message:(NSString*)message noke:(NokeDevice)noke{
     NSLog(@"Error State");
     NSString *status;
     status = @"Error State";
-    statusChar = [status UTF8String];
+    const char* statusChar = [status UTF8String];
     self.callback(statusChar,self.util);
 }
 @end
 
 void StartUnlock(char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
     ViewController* nokeviewcontroller = [[ViewController alloc] init:callback client_func:client_func util:util];
-    [nokeviewcontroller unlockNoke:lockMacAddr];
+    [nokeviewcontroller startUnlock:lockMacAddr];
 }
