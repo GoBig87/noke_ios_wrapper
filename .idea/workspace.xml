@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/ViewController.m" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,8 +55,8 @@
       <file leaf-file-name="ViewController.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="149" column="40" selection-start-line="149" selection-start-column="40" selection-end-line="149" selection-end-column="40" />
+            <state relative-caret-position="395">
+              <caret line="144" column="109" selection-start-line="144" selection-start-column="109" selection-end-line="144" selection-end-column="109" />
             </state>
           </provider>
         </entry>
@@ -521,8 +520,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="149" column="40" selection-start-line="149" selection-start-column="40" selection-end-line="149" selection-end-column="40" />
+        <state relative-caret-position="395">
+          <caret line="144" column="109" selection-start-line="144" selection-start-column="109" selection-end-line="144" selection-end-column="109" />
         </state>
       </provider>
     </entry>
