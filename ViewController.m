@@ -6,14 +6,13 @@
 #import "NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h"
 #import "ViewController.h"
 
-@implementation NokeViewController
+@implementation ViewController
 
-@synthesize mac = _mac;
 @synthesize callback = _callback;
 @synthesize util = _util;
 @synthesize client = _client;
 
-- (NokeViewController *) init:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
+- (ViewController *) init:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
 {
     _callback = callback;
     _util = util;
@@ -148,6 +147,6 @@
 @end
 
 void StartUnlock(char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
-    NokeViewController* nokeviewcontroller = [[NokeViewController alloc] init:callback client_func:client_func util:util];
+    ViewController* nokeviewcontroller = [[ViewController alloc] init:callback client_func:client_func util:util];
     [nokeviewcontroller unlockNoke:lockMacAddr];
 }

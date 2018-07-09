@@ -6,13 +6,13 @@
 typedef void (*callbackfunc) (const char *name, void *callback);
 typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *reqTokenFunc);
 
-@interface NokeViewController : UIViewController <NokeDeviceManagerDelegate>
+@interface ViewController : UIViewController <NokeDeviceManagerDelegate>
 
 @property (nonatomic, assign) clientfunc client;
 @property (nonatomic, assign) callbackfunc callback;
 @property (nonatomic, assign) void* util;
 
-- (NokeViewController *) init:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
+- (ViewController *) init:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
 
 - (void) startUnlock:(char*)lockMacAddr;
 @end
