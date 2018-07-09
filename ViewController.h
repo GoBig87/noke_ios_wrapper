@@ -6,9 +6,8 @@ typedef const char* (clientfunc) (const char *session, const char *macAddr, void
 
 @interface NokeViewController : NSObject
 
-@property NSString* mac;
-@property callbackfunc callback;
-@property clientfunc client_func;
+@property (nonatomic, assign) clientfunc client_func;
+@property (nonatomic, assign) callbackfunc callback; 
 @property (void*) util;
 
 - (NokeViewController *) init:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
