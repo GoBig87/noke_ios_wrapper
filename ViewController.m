@@ -72,8 +72,6 @@
             self.callback(statusChar,self.util);
             [[NokeDeviceManager shared] startScanForNokeDevices];
             NSLog(@"NOKE MANAGER ON");
-            NokeDeviceConnectionState state;
-            [self nokeDeviceDidUpdateState:state noke:noke callback:callback client_func:client_func util:util];
             break;
         default:
             status = @"Defualt";
@@ -83,7 +81,7 @@
             break;
     }
 }
-- (void) nokeDeviceDidUpdateState:(NokeDeviceConnectionState)state {
+- (void)nokeDeviceDidUpdateStateTo:(NokeDeviceConnectionState)state noke:(NokeDevice*)noke{
     const char* token;
     bool looping = true;
     NSString *status;
