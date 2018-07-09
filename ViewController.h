@@ -8,7 +8,7 @@ typedef const char* (*clientfunc) (const char *session, const char *macAddr, voi
 
 @property (nonatomic, assign) clientfunc client;
 @property (nonatomic, assign) callbackfunc callback;
-@property (void*) util;
+@property (nonatomic, assign) (void*) util;
 
 - (NokeViewController *) init:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
 
