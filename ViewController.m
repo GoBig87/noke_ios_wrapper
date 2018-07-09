@@ -21,18 +21,18 @@
     return self;
 }
 
-- (void) startUnlock:(char*)lockMacAddr; {
+- (void) startUnlock:(char*)name mac:(char*)lockMacAddr; {
 
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
-
-    NSString* apiKey = @"debug";
+    NSString* NSname = [NSString stringWithUTF8String:name];
+    NSString* apiKey = @"eyJhbGciOiJOT0tFX01PQklMRV9TQU5EQk9YIiwidHlwIjoiSldUIn0.eyJhbGciOiJOT0tFX01PQklMRV9TQU5EQk9YIiwiY29tcGFueV91dWlkIjoiYTQxYjc3YzctZGZlZi00YmFkLWExMDYtZjlmYTNhNWZkN2M0IiwiaXNzIjoibm9rZS5jb20ifQ.73a55fc5afbb61f9ea8b213c5759d9cfd9f5eed6";
     [[NokeDeviceManager shared] setAPIKey:apiKey];
 
     NSString* uploadUrl = @"https://coreapi-sandbox.appspot.com/upload/";
     [[NokeDeviceManager shared] changeDefaultUploadUrl:uploadUrl];
 
     NSString* lockName = @"lock Name";
-    NokeDevice *noke = [[NokeDevice alloc]initWithName:lockName mac:NSlockMacAddr];
+    NokeDevice *noke = [[NokeDevice alloc]initWithName:NSname mac:NSlockMacAddr];
 
     [[NokeDeviceManager shared] addNoke:noke];
 }
@@ -151,7 +151,7 @@
 }
 @end
 
-void StartUnlock(char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
+void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
     ViewController* nokeviewcontroller = [[ViewController alloc] init:callback client_func:client_func util:util];
-    [nokeviewcontroller startUnlock:lockMacAddr];
+    [nokeviewcontroller startUnlock:name mac:lockMacAddr];
 }

@@ -17,4 +17,4 @@ typedef const char* (*clientfunc) (const char *session, const char *macAddr, voi
 - (void) startUnlock:(char*)lockMacAddr;
 @end
 
-void StartUnlock(char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util);
+void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util);

@@ -1,13 +1,13 @@
 cdef extern from "ViewController.h":
     ctypedef void (*callbackfunc)(const char *name, void *user_data)
     ctypedef const char* (*clientfunc)(const char *session, const char *mac, void *util)
-    void StartUnlock(char* macChar, callbackfunc call_back, clientfunc client_func, void *user_data)
+    void StartUnlock(char* name, char* macChar, callbackfunc call_back, clientfunc client_func, void *user_data)
 
-def requestUnlock(util,mac):
+def requestUnlock(util,name,mac):
+    cdef bytes name_bytes = name.encode('utf-8')
+    cdef bytes mac_bytes  = mac.encode('utf-8')
 
-    cdef bytes mac_bytes = mac.encode('utf-8')
-
-    StartUnlock(mac_bytes, callback, reqTokenFunc, <void*>util)
+    StartUnlock(name_bytes,mac_bytes, callback, reqTokenFunc, <void*>util)
 
 cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))
