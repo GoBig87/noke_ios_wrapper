@@ -26,12 +26,12 @@
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
     NSString* NSname = [NSString stringWithUTF8String:name];
     NSString* apiKey = @"eyJhbGciOiJOT0tFX01PQklMRV9TQU5EQk9YIiwidHlwIjoiSldUIn0.eyJhbGciOiJOT0tFX01PQklMRV9TQU5EQk9YIiwiY29tcGFueV91dWlkIjoiYTQxYjc3YzctZGZlZi00YmFkLWExMDYtZjlmYTNhNWZkN2M0IiwiaXNzIjoibm9rZS5jb20ifQ.73a55fc5afbb61f9ea8b213c5759d9cfd9f5eed6";
+
     [[NokeDeviceManager shared] setAPIKey:apiKey];
 
     NSString* uploadUrl = @"https://coreapi-sandbox.appspot.com/upload/";
     [[NokeDeviceManager shared] changeDefaultUploadUrl:uploadUrl];
 
-    NSString* lockName = @"lock Name";
     NokeDevice *noke = [[NokeDevice alloc]initWithName:NSname mac:NSlockMacAddr];
 
     [[NokeDeviceManager shared] addNoke:noke];
