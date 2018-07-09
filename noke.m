@@ -8,9 +8,9 @@
 
 @implementation ViewController
 
-@synthesize callback = _callback;
-@synthesize util = _util;
-@synthesize client = _client;
+@synthesize mCallback = _callback;
+@synthesize mUtil = _util;
+@synthesize mClient = _client;
 
 - (ViewController *) init:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
 {
@@ -44,39 +44,39 @@
         case NokeManagerBluetoothStateUnknown:
             status = @"Unknown State";
             statusChar = [status UTF8String];
-            self.callback(statusChar,self.util);
+            self.mCallback(statusChar,self.mUtil);
             break;
         case NokeManagerBluetoothStateResetting:
             status = @"Resesting";
             statusChar = [status UTF8String];
-            self.callback(statusChar,self.util);
+            self.mCallback(statusChar,self.mUtil);
             break;
         case NokeManagerBluetoothStateUnsupported:
             status = @"Unsupported";
             statusChar = [status UTF8String];
-            self.callback(statusChar,self.util);
+            self.mCallback(statusChar,self.mUtil);
             break;
         case NokeManagerBluetoothStateUnauthorized:
             status = @"Unauthorized";
             statusChar = [status UTF8String];
-            self.callback(statusChar,self.util);
+            self.mCallback(statusChar,self.mUtil);
             break;
         case NokeManagerBluetoothStatePoweredOff:
             status = @"Power Off";
             statusChar = [status UTF8String];
-            self.callback(statusChar,self.util);
+            self.mCallback(statusChar,self.mUtil);
             break;
         case NokeManagerBluetoothStatePoweredOn:
             status = @"Power On";
             statusChar = [status UTF8String];
-            self.callback(statusChar,self.util);
+            self.mCallback(statusChar,self.mUtil);
             [[NokeDeviceManager shared] startScanForNokeDevices];
             NSLog(@"NOKE MANAGER ON");
             break;
         default:
             status = @"Defualt";
             statusChar = [status UTF8String];
-            self.callback(statusChar,self.util);
+            self.mCallback(statusChar,self.mUtil);
             NSLog(@"Defualt");
             break;
     }
@@ -95,7 +95,7 @@
                 NSLog(@"Noke Discovered");
                 status = @"Noke Discovered";
                 statusChar = [status UTF8String];
-                self.callback(statusChar,self.util);
+                self.mCallback(statusChar,self.mUtil);
                 [[NokeDeviceManager shared] stopScan];
                 [[NokeDeviceManager shared] connectToNokeDevice:noke];
                 break;
@@ -103,13 +103,13 @@
                 NSLog(@"Connecting");
                 status = @"Connecting";
                 statusChar = [status UTF8String];
-                self.callback(statusChar,self.util);
+                self.mCallback(statusChar,self.mUtil);
                 break;
             case NokeDeviceConnectionStateNokeDeviceConnectionStateConnected:
                 status = @"Connected";
                 statusChar = [status UTF8String];
-                self.callback(statusChar,self.util);
-                token = self.client(sessionChar,macChar,self.util);
+                self.mCallback(statusChar,self.util);
+                token = self.mClient(sessionChar,macChar,self.mUtil);
                 commandString= [NSString stringWithUTF8String:token];
                 [noke sendCommands:commandString];
                 break;
@@ -117,26 +117,26 @@
                 NSLog(@"Synching");
                 status = @"Synching";
                 statusChar = [status UTF8String];
-                self.callback(statusChar,self.util);
+                self.mCallback(statusChar,self.mUtil);
             case NokeDeviceConnectionStateNokeDeviceConnectionStateUnlocked:
                 NSLog(@"Unlocked");
                 status = @"Unlocked";
                 statusChar = [status UTF8String];
-                self.callback(statusChar,self.util);
+                self.mCallback(statusChar,self.mUtil);
                 looping = false;
                 break;
             case NokeDeviceConnectionStateNokeDeviceConnectionStateDisconnected:
                 NSLog(@"Disconnected");
                 status = @"Disconnected";
                 statusChar = [status UTF8String];
-                self.callback(statusChar,self.util);
+                self.mCallback(statusChar,self.mUtil);
                 looping = false;
                 break;
             default:
                 NSLog(@"Unknown State");
                 status = @"Unknown State";
                 statusChar = [status UTF8String];
-                self.callback(statusChar,self.util);
+                self.mCallback(statusChar,self.mUtil);
                 break;
         }
     }
@@ -147,7 +147,7 @@
     NSString *status;
     status = @"Error State";
     const char* statusChar = [status UTF8String];
-    self.callback(statusChar,self.util);
+    self.mCallback(statusChar,self.mUtil);
 }
 @end
 

@@ -8,9 +8,9 @@ typedef const char* (*clientfunc) (const char *session, const char *macAddr, voi
 
 @interface ViewController : UIViewController <NokeDeviceManagerDelegate>
 
-@property (nonatomic, assign) clientfunc client;
-@property (nonatomic, assign) callbackfunc callback;
-@property (nonatomic, assign) void* util;
+@property (nonatomic, assign) clientfunc mClient;
+@property (nonatomic, assign) callbackfunc mCallback;
+@property (nonatomic, assign) void* mUtil;
 
 - (ViewController *) init:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
 
