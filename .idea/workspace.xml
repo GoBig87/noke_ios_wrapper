@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noke_Wrapper.pyx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/Setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewController.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewController.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewController.pyx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Setup.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="101" column="43" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="43" />
+            <state relative-caret-position="568">
+              <caret line="80" column="26" lean-forward="true" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
               <folding>
                 <element signature="e#46#55#0" expanded="true" />
               </folding>
@@ -27,29 +29,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ViewController.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ViewController.m">
+      <file leaf-file-name="noke.pyx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/noke.pyx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="23" column="55" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="55" />
+            <state relative-caret-position="30">
+              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ViewController.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ViewController.h">
+      <file leaf-file-name="noke.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/noke.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+            <state relative-caret-position="90">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="noke.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/noke.h">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="NokeMobileLibrary-Swift.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="305">
-              <caret line="512" column="25" lean-forward="true" selection-start-line="512" selection-start-column="25" selection-end-line="512" selection-end-column="25" />
+              <caret line="512" column="25" selection-start-line="512" selection-start-column="25" selection-end-line="512" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -116,6 +123,8 @@
         <option value="$PROJECT_DIR$/ViewController.h" />
         <option value="$PROJECT_DIR$/Noke_Wrapper.pyx" />
         <option value="$PROJECT_DIR$/Setup.py" />
+        <option value="$PROJECT_DIR$/noke.pyx" />
+        <option value="$PROJECT_DIR$/noke.m" />
       </list>
     </option>
   </component>
@@ -205,26 +214,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-umbrella.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="e#46#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Noke_Wrapper.pyx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -465,21 +454,21 @@
     <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
-          <caret line="512" column="25" lean-forward="true" selection-start-line="512" selection-start-column="25" selection-end-line="512" selection-end-column="25" />
+          <caret line="512" column="25" selection-start-line="512" selection-start-column="25" selection-end-line="512" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ViewController.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="23" column="55" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="55" />
+          <caret line="23" column="55" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ViewController.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -492,13 +481,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="101" column="43" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="43" />
+        <state relative-caret-position="568">
+          <caret line="80" column="26" lean-forward="true" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
           <folding>
             <element signature="e#46#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noke.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noke.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noke.h">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
