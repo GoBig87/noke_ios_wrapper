@@ -4,7 +4,7 @@
 #import <Foundation/NSString.h>
 #import <UIKit/UIKit.h>
 #import "NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h"
-#import "noke.h"
+#import "ViewController.h"
 
 @implementation ViewController
 

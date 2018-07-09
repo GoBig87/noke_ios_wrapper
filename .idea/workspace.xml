@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/noke.m" beforeDir="false" afterPath="$PROJECT_DIR$/noke.m" afterDir="false" />
-    </list>
+    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,20 +32,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="noke.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="noke.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noke.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="1549">
               <caret line="110" column="52" selection-start-line="110" selection-start-column="52" selection-end-line="110" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="noke.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="noke.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/noke.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+            <state relative-caret-position="285">
+              <caret line="19" column="106" lean-forward="true" selection-start-line="19" selection-start-column="106" selection-end-line="19" selection-end-column="106" />
             </state>
           </provider>
         </entry>
@@ -77,7 +75,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_TtC17NokeMobileLibrary10NokeDevice</find>
       <find>tokenCallback</find>
       <find>setAPIKey</find>
       <find>DeviceManager</find>
@@ -107,6 +104,7 @@
       <find>reqTokenFunc</find>
       <find>Noke_</find>
       <find>Error</find>
+      <find>self.u</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -497,17 +495,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noke.h">
+    <entry file="file://$PROJECT_DIR$/noke.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        <state relative-caret-position="1549">
+          <caret line="110" column="52" selection-start-line="110" selection-start-column="52" selection-end-line="110" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noke.m">
+    <entry file="file://$PROJECT_DIR$/noke.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="110" column="52" selection-start-line="110" selection-start-column="52" selection-end-line="110" selection-end-column="52" />
+        <state relative-caret-position="285">
+          <caret line="19" column="106" lean-forward="true" selection-start-line="19" selection-start-column="106" selection-end-line="19" selection-end-column="106" />
         </state>
       </provider>
     </entry>
