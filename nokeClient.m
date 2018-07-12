@@ -17,7 +17,7 @@
 #include <sys/utsname.h>
 
 
-static NSString* mToken;
+static NSString* mToken = @"eyJhbGciOiJOT0tFX01PQklMRV9TQU5EQk9YIiwidHlwIjoiSldUIn0.eyJhbGciOiJOT0tFX01PQklMRV9TQU5EQk9YIiwiY29tcGFueV91dWlkIjoiYTQxYjc3YzctZGZlZi00YmFkLWExMDYtZjlmYTNhNWZkN2M0IiwiaXNzIjoibm9rZS5jb20ifQ.73a55fc5afbb61f9ea8b213c5759d9cfd9f5eed6";
 static NSString* mKey;
 
 static NSString* mUsername;
@@ -43,6 +43,7 @@ typedef enum
 
 @implementation nokeClient
 
+//TODO This function handles send and receiving the server data (command string)
 + (void) request:(int)command URL:(NSString*) strUrl Data:(NSMutableData *)JsonData Noke:(nokeDevice*)noke Delegate:(id) delegate
 {
     NSLog(@"URL: %@", strUrl);
@@ -68,82 +69,83 @@ typedef enum
         //CUSTOM HEADER THAT IS USED TO SEND DATA ABOUT DEVICE, PLATFORM, APP VERSION, AND OS
         [request addValue:[NSString stringWithFormat:@"{\"platform\": \"iOS\", \"platformVersion\": \"%@\", \"device\": \"%@\", \"appVersion\": \"%@\", \"build\": %@}", [[UIDevice currentDevice] systemVersion], [self platformString], version, build] forHTTPHeaderField:@"deviceDetails"];
     }
-    
-    NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:JsonData completionHandler:^(NSData *data,NSURLResponse *response,NSError *error){
+    NSString *NSsession = [noke getSessionAsString];
+    NSString *data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac]
+    ///NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:JsonData completionHandler:^(NSData *data,NSURLResponse *response,NSError *error){
         //HANDLE RESPONSE HERE
         
-        if(data != nil)
+    if(data != nil)
+    {
+        ///NSError *jsonError;
+        ///NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        //NSLog(@"RESPONSE: %@", jsonDict);
+        switch (command)
         {
-            NSError *jsonError;
-            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-            NSLog(@"RESPONSE: %@", jsonDict);
-            switch (command)
-            {
-                case REQUEST_LOGIN:
-                    [self loginCallback:jsonDict];
-                    [delegate didReceiveResponse:jsonDict];
-                    break;
-                case REQUEST_SETUP:
-                    [delegate didReceiveNokeResponse:jsonDict Noke:noke];
-                    break;
-                case REQUEST_UPLOAD:
-                    [self uploadDataCallback:jsonDict];
-                    break;
-                case REQUEST_UNLOCK:
-                    [delegate didReceiveNokeResponse:jsonDict Noke:noke];
-                    break;
-                case REQUEST_SYNC:
-                    [delegate didReceiveNokeResponse:jsonDict Noke:noke];
-                    break;
-                case REQUEST_GETGROUPS:
-                    [self getGroupsByUsersCallback:jsonDict];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [[[LocksViewController sharedInstance] refreshControl] endRefreshing];
-                        [[LocksViewController sharedInstance].locksTableView reloadData];
-                    });
-                    break;
-                case REQUEST_REFRESH:
-                    [self refreshTokenCallback:jsonDict];
-                    break;
-                case REQUEST_ACTIVITY:
-                    [self getActivityCallback:jsonDict];
-                    break;
-                case REQUEST_GET_FOB_SELF:
-                    [self getFobCallback:jsonDict];
-                    break;
-                case REQUEST_GET_LOCK_DETAILS:
-                    [delegate didReceiveResponse:jsonDict];
-                    break;
-                case REQUEST_RESET_PASSWORD:
-                    [delegate resetPasswordResponse:jsonDict];
-                    break;
-                case REQUEST_GET_LOCK_NAME:
-                    [delegate didReceiveFindLockResponse:jsonDict Noke:noke];
-                    break;
-                default:
-                    break;
-            }            
+            case REQUEST_LOGIN:
+                [self loginCallback:jsonDict];
+                [delegate didReceiveResponse:jsonDict];
+                break;
+            case REQUEST_SETUP:
+                [delegate didReceiveNokeResponse:jsonDict Noke:noke];
+                break;
+            case REQUEST_UPLOAD:
+                [self uploadDataCallback:jsonDict];
+                break;
+            case REQUEST_UNLOCK:
+                [delegate didReceiveNokeResponse:jsonDict Noke:noke];
+                break;
+            case REQUEST_SYNC:
+                [delegate didReceiveNokeResponse:jsonDict Noke:noke];
+                break;
+            case REQUEST_GETGROUPS:
+                [self getGroupsByUsersCallback:jsonDict];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[[LocksViewController sharedInstance] refreshControl] endRefreshing];
+                    [[LocksViewController sharedInstance].locksTableView reloadData];
+                });
+                break;
+            case REQUEST_REFRESH:
+                [self refreshTokenCallback:jsonDict];
+                break;
+            case REQUEST_ACTIVITY:
+                [self getActivityCallback:jsonDict];
+                break;
+            case REQUEST_GET_FOB_SELF:
+                [self getFobCallback:jsonDict];
+                break;
+            case REQUEST_GET_LOCK_DETAILS:
+                [delegate didReceiveResponse:jsonDict];
+                break;
+            case REQUEST_RESET_PASSWORD:
+                [delegate resetPasswordResponse:jsonDict];
+                break;
+            case REQUEST_GET_LOCK_NAME:
+                [delegate didReceiveFindLockResponse:jsonDict Noke:noke];
+                break;
+            default:
+                break;
         }
-        else
+    }
+    else
+    {
+        switch (command)
         {
-            switch (command)
-            {
-                case REQUEST_LOGIN:
-                    [delegate didReceiveResponse:nil];
-                    break;
-                case REQUEST_SETUP:
-                    break;
-                case REQUEST_UPLOAD:
-                    break;
-                case REQUEST_UNLOCK:
-                    [delegate didReceiveNokeResponse:nil Noke:noke];
-                    break;
-                case REQUEST_GETGROUPS:
-                    break;
-                case REQUEST_REFRESH:
-                    break;
-            }
+            case REQUEST_LOGIN:
+                [delegate didReceiveResponse:nil];
+                break;
+            case REQUEST_SETUP:
+                break;
+            case REQUEST_UPLOAD:
+                break;
+            case REQUEST_UNLOCK:
+                [delegate didReceiveNokeResponse:nil Noke:noke];
+                break;
+            case REQUEST_GETGROUPS:
+                break;
+            case REQUEST_REFRESH:
+                break;
         }
+    }
     }];
     
     [uploadTask resume];
@@ -686,6 +688,7 @@ typedef enum
 
 + (void) findLock:(NSString*)mac Noke:(nokeDevice*) noke Delegate: (id) delegate
 {
+    //Doesn't matter, will make my own message in python
     NSString* url = [NSString stringWithFormat:@"%@%@", serverUrl,@"lock/find/"];
     NSDictionary* jsonBody = [[NSDictionary alloc] initWithObjectsAndKeys:mac, @"macAddress", nil];
     

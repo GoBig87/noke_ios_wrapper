@@ -1,6 +1,6 @@
 STUFF = "Hi"
 
-cdef extern from "ViewController.h":
+cdef extern from "NokeViewController.h":
     ctypedef void (*callbackfunc)(const char *name, void *user_data)
     ctypedef const char* (*clientfunc)(const char *session, const char *mac, void *util)
     void StartUnlock(char* name, char* macChar, callbackfunc call_back, clientfunc client_func, void *user_data)

@@ -306,7 +306,7 @@
         NSData* cmdData = _dataPackets[0];
         
         
-        
+        ///I think this send the data to the bluetooth lock to unlock it
         [self.peripheral writeValue:cmdData forCharacteristic:self.txCharacteristic type:CBCharacteristicWriteWithoutResponse];
     }
     else
