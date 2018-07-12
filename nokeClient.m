@@ -11,7 +11,7 @@
 #import "activityItem.h"
 #import "ActivityViewController.h"
 #import "nokeSDK.h"
-#import "LocksViewController.h"
+#import "NokeViewController.h"
 #import "FobsViewController.h"
 #include <sys/sysctl.h>
 #include <sys/utsname.h>
