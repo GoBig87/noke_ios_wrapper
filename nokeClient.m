@@ -69,9 +69,8 @@ typedef enum
         //CUSTOM HEADER THAT IS USED TO SEND DATA ABOUT DEVICE, PLATFORM, APP VERSION, AND OS
         [request addValue:[NSString stringWithFormat:@"{\"platform\": \"iOS\", \"platformVersion\": \"%@\", \"device\": \"%@\", \"appVersion\": \"%@\", \"build\": %@}", [[UIDevice currentDevice] systemVersion], [self platformString], version, build] forHTTPHeaderField:@"deviceDetails"];
     }
-    NSString *NSsession = [noke getSessionAsString];
-    NSString *data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac];
-    ///NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:JsonData completionHandler:^(NSData *data,NSURLResponse *response,NSError *error){
+
+    NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:JsonData completionHandler:^(NSData *data,NSURLResponse *response,NSError *error){
         //HANDLE RESPONSE HERE
         
     if(data != nil)
@@ -82,22 +81,32 @@ typedef enum
         switch (command)
         {
             case REQUEST_LOGIN:
-
+                NSString *msg = @"Requesting Login";
                 [[NokeViewController sharedInstance] logCallback:msg];
-                [self loginCallback:jsonDict];
-                [delegate didReceiveResponse:jsonDict];
                 break;
             case REQUEST_SETUP:
-                [delegate didReceiveNokeResponse:jsonDict Noke:noke];
+                NSString *msg = @"Requesting Login";
+                [[NokeViewController sharedInstance] logCallback:msg];
+                [delegate didReceiveNokeResponse:data Noke:noke];
                 break;
             case REQUEST_UPLOAD:
+                NSString *msg = @"Requesting upload";
+                [[NokeViewController sharedInstance] logCallback:msg];
                 [self uploadDataCallback:jsonDict];
                 break;
             case REQUEST_UNLOCK:
-                [delegate didReceiveNokeResponse:jsonDict Noke:noke];
+                NSString *msg = @"Requesting Unlock";
+                [[NokeViewController sharedInstance] logCallback:msg];
+                NSString *NSsession = [noke getSessionAsString];
+                NSString *Data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac];
+                [delegate didReceiveNokeResponse:Data Noke:noke];
                 break;
             case REQUEST_SYNC:
-                [delegate didReceiveNokeResponse:jsonDict Noke:noke];
+                NSString *msg = @"Requesting Sync";
+                [[NokeViewController sharedInstance] logCallback:msg];
+                NSString *NSsession = [noke getSessionAsString];
+                NSString *Data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac];
+                [delegate didReceiveNokeResponse:Data Noke:noke];
                 break;
             case REQUEST_GETGROUPS:
                 [self getGroupsByUsersCallback:jsonDict];
