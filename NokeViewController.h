@@ -8,7 +8,7 @@
 typedef void (*callbackfunc) (const char *name, void *callback);
 typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *reqTokenFunc);
 
-@interface LocksViewController : UIViewController< nokeSDKDelegate, nokeClientDelegate, CLLocationManagerDelegate>
+@interface NokeViewController : UIViewController< nokeSDKDelegate, nokeClientDelegate, CLLocationManagerDelegate>
 {
     BOOL isLoggedIn;
     NSString* username;
