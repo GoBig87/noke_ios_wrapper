@@ -77,9 +77,9 @@ typedef enum
     NSString *Data;
     if(data != nil)
     {
-        ///NSError *jsonError;
-        ///NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-        //NSLog(@"RESPONSE: %@", jsonDict);
+        NSError *jsonError;
+        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        NSLog(@"RESPONSE: %@", jsonDict);
         switch (command)
         {
             case REQUEST_LOGIN:
@@ -115,11 +115,11 @@ typedef enum
             case REQUEST_GETGROUPS:
                 msg = @"Requesting Get groups";
                 [[NokeViewController sharedInstance] logCallback:msg];
-                [self getGroupsByUsersCallback:jsonDict];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [[[NokeViewController sharedInstance] refreshControl] endRefreshing];
-                    [[NokeViewController sharedInstance].locksTableView reloadData];
-                });
+//                [self getGroupsByUsersCallback:jsonDict];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [[[NokeViewController sharedInstance] refreshControl] endRefreshing];
+//                    [[NokeViewController sharedInstance].locksTableView reloadData];
+//                });
                 break;
             case REQUEST_REFRESH:
                 msg = @"Requesting Refresh";
@@ -179,7 +179,7 @@ typedef enum
     [uploadTask resume];
 }
 
-+ (void) request:(int)command URL:(NSString*) strUrl Data:(NSMutableData *)JsonData Delegate:(id)delegate
++ (void) request:(int)command URL:(NSString*) strUrl Data:(NSMutableData *)JsonData Noke:(nokeDevice*)noke Delegate:(id)delegate
 {
     [self request:command URL:strUrl Data:JsonData Noke:nil Delegate:delegate];
 }
@@ -789,4 +789,4 @@ typedef enum
 
 
 
-@end
+@end;

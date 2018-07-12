@@ -40,8 +40,8 @@
       <file leaf-file-name="nokeClient.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nokeClient.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1680">
-              <caret line="112" column="16" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
+            <state relative-caret-position="-43">
+              <caret line="115" column="47" lean-forward="true" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -49,8 +49,8 @@
       <file leaf-file-name="nokeClient.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nokeClient.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-253">
-              <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+            <state relative-caret-position="332">
+              <caret line="82" column="34" lean-forward="true" selection-start-line="82" selection-start-column="34" selection-end-line="82" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -92,8 +92,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>removeAllObjects</find>
-      <find>writeDataArray</find>
       <find>didReceiveFindLockResponse</find>
       <find>connect</find>
       <find>enable</find>
@@ -122,6 +120,8 @@
       <find>data</find>
       <find>NokeViewController</find>
       <find>didReceiveNokeResponse</find>
+      <find>+ (void) uploadDataCallback:(NSDictionary*)data</find>
+      <find>uploadDataCallback</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -451,15 +451,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nokeClient.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-253">
-          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        <state relative-caret-position="332">
+          <caret line="82" column="34" lean-forward="true" selection-start-line="82" selection-start-column="34" selection-end-line="82" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nokeClient.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="112" column="16" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
+        <state relative-caret-position="-43">
+          <caret line="115" column="47" lean-forward="true" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
         </state>
       </provider>
     </entry>
