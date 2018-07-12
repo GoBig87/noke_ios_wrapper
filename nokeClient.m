@@ -70,16 +70,16 @@ typedef enum
         [request addValue:[NSString stringWithFormat:@"{\"platform\": \"iOS\", \"platformVersion\": \"%@\", \"device\": \"%@\", \"appVersion\": \"%@\", \"build\": %@}", [[UIDevice currentDevice] systemVersion], [self platformString], version, build] forHTTPHeaderField:@"deviceDetails"];
     }
 
-    NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:JsonData completionHandler:^(NSData *data,NSURLResponse *response,NSError *error){
+    //NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:JsonData completionHandler:^(NSData *data,NSURLResponse *response,NSError *error){}
         //HANDLE RESPONSE HERE
     NSString *msg;
     NSString *NSsession;
     NSString *Data;
     if(data != nil)
     {
-        NSError *jsonError;
-        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-        NSLog(@"RESPONSE: %@", jsonDict);
+//        NSError *jsonError;
+//        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+//        NSLog(@"RESPONSE: %@", jsonDict);
         switch (command)
         {
             case REQUEST_LOGIN:
@@ -115,11 +115,11 @@ typedef enum
             case REQUEST_GETGROUPS:
                 msg = @"Requesting Get groups";
                 [[NokeViewController sharedInstance] logCallback:msg];
-//                [self getGroupsByUsersCallback:jsonDict];
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    [[[NokeViewController sharedInstance] refreshControl] endRefreshing];
-//                    [[NokeViewController sharedInstance].locksTableView reloadData];
-//                });
+    //                [self getGroupsByUsersCallback:jsonDict];
+    //                dispatch_async(dispatch_get_main_queue(), ^{
+    //                    [[[NokeViewController sharedInstance] refreshControl] endRefreshing];
+    //                    [[NokeViewController sharedInstance].locksTableView reloadData];
+    //                });
                 break;
             case REQUEST_REFRESH:
                 msg = @"Requesting Refresh";
@@ -135,18 +135,18 @@ typedef enum
                 break;
             case REQUEST_GET_LOCK_DETAILS:
                 msg = @"Requesting Lock Details";
-                [[NokeViewController sharedInstance] logCallback:msg];
-                [delegate didReceiveResponse:jsonDict];
+//                [[NokeViewController sharedInstance] logCallback:msg];
+//                [delegate didReceiveResponse:jsonDict];
                 break;
             case REQUEST_RESET_PASSWORD:
                 msg = @"Requesting Password reset";
-                [[NokeViewController sharedInstance] logCallback:msg];
-                [delegate resetPasswordResponse:jsonDict];
+//                [[NokeViewController sharedInstance] logCallback:msg];
+//                [delegate resetPasswordResponse:jsonDict];
                 break;
             case REQUEST_GET_LOCK_NAME:
                 msg = @"Requesting Lock Name";
-                [[NokeViewController sharedInstance] logCallback:msg];
-                [delegate didReceiveFindLockResponse:jsonDict Noke:noke];
+//                [[NokeViewController sharedInstance] logCallback:msg];
+//                [delegate didReceiveFindLockResponse:jsonDict Noke:noke];
                 break;
             default:
                 msg = @"Default";
