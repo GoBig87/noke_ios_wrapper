@@ -122,7 +122,7 @@
       <find>NokeViewController</find>
       <find>didReceiveNokeResponse</find>
       <find>uploadDataCallback</find>
-      <find>+ (void) uploadDataCallback:(NSDictionary*)data</find>
+      <find />
       <find>uploadTask</find>
     </findStrings>
   </component>

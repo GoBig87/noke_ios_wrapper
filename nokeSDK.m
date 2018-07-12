@@ -8,7 +8,7 @@
 
 #import "nokeSDK.h"
 #import "nokeDevice.h"
-#import "LockSViewController.h"
+#import "NokeViewController.h"
 
 
 @implementation nokeSDK
