@@ -51,7 +51,7 @@ static NokeViewController *nokeViewController;
 -(NSString*) requestCommandStr:(NSString*)session Mac:(NSString*)mac{
     NSString *NSsession = [session UTF8String];
     NSString *NSmac     = [mac UTF8String];
-    const char* response = self.client_func(NSsession,NSmac,self.util);
+    const char* response = self.mClient_func(NSsession,NSmac,self.mUtil);
     NSString *NSresponse = NSString stringWithUTF8String:response];
     return NSresponse
 }
@@ -194,7 +194,7 @@ static NokeViewController *nokeViewController;
     NSLog(@"CONNECTED TO DEVICE");
     NSString *update = @"CONNECTED TO DEVICE";
     const char* updateChar = [update UTF8String];
-    self.callback(updateChar,self.util);
+    self.mCallback(updateChar,self.mUtil);
     NSLog(@"CURRENT REACHABILITY STATUS: %ld", (long)self.hostReachability.currentReachabilityStatus);
     dispatch_async(dispatch_get_main_queue(), ^{
         noke.isConnected = true;
