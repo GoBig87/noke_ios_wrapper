@@ -87,7 +87,10 @@ typedef enum
             case REQUEST_SETUP:
                 msg = @"Requesting Login";
                 [[NokeViewController sharedInstance] logCallback:msg];
-                [delegate didReceiveNokeResponse:data Noke:noke];
+                [[NokeViewController sharedInstance] logCallback:msg];
+                NSString *NSsession = [noke getSessionAsString];
+                NSString *Data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac];
+                [delegate didReceiveNokeResponse:Data Noke:noke];
                 break;
             case REQUEST_UPLOAD:
                 msg = @"Requesting upload";
