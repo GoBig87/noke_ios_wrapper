@@ -60,7 +60,7 @@ static NokeViewController *nokeViewController;
     NSString *NSresponse = [NSString stringWithUTF8String:response];
     return NSresponse;
 }
--(void) logCallback:(NSString):msg{
+-(void) logCallback:(NSString)msg{
     const char* msgChar = [msg UTF8String];
     self.mCallback(msgChar,self.mUtil);
 }
