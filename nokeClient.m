@@ -75,8 +75,8 @@ typedef enum
     NSString *msg;
     NSString *NSsession;
     NSString *Data;
-    if(data != nil)
-    {
+//    if(data != nil)
+//    {
 //        NSError *jsonError;
 //        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
 //        NSLog(@"RESPONSE: %@", jsonDict);
@@ -153,27 +153,27 @@ typedef enum
                 [[NokeViewController sharedInstance] logCallback:msg];
                 break;
         }
-    }
-    else
-    {
-        switch (command)
-        {
-            case REQUEST_LOGIN:
-                [delegate didReceiveResponse:nil];
-                break;
-            case REQUEST_SETUP:
-                break;
-            case REQUEST_UPLOAD:
-                break;
-            case REQUEST_UNLOCK:
-                [delegate didReceiveNokeResponse:nil Noke:noke];
-                break;
-            case REQUEST_GETGROUPS:
-                break;
-            case REQUEST_REFRESH:
-                break;
-        }
-    }
+//    }
+//    else
+//    {
+//        switch (command)
+//        {
+//            case REQUEST_LOGIN:
+//                [delegate didReceiveResponse:nil];
+//                break;
+//            case REQUEST_SETUP:
+//                break;
+//            case REQUEST_UPLOAD:
+//                break;
+//            case REQUEST_UNLOCK:
+//                [delegate didReceiveNokeResponse:nil Noke:noke];
+//                break;
+//            case REQUEST_GETGROUPS:
+//                break;
+//            case REQUEST_REFRESH:
+//                break;
+//        }
+//    }
     //}];
     
     [uploadTask resume];
