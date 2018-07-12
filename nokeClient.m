@@ -72,7 +72,7 @@ typedef enum
 
     NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:JsonData completionHandler:^(NSData *data,NSURLResponse *response,NSError *error){
         //HANDLE RESPONSE HERE
-        
+    NSString *msg;
     if(data != nil)
     {
         ///NSError *jsonError;
@@ -81,34 +81,36 @@ typedef enum
         switch (command)
         {
             case REQUEST_LOGIN:
-                NSString *msg = @"Requesting Login";
+                msg = @"Requesting Login";
                 [[NokeViewController sharedInstance] logCallback:msg];
                 break;
             case REQUEST_SETUP:
-                NSString *msg = @"Requesting Login";
+                msg = @"Requesting Login";
                 [[NokeViewController sharedInstance] logCallback:msg];
                 [delegate didReceiveNokeResponse:data Noke:noke];
                 break;
             case REQUEST_UPLOAD:
-                NSString *msg = @"Requesting upload";
+                msg = @"Requesting upload";
                 [[NokeViewController sharedInstance] logCallback:msg];
                 [self uploadDataCallback:jsonDict];
                 break;
             case REQUEST_UNLOCK:
-                NSString *msg = @"Requesting Unlock";
+                msg = @"Requesting Unlock";
                 [[NokeViewController sharedInstance] logCallback:msg];
                 NSString *NSsession = [noke getSessionAsString];
                 NSString *Data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac];
                 [delegate didReceiveNokeResponse:Data Noke:noke];
                 break;
             case REQUEST_SYNC:
-                NSString *msg = @"Requesting Sync";
+                msg = @"Requesting Sync";
                 [[NokeViewController sharedInstance] logCallback:msg];
                 NSString *NSsession = [noke getSessionAsString];
                 NSString *Data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac];
                 [delegate didReceiveNokeResponse:Data Noke:noke];
                 break;
             case REQUEST_GETGROUPS:
+                msg = @"Requesting Get groups";
+                [[NokeViewController sharedInstance] logCallback:msg];
                 [self getGroupsByUsersCallback:jsonDict];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[[LocksViewController sharedInstance] refreshControl] endRefreshing];
@@ -116,24 +118,38 @@ typedef enum
                 });
                 break;
             case REQUEST_REFRESH:
+                msg = @"Requesting Refresh";
+                [[NokeViewController sharedInstance] logCallback:msg];
                 [self refreshTokenCallback:jsonDict];
                 break;
             case REQUEST_ACTIVITY:
+                msg = @"Requesting Activity";
+                [[NokeViewController sharedInstance] logCallback:msg];
                 [self getActivityCallback:jsonDict];
                 break;
             case REQUEST_GET_FOB_SELF:
+                msg = @"Requesting Fob";
+                [[NokeViewController sharedInstance] logCallback:msg];
                 [self getFobCallback:jsonDict];
                 break;
             case REQUEST_GET_LOCK_DETAILS:
+                msg = @"Requesting Lock Details";
+                [[NokeViewController sharedInstance] logCallback:msg];
                 [delegate didReceiveResponse:jsonDict];
                 break;
             case REQUEST_RESET_PASSWORD:
+                msg = @"Requesting Password reset";
+                [[NokeViewController sharedInstance] logCallback:msg];
                 [delegate resetPasswordResponse:jsonDict];
                 break;
             case REQUEST_GET_LOCK_NAME:
+                msg = @"Requesting Lock Name";
+                [[NokeViewController sharedInstance] logCallback:msg];
                 [delegate didReceiveFindLockResponse:jsonDict Noke:noke];
                 break;
             default:
+                msg = @"Default";
+                [[NokeViewController sharedInstance] logCallback:msg];
                 break;
         }
     }
