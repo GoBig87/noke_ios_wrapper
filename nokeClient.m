@@ -82,6 +82,8 @@ typedef enum
         switch (command)
         {
             case REQUEST_LOGIN:
+
+                [[NokeViewController sharedInstance] logCallback:msg];
                 [self loginCallback:jsonDict];
                 [delegate didReceiveResponse:jsonDict];
                 break;
