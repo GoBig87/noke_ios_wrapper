@@ -278,7 +278,7 @@ static NokeViewController *nokeViewController;
                 [noke addSessionToPackets:longitude Latitude:latitude];
                 [nokeClient uploadData:self]; //USED FOR INTERNAL TESTING
                 NSIndexPath* index = [NSIndexPath indexPathForRow:[connectedLocks indexOfObject:noke] inSection:0];
-                [_locksTableView  reloadRowsAtIndexPaths:[NSArray arrayWithObjects:index, nil] withRowAnimation:UITableViewRowAnimationNone];
+                //[_locksTableView  reloadRowsAtIndexPaths:[NSArray arrayWithObjects:index, nil] withRowAnimation:UITableViewRowAnimationNone];
                 //[_locksTableView reloadData];
                 });
             }
@@ -533,7 +533,7 @@ static NokeViewController *nokeViewController;
                 noke.serial = serial;
             }
 
-            });
+//            });
 
         }
     }
@@ -738,5 +738,5 @@ static NokeViewController *nokeViewController;
 @end
 
 void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
-    [[NokeViewController* sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func util:util];
+    [[NokeViewController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func util:util];
 }
