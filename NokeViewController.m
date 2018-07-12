@@ -111,15 +111,7 @@ static NokeViewController *nokeViewController;
 
 -(void)getCurrentLocation
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-
-    [locationManager requestWhenInUseAuthorization];
-    //[locationManager requestAlwaysAuthorization];
-    [locationManager startMonitoringSignificantLocationChanges];
-    [locationManager startUpdatingLocation];
-     });
+// pass
 }
 #pragma mark - nokeSDKDelegate
 -(void)isBluetoothEnabled:(bool)enabled
