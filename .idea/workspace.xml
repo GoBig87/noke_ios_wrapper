@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="" />
+    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/nokeClient.h" beforeDir="false" afterPath="$PROJECT_DIR$/nokeClient.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nokeClient.m" beforeDir="false" afterPath="$PROJECT_DIR$/nokeClient.m" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +43,8 @@
       <file leaf-file-name="nokeClient.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nokeClient.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-43">
-              <caret line="115" column="47" lean-forward="true" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
+            <state relative-caret-position="1492">
+              <caret line="791" column="4" lean-forward="true" selection-start-line="791" selection-start-column="4" selection-end-line="791" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -49,8 +52,8 @@
       <file leaf-file-name="nokeClient.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nokeClient.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="82" column="34" lean-forward="true" selection-start-line="82" selection-start-column="34" selection-end-line="82" selection-end-column="34" />
+            <state relative-caret-position="799">
+              <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
             </state>
           </provider>
         </entry>
@@ -58,7 +61,7 @@
       <file leaf-file-name="NokeViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NokeViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
+            <state relative-caret-position="1770">
               <caret line="297" column="57" lean-forward="true" selection-start-line="297" selection-start-column="57" selection-end-line="297" selection-end-column="57" />
               <folding>
                 <element signature="e#0#940#0" />
@@ -120,8 +123,8 @@
       <find>data</find>
       <find>NokeViewController</find>
       <find>didReceiveNokeResponse</find>
-      <find>+ (void) uploadDataCallback:(NSDictionary*)data</find>
       <find>uploadDataCallback</find>
+      <find>+ (void) uploadDataCallback:(NSDictionary*)data</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -146,8 +149,8 @@
         <option value="$PROJECT_DIR$/Setup.py" />
         <option value="$PROJECT_DIR$/NokeViewController.h" />
         <option value="$PROJECT_DIR$/NokeViewController.m" />
-        <option value="$PROJECT_DIR$/nokeClient.h" />
         <option value="$PROJECT_DIR$/nokeClient.m" />
+        <option value="$PROJECT_DIR$/nokeClient.h" />
       </list>
     </option>
   </component>
@@ -436,7 +439,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NokeViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
+        <state relative-caret-position="1770">
           <caret line="297" column="57" lean-forward="true" selection-start-line="297" selection-start-column="57" selection-end-line="297" selection-end-column="57" />
           <folding>
             <element signature="e#0#940#0" />
@@ -451,15 +454,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nokeClient.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="82" column="34" lean-forward="true" selection-start-line="82" selection-start-column="34" selection-end-line="82" selection-end-column="34" />
+        <state relative-caret-position="799">
+          <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nokeClient.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43">
-          <caret line="115" column="47" lean-forward="true" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
+        <state relative-caret-position="1492">
+          <caret line="791" column="4" lean-forward="true" selection-start-line="791" selection-start-column="4" selection-end-line="791" selection-end-column="4" />
         </state>
       </provider>
     </entry>

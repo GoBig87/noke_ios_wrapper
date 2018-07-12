@@ -77,7 +77,7 @@
 
 @interface nokeClient : NSObject
 
-+ (void) request:(int)command URL:(NSString*) strUrl Data:(NSMutableData *)JsonData Delegate:(id) delegate;
++ (void) request:(int)command URL:(NSString*) strUrl Data:(NSMutableData *)JsonData Noke:(nokeDevice*)noke Delegate:(id) delegate;
 + (void) login:(NSString*) userName Password:(NSString*)password CompanyDomain:(NSString*)companyDomain Delegate:(id) delegate;
 + (void) setupLock:(nokeDevice*)noke Name:(NSString*)name Delegate:(id) delegate;
 + (void) uploadData:(id) delegate;
