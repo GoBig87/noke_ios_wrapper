@@ -42,7 +42,7 @@ static NokeViewController *nokeViewController;
     [[nokeSDK sharedInstance] startScanForNokeDevices];
 }
 
--(NSString) requestCommandStr:(NSString)session Mac:(NSString)mac{
+-(NSString*) requestCommandStr:(NSString*)session Mac:(NSString*)mac{
     NSString *NSsession = [session UTF8String];
     NSString *NSmac     = [mac UTF8String];
     const char* response = self.client_func(NSsession,NSmac,self.util);
