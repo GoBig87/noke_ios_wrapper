@@ -16,7 +16,12 @@
 @end
 
 @implementation NokeViewController
-
+{
+    CLLocationManager *locationManager;
+    NSString* longitude;
+    NSString* latitude;
+    NSTimer* disconnectTimer;
+}
 @synthesize mCallback = _callback;
 @synthesize mUtil = _util;
 @synthesize mClient = _client;
@@ -40,20 +45,20 @@ static NokeViewController *nokeViewController;
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
     NSString* NSname = [NSString stringWithUTF8String:name];
 
-    NokeDevice *noke = [[NokeViewController alloc] initWithName:NSname Mac:NSlockMacAddr];
+    nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
     //Hard coding this in nokeClient
     //[nokeClient setToken:'my token here'];
-    [[NokeDeviceManager sharedNokeSDK] insertNokeDevice:noke];
+    [[nokeSDK sharedInstance] insertNokeDevice:noke];
     //Start scanning
     [[nokeSDK sharedInstance] startScanForNokeDevices];
 }
 
 -(NSString*) requestCommandStr:(NSString*)session Mac:(NSString*)mac{
-    NSString *NSsession = [session UTF8String];
-    NSString *NSmac     = [mac UTF8String];
-    const char* response = self.mClient_func(NSsession,NSmac,self.mUtil);
-    NSString *NSresponse = NSString stringWithUTF8String:response];
-    return NSresponse
+    const char* sessionChar = [session UTF8String];
+    const char* macChar     = [mac UTF8String];
+    const char* response = self.mClient_func(sessionChar,macChar,self.mUtil);
+    NSString *NSresponse = [NSString stringWithUTF8String:response];
+    return NSresponse;
 }
 
 #pragma mark - Reachability
