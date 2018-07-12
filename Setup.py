@@ -78,7 +78,7 @@ base_flags = determine_base_flags()
 osx_flags = {
     'extra_link_args': [],
     'extra_compile_args': ['-ObjC++'],
-    'depends': ['NokeViewController.m','nokeClient.h','nokeClient.m','nokeDevice.h','nokeDevice.c','nokeSDK.h','nokeSDK.m','Reachability.h','Reachability.m','TI_aes_128.c','TI_aes_128.h']}
+    'depends': ['NokeViewController.m','activityItem.h','activityItem.m','nokeClient.h','nokeClient.m','nokeDevice.h','nokeDevice.c','nokeSDK.h','nokeSDK.m','Reachability.h','Reachability.m','TI_aes_128.c','TI_aes_128.h']}
 sources['noke.pyx'] = merge(base_flags, osx_flags)
 
 ext_modules = get_extensions_from_sources(sources)
