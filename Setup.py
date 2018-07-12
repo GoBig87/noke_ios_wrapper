@@ -15,7 +15,7 @@ def read(file_path):
 
 def determine_base_flags():
     flags = {
-        'include_dirs': [join('Users','MacUser','PycharmProjects','Find4','.buildozer','ios','platform','kivy-ios','dist','frameworks')],
+        'include_dirs': [],
         'library_dirs': [],
         'extra_link_args': [],
         'extra_compile_args': []}
@@ -76,7 +76,7 @@ sources = {}
 src_path = build_path = dirname(__file__)
 base_flags = determine_base_flags()
 osx_flags = {
-    'extra_link_args': ['-framework', 'NokeMobileLibrary'],
+    'extra_link_args': [],
     'extra_compile_args': ['-ObjC++'],
     'depends': ['NokeViewController.m','nokeClient.h','nokeClient.m','nokeDevice.h','nokeDevice.c','nokeSDK.h','nokeSDK.m','Reachability.h','Reachability.m','TI_aes_128.c','TI_aes_128.h']}
 sources['noke.pyx'] = merge(base_flags, osx_flags)
