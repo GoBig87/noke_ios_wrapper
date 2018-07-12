@@ -10,7 +10,12 @@
 #import "nokeClient.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 
-@implementation ViewController
+
+@interface NokeViewController ()
+
+@end
+
+@implementation NokeViewController
 
 @synthesize mCallback = _callback;
 @synthesize mUtil = _util;
@@ -18,6 +23,7 @@
 
 
 static NokeViewController *nokeViewController;
+
 + (NokeViewController*) sharedInstance
 {
     if(nokeViewController == nil)

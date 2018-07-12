@@ -26,7 +26,7 @@ typedef const char* (*clientfunc) (const char *session, const char *macAddr, voi
 
 
 @property (nonatomic) Reachability *hostReachability;
-+ (NokeViewController*) sharedInstance;
++(NokeViewController*) sharedInstance;
 -(void) setPythonFunc:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
 -(NSString*) requestCommandStr:(NSString*)session Mac:(NSString*)mac;
 -(void)setIsLoggedIn:(BOOL)loggedin;
