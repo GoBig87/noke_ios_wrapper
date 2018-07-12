@@ -56,7 +56,7 @@ static NokeViewController *nokeViewController;
 -(NSString*) requestCommandStr:(NSString*)session Mac:(NSString*)mac{
     const char* sessionChar = [session UTF8String];
     const char* macChar     = [mac UTF8String];
-    const char* response = self.mClient_func(sessionChar,macChar,self.mUtil);
+    const char* response = self.mClient(sessionChar,macChar,self.mUtil);
     NSString *NSresponse = [NSString stringWithUTF8String:response];
     return NSresponse;
 }
@@ -183,9 +183,9 @@ static NokeViewController *nokeViewController;
         //FIN-TODO add function for sending data to my server here
         [nokeClient findLock:noke.mac Noke:noke Delegate:self];
 
-        NSIndexPath* index = [NSIndexPath indexPathForRow:[connectedLocks indexOfObject:noke] inSection:0];
-        [_locksTableView reloadData];
-        [_locksTableView  reloadRowsAtIndexPaths:[NSArray arrayWithObjects:index, nil] withRowAnimation:UITableViewRowAnimationFade];
+//        NSIndexPath* index = [NSIndexPath indexPathForRow:[connectedLocks indexOfObject:noke] inSection:0];
+//        [_locksTableView reloadData];
+//        [_locksTableView  reloadRowsAtIndexPaths:[NSArray arrayWithObjects:index, nil] withRowAnimation:UITableViewRowAnimationFade];
 
     }
     else
@@ -228,12 +228,12 @@ static NokeViewController *nokeViewController;
         }
     }
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-
-        [_locksTableView reloadData];
-    });
-
-    [self performSelector:@selector(removeLockFromTable:) withObject:noke afterDelay:1.0];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//
+//        [_locksTableView reloadData];
+//    });
+//
+//    [self performSelector:@selector(removeLockFromTable:) withObject:noke afterDelay:1.0];
 
     [nokeClient uploadData:self];
     [[nokeSDK sharedInstance] retrieveKnownPeripherals];
@@ -396,7 +396,7 @@ static NokeViewController *nokeViewController;
 
 //        for(int i = 0; i < [commands count]; i++)
 //       {
-        NSString* hexString = data
+        NSString* hexString = data;
 
         char * myBuffer = (char *)malloc((int)[hexString length] / 2 + 1);
         bzero(myBuffer, [hexString length] / 2 + 1);
@@ -491,14 +491,14 @@ static NokeViewController *nokeViewController;
                 noke.serial = serial;
             }
 
-            dispatch_async(dispatch_get_main_queue(), ^{
-
-                //[_locksTableView reloadData];
-
-                NSIndexPath* index = [NSIndexPath indexPathForRow:[connectedLocks indexOfObject:noke] inSection:0];
-                [_locksTableView  reloadRowsAtIndexPaths:[NSArray arrayWithObjects:index, nil] withRowAnimation:UITableViewRowAnimationNone];
-
-            });
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//
+//                //[_locksTableView reloadData];
+//
+//                NSIndexPath* index = [NSIndexPath indexPathForRow:[connectedLocks indexOfObject:noke] inSection:0];
+//                [_locksTableView  reloadRowsAtIndexPaths:[NSArray arrayWithObjects:index, nil] withRowAnimation:UITableViewRowAnimationNone];
+//
+//            });
         }
         else
         {
@@ -645,7 +645,7 @@ static NokeViewController *nokeViewController;
         if(timediff >= 5 && !tmpNoke.isConnected)
         {
             [connectedLocks removeObjectAtIndex:i];
-            [_locksTableView reloadData];
+            //[_locksTableView reloadData];
         }
     }
 }
