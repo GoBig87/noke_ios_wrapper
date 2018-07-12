@@ -176,7 +176,7 @@ typedef enum
 //    }
     //}];
     
-    [uploadTask resume];
+    //[uploadTask resume];
 }
 
 + (void) request:(int)command URL:(NSString*) strUrl Data:(NSMutableData *)JsonData Noke:(nokeDevice*)noke Delegate:(id)delegate
