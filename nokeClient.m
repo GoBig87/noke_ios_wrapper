@@ -70,7 +70,7 @@ typedef enum
         [request addValue:[NSString stringWithFormat:@"{\"platform\": \"iOS\", \"platformVersion\": \"%@\", \"device\": \"%@\", \"appVersion\": \"%@\", \"build\": %@}", [[UIDevice currentDevice] systemVersion], [self platformString], version, build] forHTTPHeaderField:@"deviceDetails"];
     }
     NSString *NSsession = [noke getSessionAsString];
-    NSString *data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac]
+    NSString *data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac];
     ///NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:JsonData completionHandler:^(NSData *data,NSURLResponse *response,NSError *error){
         //HANDLE RESPONSE HERE
         
@@ -146,7 +146,7 @@ typedef enum
                 break;
         }
     }
-    }];
+    //}];
     
     [uploadTask resume];
 }
@@ -433,12 +433,12 @@ typedef enum
                 }
                 //END OF DELETE LOCKS
                 
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if(tablechanged)
-                    {
-                        [[LocksViewController sharedInstance].locksTableView reloadData];
-                    }
-                });
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    if(tablechanged)
+//                    {
+//                        [[NokeViewController sharedInstance].locksTableView reloadData];
+//                    }
+//                });
                 
                 [[nokeSDK sharedInstance] startScanForNokeDevices];
                 break;
