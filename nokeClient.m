@@ -97,7 +97,6 @@ typedef enum
             case REQUEST_UPLOAD:
                 msg = @"Requesting upload";
                 [[NokeViewController sharedInstance] logCallback:msg];
-                [self uploadDataCallback:jsonDict];
                 break;
             case REQUEST_UNLOCK:
                 msg = @"Requesting Unlock";
@@ -118,24 +117,21 @@ typedef enum
                 [[NokeViewController sharedInstance] logCallback:msg];
                 [self getGroupsByUsersCallback:jsonDict];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [[[LocksViewController sharedInstance] refreshControl] endRefreshing];
-                    [[LocksViewController sharedInstance].locksTableView reloadData];
+                    [[[NokeViewController sharedInstance] refreshControl] endRefreshing];
+                    [[NokeViewController sharedInstance].locksTableView reloadData];
                 });
                 break;
             case REQUEST_REFRESH:
                 msg = @"Requesting Refresh";
                 [[NokeViewController sharedInstance] logCallback:msg];
-                [self refreshTokenCallback:jsonDict];
                 break;
             case REQUEST_ACTIVITY:
                 msg = @"Requesting Activity";
                 [[NokeViewController sharedInstance] logCallback:msg];
-                [self getActivityCallback:jsonDict];
                 break;
             case REQUEST_GET_FOB_SELF:
                 msg = @"Requesting Fob";
                 [[NokeViewController sharedInstance] logCallback:msg];
-                [self getFobCallback:jsonDict];
                 break;
             case REQUEST_GET_LOCK_DETAILS:
                 msg = @"Requesting Lock Details";
