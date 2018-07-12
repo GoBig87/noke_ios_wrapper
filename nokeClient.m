@@ -73,6 +73,8 @@ typedef enum
     NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:JsonData completionHandler:^(NSData *data,NSURLResponse *response,NSError *error){
         //HANDLE RESPONSE HERE
     NSString *msg;
+    NSString *NSsession;
+    NSString *Data;
     if(data != nil)
     {
         ///NSError *jsonError;
@@ -88,8 +90,8 @@ typedef enum
                 msg = @"Requesting Login";
                 [[NokeViewController sharedInstance] logCallback:msg];
                 [[NokeViewController sharedInstance] logCallback:msg];
-                NSString *NSsession = [noke getSessionAsString];
-                NSString *Data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac];
+                NSsession = [noke getSessionAsString];
+                Data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac];
                 [delegate didReceiveNokeResponse:Data Noke:noke];
                 break;
             case REQUEST_UPLOAD:
@@ -100,15 +102,15 @@ typedef enum
             case REQUEST_UNLOCK:
                 msg = @"Requesting Unlock";
                 [[NokeViewController sharedInstance] logCallback:msg];
-                NSString *NSsession = [noke getSessionAsString];
-                NSString *Data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac];
+                NSsession = [noke getSessionAsString];
+                Data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac];
                 [delegate didReceiveNokeResponse:Data Noke:noke];
                 break;
             case REQUEST_SYNC:
                 msg = @"Requesting Sync";
                 [[NokeViewController sharedInstance] logCallback:msg];
-                NSString *NSsession = [noke getSessionAsString];
-                NSString *Data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac];
+                NSsession = [noke getSessionAsString];
+                Data = [[NokeViewController sharedInstance] requestCommandStr:NSsession Mac:noke.mac];
                 [delegate didReceiveNokeResponse:Data Noke:noke];
                 break;
             case REQUEST_GETGROUPS:

@@ -68,7 +68,7 @@
 
 @protocol nokeClientDelegate
 - (void) didReceiveResponse:(NSDictionary*) data;
-- (void) didReceiveNokeResponse:(NSDictionary*)data Noke:(nokeDevice*)noke;
+- (void) didReceiveNokeResponse:(NSString*)data Noke:(nokeDevice*)noke;
 @optional
 -(void)resetPasswordResponse:(NSDictionary*)data;
 -(void) didReceiveFindLockResponse:(NSDictionary*)data Noke:(nokeDevice*)noke;
