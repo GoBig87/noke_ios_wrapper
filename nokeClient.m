@@ -179,10 +179,10 @@ typedef enum
     //[uploadTask resume];
 }
 
-+ (void) request:(int)command URL:(NSString*) strUrl Data:(NSMutableData *)JsonData Noke:(nokeDevice*)noke Delegate:(id)delegate
-{
-    [self request:command URL:strUrl Data:JsonData Noke:nil Delegate:delegate];
-}
+//+ (void) request:(int)command URL:(NSString*) strUrl Data:(NSMutableData *)JsonData Noke:(nokeDevice*)noke Delegate:(id)delegate
+//{
+//    [self request:command URL:strUrl Data:JsonData Noke:nil Delegate:delegate];
+//}
 
 +(void)setToken:(NSString*)token
 {

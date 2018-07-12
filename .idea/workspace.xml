@@ -42,8 +42,8 @@
       <file leaf-file-name="nokeClient.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nokeClient.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1037">
-              <caret line="79" column="28" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="28" />
+            <state relative-caret-position="1421">
+              <caret line="181" selection-start-line="181" selection-start-column="2" selection-end-line="184" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -94,7 +94,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>didReceiveFindLockResponse</find>
       <find>connect</find>
       <find>enable</find>
       <find>_bluetoothState</find>
@@ -123,7 +122,8 @@
       <find>NokeViewController</find>
       <find>didReceiveNokeResponse</find>
       <find>uploadDataCallback</find>
-      <find />
+      <find>+ (void) uploadDataCallback:(NSDictionary*)data</find>
+      <find>uploadTask</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -460,8 +460,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nokeClient.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1037">
-          <caret line="79" column="28" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="28" />
+        <state relative-caret-position="1421">
+          <caret line="181" selection-start-line="181" selection-start-column="2" selection-end-line="184" selection-end-column="3" />
         </state>
       </provider>
     </entry>
