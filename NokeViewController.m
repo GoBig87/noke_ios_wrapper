@@ -684,6 +684,7 @@ static NokeViewController *nokeViewController;
         }
         else
         {
+            //TODO IMPORTATNT THIS IS WHERE THE NOKE LOKE GETS UNLOCKED
             [nokeClient unlock:noke Delegate:self];
         }
     }
