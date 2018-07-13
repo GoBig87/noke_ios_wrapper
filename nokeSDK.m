@@ -218,7 +218,7 @@ static nokeSDK *sharedNokeSDK;
         [_delegate isBluetoothEnabled:YES];
         [self retrieveKnownPeripherals];
         _bluetoothState = YES;
-        //[self startScanForNokeDevices];
+        [self startScanForNokeDevices];
     }
     else
     {

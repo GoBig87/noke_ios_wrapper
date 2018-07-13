@@ -51,7 +51,8 @@ static NokeViewController *nokeViewController;
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
     //Start scanning
     NSLog(@"Debug-Noke-3");
-    [[nokeSDK sharedInstance] startScanForNokeDevices];
+    //Scanning must start after bluetooth is enabled!!
+    //[[nokeSDK sharedInstance] startScanForNokeDevices];
 }
 
 -(NSString*) requestCommandStr:(NSString*)session Mac:(NSString*)mac{
