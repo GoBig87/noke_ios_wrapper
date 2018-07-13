@@ -435,7 +435,7 @@
     {
         NSString *hwRevision = @"";
         NSData *data = [characteristic value];
-        const uint8_t *reportData = [data bytes];
+        unsigned char *bytePtr = (unsigned char *)[data bytes];
         ///const uint8_t *bytes = characteristic.value.bytes;
         for (int i = 0; i <characteristic.value.length; i++)
         {
