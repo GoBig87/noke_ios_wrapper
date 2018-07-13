@@ -176,8 +176,8 @@
         
         _isSetup = [coder decodeBoolForKey:@"issetup"];
         _isOwned = [coder decodeBoolForKey:@"isowned"];
-        _accessStatus = [coder decodeIntForKey:@"accessstatus"];
-        _unlockMethod = [coder decodeIntForKey:@"unlockmethod"];
+        ///_accessStatus = [coder decodeIntForKey:@"accessstatus"];
+        ///_unlockMethod = [coder decodeIntForKey:@"unlockmethod"];
         _hasLogs = [coder decodeBoolForKey:@"haslogs"];
         _versionString = [coder decodeObjectForKey:@"versionstring"];
     }
