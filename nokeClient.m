@@ -9,10 +9,8 @@
 #import "nokeClient.h"
 #import "nokeDevice.h"
 #import "activityItem.h"
-#import "ActivityViewController.h"
 #import "nokeSDK.h"
 #import "NokeViewController.h"
-#import "FobsViewController.h"
 #include <sys/sysctl.h>
 #include <sys/utsname.h>
 
@@ -523,68 +521,7 @@ typedef enum
     }
 }
 
-+ (void) getActivityCallback:(NSDictionary*)jsonDict
-{
-    //NSLog(@"GET ACTIVITY: %@", jsonDict);
-    NSDictionary* data = [jsonDict objectForKey:@"data"];
-    NSArray* activity = [data objectForKey:@"activity"];
-    //NSString* countString = [jsonDict objectForKey:@"count"];
-    //int activityCount = [countString intValue];
-    
-    [[[ActivityViewController sharedInstance] activityList] removeAllObjects];
-    
-    if(activity != nil)
-    {
-        for (int i = 0; i < [activity count]; i++) {
-            NSDictionary* tmpActivity = [activity objectAtIndex:i];
-            
-            NSString* strId = [tmpActivity objectForKey:@"id"];
-            int groupid = [strId intValue];
-            
-            activityItem* newActivity = [[activityItem alloc] initWithId:groupid];
-            
-            newActivity.eventKey = [tmpActivity objectForKey:@"eventKey"];
-            newActivity.activitytype = [tmpActivity objectForKey:@"action"];
-            newActivity.fullname = [tmpActivity objectForKey:@"byWhoName"];
-            
-            newActivity.timestamp = [tmpActivity objectForKey:@"rangeDateStart"];
-            NSDictionary* lock = [tmpActivity objectForKey:@"objectUpdated"];
-            newActivity.lockname = [lock objectForKey:@"name"];
-            
-            NSError* jsonError;
-            NSData* actionDetailsData = [[tmpActivity objectForKey:@"actionDetails"] dataUsingEncoding:NSUTF8StringEncoding];
-            NSDictionary *actionDetails = [NSJSONSerialization JSONObjectWithData:actionDetailsData options:NSJSONReadingMutableContainers error:&jsonError];
-            
-            NSDictionary *details = [actionDetails objectForKey:@"details"];
-            newActivity.latitude = [details objectForKey:@"latitude"];
-            newActivity.longitude = [details objectForKey:@"longitude"];
-            
-            //NSLog(@"EVENT ID: %@", [tmpActivity objectForKey:@"eventKey"]);
-            BOOL eventExists = false;
-            
-            for (int j = 0; j < [[[ActivityViewController sharedInstance] activityList] count]; j++)
-            {
-                NSString* eventString = [[[[ActivityViewController sharedInstance] activityList] objectAtIndex:j] eventKey];
-                if([newActivity.eventKey isEqualToString: eventString]){
-                    eventExists = true;
-                }
-            }
-            
-            if(!eventExists)
-            {
-                [[[ActivityViewController sharedInstance] activityList] addObject:newActivity];
-            }
-            
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [[ActivityViewController sharedInstance].activityTableView reloadData];
-        });
-    }
 
-    
-}
 
 + (void) sync:(nokeDevice*)noke Delegate:(id) delegate
 {
@@ -627,57 +564,6 @@ typedef enum
         [nokeClient request:REQUEST_GET_FOB_SELF URL:url Data:tempJsonData Delegate:delegate];
     }
 }
-
-+ (void) getFobCallback:(NSDictionary*)jsonDict
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        [[nokeSDK sharedInstance] removeAllFobs];
-    });
-    
-    
-    //NSLog(@"GET FOB: %@", jsonDict);
-    NSDictionary* data = [jsonDict objectForKey:@"data"];
-    NSArray* fobs = [data objectForKey:@"fobs"];
-    NSString* countString = [data objectForKey:@"count"];
-    int fobCount = [countString intValue];
-    
-    if(fobCount > 0)
-    {
-        for (int i = 0; i < [fobs count]; i++) {
-            NSDictionary* tmpFob = [fobs objectAtIndex:i];
-            nokeDevice* tmpNoke = [[nokeDevice alloc] initWithName:[tmpFob objectForKey:@"name"] Mac:[tmpFob objectForKey:@"macAddress"]];
-            tmpNoke.isSetup = true;
-            tmpNoke.isOwned = true;
-            tmpNoke.isConnected = false;
-            tmpNoke.unlockMethod = NLUnlockMethodTwoStep;
-            
-            int syncValue = [[tmpFob objectForKey:@"syncFlag"]intValue];
-            BOOL sync = false;
-            if(syncValue == 1)
-            {
-                sync = true;
-            }
-            tmpNoke.sync = sync;
-            tmpNoke.serial = @"";
-            tmpNoke.deviceType = NLDeviceTypeFob;
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [[nokeSDK sharedInstance] insertNokeDevice:tmpNoke];
-                
-            });
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //NSLog(@"REFRESH FOB TABLE");
-            [[FobsViewController sharedInstance].fobsTableView reloadData];
-        });
-    }
-    
-    [[nokeSDK sharedInstance] startScanForNokeDevices];
-}
-
 
 + (void) resetPassword:(NSString*) company Password:(NSString*) username Delegate:(id)delegate
 {
