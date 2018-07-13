@@ -137,11 +137,11 @@ static NokeViewController *nokeViewController;
 //TODO this function sends session to server
 -(void)didDiscoverNokeDevice:(nokeDevice *)noke RSSI:(NSNumber *)RSSI
 {
-    NSLog(@"Debug-Noke-6");
+    NSLog(@"Debug-Noke-6-a");
 
     if([noke.mac isEqualToString:noke.mac])
     {
-        NSLog(@"Debug-Noke-7");
+        NSLog(@"Debug-Noke-7-a");
         noke.lastSeen = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]);
 
         unsigned char *broadcastBytes = [noke getBroadcastData];
@@ -169,10 +169,10 @@ static NokeViewController *nokeViewController;
         return;
     }
 
-    NSLog(@"Debug-Noke-7-a");
+    NSLog(@"Debug-Noke-7-b");
     noke.lastSeen = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]);
     noke.connectionStatus = NLConnectionStatusDisconnected;
-    NSLog(@"Debug-Noke-7-b");
+    NSLog(@"Debug-Noke-7-c");
     //CHECK BROADCAST DATA
     unsigned char *broadcastBytes = [noke getBroadcastData];
     unsigned char statusByte = broadcastBytes[2];

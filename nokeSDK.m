@@ -177,10 +177,11 @@ static nokeSDK *sharedNokeSDK;
 
 -(void) startScanForFirmwareDevices
 {
+    NSLog(@"Debug-Noke-7-sdk");
     NSDictionary* scanOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBCentralManagerScanOptionAllowDuplicatesKey];
     NSArray* serviceArray = [NSArray arrayWithObjects:nokeDevice.firmwareUartServiceUUID, nil];
     
-    
+    NSLog(@"Debug-Noke-8-sdk");
     //Make sure we start scan from scratch
     [cm stopScan];
     [cm scanForPeripheralsWithServices:serviceArray options:scanOptions];
