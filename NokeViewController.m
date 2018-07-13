@@ -37,10 +37,14 @@ static NokeViewController *nokeViewController;
     }
     return nokeViewController;
 }
--(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
+-(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func viewcontroller:(store_viewcontroller)viewcontroller util:(void*)util{
     _callback = callback;
     _util = util;
     _client = client_func;
+
+    //Stores viewcontroller in python utility object
+    viewcontroller([nokeSDK sharedInstance],util)
+
     NSLog(@"Debug-Noke-1");
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
     NSString* NSname = [NSString stringWithUTF8String:name];
@@ -738,6 +742,6 @@ static NokeViewController *nokeViewController;
 
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
-    [[NokeViewController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func util:util];
+void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func,store_viewcontroller viewcontroller, void *util){
+    [[NokeViewController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func viewcontroller:viewcontroller util:util];
 }

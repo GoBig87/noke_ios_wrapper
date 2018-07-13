@@ -5,6 +5,7 @@
 #import "nokeClient.h"
 #import "Reachability.h"
 
+typedef void (*store_viewcontroller) (void *viewcontroller,void *util);
 typedef void (*callbackfunc) (const char *name, void *callback);
 typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *reqTokenFunc);
 
@@ -42,4 +43,4 @@ typedef const char* (*clientfunc) (const char *session, const char *macAddr, voi
 
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util);
+void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, store_viewcontroller viewcontroller, void *util);
