@@ -134,41 +134,38 @@ static NokeViewController *nokeViewController;
 -(void)didDiscoverNokeDevice:(nokeDevice *)noke RSSI:(NSNumber *)RSSI
 {
     NSLog(@"Debug-Noke-6");
-    for(int i = 0; i < [connectedLocks count]; i++)
+
+    if([noke.mac isEqualToString:noke.mac])
     {
-        //UPDATES LOCK INFO IF LOCK IS ALREADY IN LIST
         NSLog(@"Debug-Noke-7");
-        nokeDevice* tmpNoke = [connectedLocks objectAtIndex:i];
-        if([tmpNoke.mac isEqualToString:noke.mac])
+        noke.lastSeen = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]);
+
+        unsigned char *broadcastBytes = [noke getBroadcastData];
+        unsigned char statusByte = broadcastBytes[2];
+        int status = [[NSNumber numberWithUnsignedChar:statusByte] intValue];
+        int setupflag = (status) & 0x01;
+        int logflag = (status >> 1) &0x01;
+
+        if(setupflag == 1)
         {
-            tmpNoke.lastSeen = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]);
-
-            unsigned char *broadcastBytes = [noke getBroadcastData];
-            unsigned char statusByte = broadcastBytes[2];
-            int status = [[NSNumber numberWithUnsignedChar:statusByte] intValue];
-            int setupflag = (status) & 0x01;
-            int logflag = (status >> 1) &0x01;
-
-            if(setupflag == 1)
-            {
-                noke.isSetup = true;
-            }
-            else
-            {
-                noke.isSetup = false;
-            }
-            NSLog(@"Debug-Noke-8");
-            if(logflag == 1)
-            {
-                noke.hasLogs = true;
-                NSLog(@"Debug-Noke-9");
-                [[nokeSDK sharedInstance] connectToNokeDevice:noke];
-            }
-
-            return;
+            noke.isSetup = true;
         }
+        else
+        {
+            noke.isSetup = false;
+        }
+        NSLog(@"Debug-Noke-8");
+        if(logflag == 1)
+        {
+            noke.hasLogs = true;
+            NSLog(@"Debug-Noke-9");
+            [[nokeSDK sharedInstance] connectToNokeDevice:noke];
+        }
+
+        return;
     }
 
+    NSLog(@"Debug-Noke-7-a");
     noke.lastSeen = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]);
     noke.connectionStatus = NLConnectionStatusDisconnected;
     NSLog(@"Debug-Noke-7-b");
