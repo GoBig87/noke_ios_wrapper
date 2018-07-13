@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nokeSDK.m" beforeDir="false" afterPath="$PROJECT_DIR$/nokeSDK.m" afterDir="false" />
-    </list>
+    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,11 +50,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nokeSDK.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="nokeSDK.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nokeSDK.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+            <state relative-caret-position="-2132">
+              <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nokeDevice.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nokeDevice.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="442" column="8" lean-forward="true" selection-start-line="442" selection-start-column="8" selection-end-line="442" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nokeDevice.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nokeDevice.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="65" column="28" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -65,7 +80,7 @@
       <file leaf-file-name="nokeSDK.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nokeSDK.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="49">
               <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="39" />
             </state>
           </provider>
@@ -91,8 +106,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>isConnected</find>
-      <find>NS</find>
       <find>getCurrentLocation</find>
       <find>.ut</find>
       <find>initWithName</find>
@@ -121,6 +134,8 @@
       <find>afterDataWaitReceive</find>
       <find>ActivityViewController</find>
       <find>CBAdvertisementDataLocalNameKey</find>
+      <find>_accessStatus</find>
+      <find>accessStatus</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -306,13 +321,6 @@
     <entry file="file://$PROJECT_DIR$/noke.h" />
     <entry file="file://$PROJECT_DIR$/NokeMobileLibrary.framework/Headers/NokeMobileLibrary-Swift.h" />
     <entry file="file://$PROJECT_DIR$/LocksViewController.h" />
-    <entry file="file://$PROJECT_DIR$/nokeDevice.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="95" column="18" selection-start-line="95" selection-start-column="10" selection-end-line="95" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LocksViewController.m" />
     <entry file="file://$PROJECT_DIR$/ViewController.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -335,13 +343,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nokeDevice.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="128" column="13" selection-start-line="128" selection-start-column="3" selection-end-line="128" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -425,17 +426,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/nokeSDK.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2132">
+          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nokeSDK.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="49">
           <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nokeSDK.m">
+    <entry file="file://$PROJECT_DIR$/nokeDevice.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+        <state relative-caret-position="230">
+          <caret line="65" column="28" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nokeDevice.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="442" column="8" lean-forward="true" selection-start-line="442" selection-start-column="8" selection-end-line="442" selection-end-column="8" />
         </state>
       </provider>
     </entry>
