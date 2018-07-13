@@ -13,7 +13,7 @@ def requestUnlock(util,name,mac):
     StartUnlock(name_bytes,mac_bytes, callback, reqTokenFunc, store_viewcontroller, <void*>util)
 
 cdef void store_viewcontroller(void *viewcontroller,void *util):
-    (<object> util).NokeViewController = (<object>)viewcontroller
+    (<object> util).NokeViewController = (<object> viewcontroller)
 
 cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))
