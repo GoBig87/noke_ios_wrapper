@@ -219,7 +219,6 @@ static nokeSDK *sharedNokeSDK;
     if([central state] == CBCentralManagerStatePoweredOn)
     {
         [_delegate isBluetoothEnabled:YES];
-        NSLog(@"Starting retrieveKnownPeripherals");
         [self retrieveKnownPeripherals];
         _bluetoothState = YES;
         //[self startScanForNokeDevices];

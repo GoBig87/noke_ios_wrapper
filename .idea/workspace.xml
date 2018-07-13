@@ -64,8 +64,8 @@
       <file leaf-file-name="nokeSDK.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nokeSDK.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="80" column="32" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
+            <state relative-caret-position="2511">
+              <caret line="220" column="43" lean-forward="true" selection-start-line="220" selection-start-column="43" selection-end-line="220" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -108,7 +108,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>FobsViewController</find>
       <find>LoginViewC</find>
       <find>LoginView</find>
       <find>ActivityViewController</find>
@@ -124,7 +123,7 @@
       <find>aes_enc_dec</find>
       <find>startC</find>
       <find>connectToNokeDevice</find>
-      <find />
+      <find>) un</find>
       <find>afterDataWaitReceive</find>
       <find>connected</find>
       <find>centralManagerDidUpdateState</find>
@@ -138,6 +137,7 @@
       <find>startScanForNokeDevices</find>
       <find>retrieveKnownPeripherals</find>
       <find>_nokeDevices</find>
+      <find>NSL</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -434,8 +434,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nokeSDK.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="80" column="32" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
+        <state relative-caret-position="2511">
+          <caret line="220" column="43" lean-forward="true" selection-start-line="220" selection-start-column="43" selection-end-line="220" selection-end-column="43" />
         </state>
       </provider>
     </entry>
