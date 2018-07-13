@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nokeDevice.h" beforeDir="false" afterPath="$PROJECT_DIR$/nokeDevice.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/Setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TI_aes_128.c" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Setup.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Setup.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="80" column="133" selection-start-line="80" selection-start-column="133" selection-end-line="80" selection-end-column="133" />
+            <state relative-caret-position="387">
+              <caret line="80" column="204" selection-start-line="80" selection-start-column="204" selection-end-line="80" selection-end-column="204" />
               <folding>
                 <element signature="e#46#55#0" expanded="true" />
               </folding>
@@ -62,7 +63,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nokeDevice.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="nokeDevice.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nokeDevice.m">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -128,8 +129,8 @@
       <find>unlockMethod</find>
       <find>SCNetworkReachabilityCreateWithAddress</find>
       <find>peripheral</find>
-      <find>aes_enc_dec</find>
       <find>NLUnlockMethod</find>
+      <find>aes_enc_dec</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -154,10 +155,11 @@
         <option value="$PROJECT_DIR$/nokeClient.h" />
         <option value="$PROJECT_DIR$/NokeViewController.m" />
         <option value="$PROJECT_DIR$/nokeClient.m" />
-        <option value="$PROJECT_DIR$/Setup.py" />
         <option value="$PROJECT_DIR$/nokeSDK.m" />
         <option value="$PROJECT_DIR$/nokeDevice.m" />
         <option value="$PROJECT_DIR$/nokeDevice.h" />
+        <option value="$PROJECT_DIR$/TI_aes_128.c" />
+        <option value="$PROJECT_DIR$/Setup.py" />
       </list>
     </option>
   </component>
@@ -266,7 +268,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.h" />
     <entry file="file://$PROJECT_DIR$/Noke_Wrapper_imp.m" />
     <entry file="file://$PROJECT_DIR$/Setup.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -407,16 +408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="80" column="133" selection-start-line="80" selection-start-column="133" selection-end-line="80" selection-end-column="133" />
-          <folding>
-            <element signature="e#46#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nokeSDK.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="49">
@@ -456,6 +447,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TI_aes_128.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="80" column="204" selection-start-line="80" selection-start-column="204" selection-end-line="80" selection-end-column="204" />
+          <folding>
+            <element signature="e#46#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
