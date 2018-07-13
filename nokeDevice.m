@@ -439,7 +439,7 @@
         ///const uint8_t *bytes = characteristic.value.bytes;
         for (int i = 0; i <characteristic.value.length; i++)
         {
-            NSLog(@"%x", reportData[i]);
+            NSLog(@"%x", bytePtr[i]);
             hwRevision = [hwRevision stringByAppendingFormat:@"0x%02x, ", bytePtr[i]];
         }
         
