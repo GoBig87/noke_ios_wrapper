@@ -749,6 +749,6 @@ static NokeViewController *nokeViewController;
 
 @end
 
-void NokeLock::StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
+void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
     [[NokeViewController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func util:util];
 }
