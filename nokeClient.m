@@ -329,6 +329,7 @@ typedef enum
 
 + (void) unlock:(nokeDevice*)noke Delegate:(id) delegate
 {
+    NSLog(@"Debug-Noke-11");
     NSString* url = [NSString stringWithFormat:@"%@%@",serverUrl,@"lock/unlock/"];
     NSDictionary* jsonBody = [[NSDictionary alloc] initWithObjectsAndKeys:
                               [noke getSessionAsString], @"session",

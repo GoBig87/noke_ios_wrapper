@@ -165,11 +165,13 @@ static nokeSDK *sharedNokeSDK;
 
 - (void) startScanForNokeDevices
 {
+    NSLog(@"Debug-Noke-4");
     NSDictionary* scanOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBCentralManagerScanOptionAllowDuplicatesKey];
     NSArray* serviceArray = [NSArray arrayWithObjects:nokeDevice.nokeServiceUUID, nokeDevice.firmwareUartServiceUUID, nil];
-    
+    NSLog(@"Debug-Noke-5");
     //Make sure we start scan from scratch
     [cm stopScan];
+    NSLog(@"Debug-Noke-6");
     [cm scanForPeripheralsWithServices:serviceArray options:scanOptions];
 }
 
@@ -193,6 +195,7 @@ static nokeSDK *sharedNokeSDK;
 {
     if(noke != nil)
     {
+         NSLog(@"Debug-Noke-7");
         [self insertNokeDevice:noke];
         NSDictionary* connectOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool: YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey];
         [cm connectPeripheral:[noke peripheral] options:connectOptions];

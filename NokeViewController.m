@@ -41,15 +41,16 @@ static NokeViewController *nokeViewController;
     _callback = callback;
     _util = util;
     _client = client_func;
-
+    NSLog(@"Debug-Noke-1");
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
     NSString* NSname = [NSString stringWithUTF8String:name];
-
+    NSLog(@"Debug-Noke-2");
     nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
     //Hard coding this in nokeClient
     //[nokeClient setToken:'my token here'];
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
     //Start scanning
+    NSLog(@"Debug-Noke-3");
     [[nokeSDK sharedInstance] startScanForNokeDevices];
 }
 
@@ -131,13 +132,14 @@ static NokeViewController *nokeViewController;
 //TODO this function sends session to server
 -(void)didDiscoverNokeDevice:(nokeDevice *)noke RSSI:(NSNumber *)RSSI
 {
+    NSLog(@"Debug-Noke-6");
     //ONLY ADD LOCKS TO LIST
     if(noke.deviceType != NLDeviceTypeFob)
     {
         for(int i = 0; i < [connectedLocks count]; i++)
         {
             //UPDATES LOCK INFO IF LOCK IS ALREADY IN LIST
-
+            NSLog(@"Debug-Noke-7");
             nokeDevice* tmpNoke = [connectedLocks objectAtIndex:i];
             if([tmpNoke.mac isEqualToString:noke.mac])
             {
@@ -157,10 +159,11 @@ static NokeViewController *nokeViewController;
                 {
                     noke.isSetup = false;
                 }
-
+                NSLog(@"Debug-Noke-8");
                 if(logflag == 1)
                 {
                     noke.hasLogs = true;
+                    NSLog(@"Debug-Noke-9");
                     [[nokeSDK sharedInstance] connectToNokeDevice:noke];
                 }
 
@@ -170,7 +173,7 @@ static NokeViewController *nokeViewController;
 
         noke.lastSeen = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]);
         noke.connectionStatus = NLConnectionStatusDisconnected;
-
+        NSLog(@"Debug-Noke-7-b");
         //CHECK BROADCAST DATA
         unsigned char *broadcastBytes = [noke getBroadcastData];
         unsigned char statusByte = broadcastBytes[2];
@@ -180,7 +183,7 @@ static NokeViewController *nokeViewController;
         {
             noke.hasLogs = true;
         }
-
+        NSLog(@"Debug-Noke-8-b");
         [connectedLocks insertObject:noke atIndex:0];
 
         //GETS LOCK INFO AFTER DISCOVERING
@@ -657,6 +660,7 @@ static NokeViewController *nokeViewController;
 
 -(void)afterDataWaitReceive:(nokeDevice *)noke
 {
+    NSLog(@"Debug-Noke-9");
     NSIndexPath* path = [NSIndexPath indexPathForRow:[connectedLocks indexOfObject:noke] inSection:0];
     [self updateStatusText:@"Verifying" Path:path];
 
@@ -666,6 +670,7 @@ static NokeViewController *nokeViewController;
     {
         if(reachability == 0)
         {
+            NSLog(@"Debug-Noke-10");
             if([noke.preSessionKey length] > 0 && [noke.offlineUnlockCmd length] > 0)
             {
                 [noke offlineUnlock];
@@ -684,6 +689,7 @@ static NokeViewController *nokeViewController;
         }
         else
         {
+             NSLog(@"Unlocking-Noke");
             //TODO IMPORTATNT THIS IS WHERE THE NOKE LOKE GETS UNLOCKED
             [nokeClient unlock:noke Delegate:self];
         }
@@ -742,6 +748,6 @@ static NokeViewController *nokeViewController;
 
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
+void NokeLock::StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
     [[NokeViewController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func util:util];
 }
