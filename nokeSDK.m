@@ -73,12 +73,12 @@ static nokeSDK *sharedNokeSDK;
     NSMutableArray *uuidArray = [[NSMutableArray alloc] init];
     for(int i = 0; i<[_nokeDevices count]; i++)
     {
-        NSLog(@'Stepping into array');
+        NSLog(@"Stepping into array");
         nokeDevice* noke = [_nokeDevices objectAtIndex:i];
         NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:noke.uuid];
         if(uuid != nil)
         {
-            NSLog(@'adding uuid');
+            NSLog(@"adding uuid");
             [uuidArray addObject:uuid];
         }
     }
