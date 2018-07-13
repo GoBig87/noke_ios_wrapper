@@ -69,17 +69,20 @@ static nokeSDK *sharedNokeSDK;
 
 -(void) retrieveKnownPeripherals
 {
+    NSLog(@"DEBUG-retKp-1");
     NSMutableArray *uuidArray = [[NSMutableArray alloc] init];
     for(int i = 0; i<[_nokeDevices count]; i++)
     {
+        NSLog(@"DEBUG-retKp-2");
         nokeDevice* noke = [_nokeDevices objectAtIndex:i];
         NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:noke.uuid];
         if(uuid != nil)
         {
+            NSLog(@"DEBUG-retKp-3");
             [uuidArray addObject:uuid];
         }
     }
-    
+    NSLog(@"DEBUG-retKp-4");
     NSArray *peripherals = [cm retrievePeripheralsWithIdentifiers:uuidArray];
 
     //USED FOR ONE-STEP UNLOCKING FROM THE BACKGROUND
@@ -87,15 +90,17 @@ static nokeSDK *sharedNokeSDK;
     {
         nokeDevice* noke = [self nokeWithUUID:periph.identifier.UUIDString];
         noke.peripheral = periph;
-
+        NSLog(@"DEBUG-retKp-5");
         if(noke.unlockMethod == NLUnlockMethodOneStep)
         {
+            NSLog(@"DEBUG-retKp-6");
             if(noke.outOfRange)
             {
                 [self performSelector:@selector(delayConnect:) withObject:noke afterDelay:10.0];
             }
             else
             {
+                NSLog(@"DEBUG-retKp-7");
                 [self connectToNokeDevice:noke];
             }
         }
@@ -218,8 +223,11 @@ static nokeSDK *sharedNokeSDK;
     
     if([central state] == CBCentralManagerStatePoweredOn)
     {
+        NSLog(@"DEBUG-BT-1");
         [_delegate isBluetoothEnabled:YES];
+        NSLog(@"DEBUG-BT-2");
         [self retrieveKnownPeripherals];
+        NSLog(@"DEBUG-BT_3");
         _bluetoothState = YES;
         //[self startScanForNokeDevices];
     }
