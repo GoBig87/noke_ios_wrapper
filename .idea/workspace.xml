@@ -124,11 +124,11 @@
     <findStrings>
       <find>didReceiveNokeResponse</find>
       <find>uploadDataCallback</find>
-      <find>+ (void) uploadDataCallback:(NSDictionary*)data</find>
+      <find />
       <find>uploadTask</find>
       <find>connect</find>
       <find>unlock</find>
-      <find>nokeClient unlock</find>
+      <find />
       <find>getActivityCallback</find>
       <find>FobsViewController</find>
       <find>LoginViewC</find>
@@ -146,7 +146,7 @@
       <find>aes_enc_dec</find>
       <find>startC</find>
       <find>connectToNokeDevice</find>
-      <find>) un</find>
+      <find />
       <find>afterDataWaitReceive</find>
       <find>connected</find>
       <find>centralManagerDidUpdateState</find>
