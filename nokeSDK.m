@@ -84,11 +84,13 @@ static nokeSDK *sharedNokeSDK;
     }
     NSLog(@"DEBUG-retKp-4");
     NSArray *peripherals = [cm retrievePeripheralsWithIdentifiers:uuidArray];
-
+    NSLog(@"DEBUG-retKp-4.1");
     //USED FOR ONE-STEP UNLOCKING FROM THE BACKGROUND
     for(CBPeripheral *periph in peripherals)
     {
+        NSLog(@"DEBUG-retKp-4.2");
         nokeDevice* noke = [self nokeWithUUID:periph.identifier.UUIDString];
+        NSLog(@"DEBUG-retKp-4.3");
         noke.peripheral = periph;
         NSLog(@"DEBUG-retKp-5");
         if(noke.unlockMethod == NLUnlockMethodOneStep)
