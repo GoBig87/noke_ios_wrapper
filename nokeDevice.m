@@ -434,11 +434,13 @@
     else if ([characteristic.UUID isEqual:self.class.hardwareRevisionStringUUID])
     {
         NSString *hwRevision = @"";
-        const uint8_t *bytes = characteristic.value.bytes;
+        NSData *data = [characteristic value];
+        const uint8_t *reportData = [data bytes];
+        ///const uint8_t *bytes = characteristic.value.bytes;
         for (int i = 0; i <characteristic.value.length; i++)
         {
-            NSLog(@"%x", bytes[i]);
-            hwRevision = [hwRevision stringByAppendingFormat:@"0x%02x, ", bytes[i]];
+            NSLog(@"%x", reportData[i]);
+            hwRevision = [hwRevision stringByAppendingFormat:@"0x%02x, ", reportData[i]];
         }
         
         [self.delegate didReadHardwareRevisionString:[hwRevision substringToIndex:hwRevision.length-2]];
