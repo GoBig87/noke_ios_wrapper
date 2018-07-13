@@ -123,7 +123,7 @@
       <find>aes_enc_dec</find>
       <find>startC</find>
       <find>connectToNokeDevice</find>
-      <find>) un</find>
+      <find />
       <find>afterDataWaitReceive</find>
       <find>connected</find>
       <find>centralManagerDidUpdateState</find>

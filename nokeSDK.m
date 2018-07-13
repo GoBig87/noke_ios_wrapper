@@ -83,29 +83,29 @@ static nokeSDK *sharedNokeSDK;
         }
     }
     NSLog(@"DEBUG-retKp-4");
-    CBPeripheral periph = [cm retrievePeripheralsWithIdentifiers:uuidArray];
+    CBPeripheral peripherals = [cm retrievePeripheralsWithIdentifiers:uuidArray];
     NSLog(@"DEBUG-retKp-4.1");
     //USED FOR ONE-STEP UNLOCKING FROM THE BACKGROUND
-//    for(CBPeripheral *periph in peripherals)
-//    {
-    NSLog(@"DEBUG-retKp-4.2");
-    nokeDevice* noke = [self nokeWithUUID:periph.identifier.UUIDString];
-    NSLog(@"DEBUG-retKp-4.3");
-    noke.peripheral = periph;
-    NSLog(@"DEBUG-retKp-5");
-    if(noke.unlockMethod == NLUnlockMethodOneStep)
+    for(CBPeripheral *periph in peripherals)
     {
-        NSLog(@"DEBUG-retKp-6");
-        if(noke.outOfRange)
+        NSLog(@"DEBUG-retKp-4.2");
+        nokeDevice* noke = [self nokeWithUUID:periph.identifier.UUIDString];
+        NSLog(@"DEBUG-retKp-4.3");
+        noke.peripheral = periph;
+        NSLog(@"DEBUG-retKp-5");
+        if(noke.unlockMethod == NLUnlockMethodOneStep)
         {
-            [self performSelector:@selector(delayConnect:) withObject:noke afterDelay:10.0];
+            NSLog(@"DEBUG-retKp-6");
+            if(noke.outOfRange)
+            {
+                [self performSelector:@selector(delayConnect:) withObject:noke afterDelay:10.0];
+            }
+            else
+            {
+                NSLog(@"DEBUG-retKp-7");
+                [self connectToNokeDevice:noke];
+            }
         }
-        else
-        {
-            NSLog(@"DEBUG-retKp-7");
-            [self connectToNokeDevice:noke];
-        }
-        //}
     }
 }
 
