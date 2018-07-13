@@ -1,7 +1,7 @@
 STUFF = "Hi"
 
 cdef extern from "NokeViewController.h":
-    ctypedef void (*store_viewcontroller)(NokeViewController *viewcontroller,void *util)
+    ctypedef void (*store_viewcontroller)(void *viewcontroller,void *util)
     ctypedef void (*callbackfunc)(const char *name, void *user_data)
     ctypedef const char* (*clientfunc)(const char *session, const char *mac, void *util)
     void StartUnlock(char* name, char* macChar, callbackfunc call_back, clientfunc client_func, void *user_data)
@@ -12,8 +12,8 @@ def requestUnlock(util,name,mac):
 
     StartUnlock(name_bytes,mac_bytes, callback, reqTokenFunc, store_viewcontroller, <void*>util)
 
-cdef void store_viewcontroller(NokeViewController *viewcontroller,void *util):
-    (< object > util).NokeViewController = viewcontroller
+cdef void store_viewcontroller(void *viewcontroller,void *util):
+    (<object> util).NokeViewController = (<object>viewcontroller)
 
 cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))

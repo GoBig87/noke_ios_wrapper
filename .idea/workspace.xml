@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/NokeViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/NokeViewController.h" afterDir="false" />
-    </list>
+    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -122,11 +120,11 @@
     <findStrings>
       <find>didReceiveNokeResponse</find>
       <find>uploadDataCallback</find>
-      <find>+ (void) uploadDataCallback:(NSDictionary*)data</find>
+      <find />
       <find>uploadTask</find>
       <find>connect</find>
       <find>unlock</find>
-      <find>nokeClient unlock</find>
+      <find />
       <find>getActivityCallback</find>
       <find>FobsViewController</find>
       <find>LoginViewC</find>
@@ -144,7 +142,7 @@
       <find>aes_enc_dec</find>
       <find>startC</find>
       <find>connectToNokeDevice</find>
-      <find>) un</find>
+      <find />
       <find>afterDataWaitReceive</find>
       <find>connected</find>
       <find>centralManagerDidUpdateState</find>
@@ -242,7 +240,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="823" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="823" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
