@@ -9,7 +9,7 @@
 #import "nokeSDK.h"
 #import "nokeDevice.h"
 #import "NokeViewController.h"
-
+#import <CoreBluetooth/CoreBluetooth.h>
 
 @implementation nokeSDK
 {
