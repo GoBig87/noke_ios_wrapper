@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NokeViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/NokeViewController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nokeSDK.m" beforeDir="false" afterPath="$PROJECT_DIR$/nokeSDK.m" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,17 +39,8 @@
       <file leaf-file-name="NokeViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NokeViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="137" column="28" selection-start-line="137" selection-start-column="7" selection-end-line="137" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#25757#0" />
-                <element signature="e#0#25757#0" />
-                <element signature="e#0#25757#0" />
-                <element signature="e#0#25642#0" />
-                <element signature="e#0#25757#0" />
-                <element signature="e#0#25757#0" />
-                <element signature="e#0#25757#0" />
-              </folding>
+            <state relative-caret-position="390">
+              <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -55,8 +48,8 @@
       <file leaf-file-name="nokeClient.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nokeClient.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-405">
-              <caret line="604" column="1" lean-forward="true" selection-start-line="604" selection-start-column="1" selection-end-line="604" selection-end-column="1" />
+            <state relative-caret-position="15">
+              <caret line="604" column="1" selection-start-line="604" selection-start-column="1" selection-end-line="604" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -64,8 +57,8 @@
       <file leaf-file-name="NokeViewController.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NokeViewController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+            <state relative-caret-position="121">
+              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -73,15 +66,8 @@
       <file leaf-file-name="nokeSDK.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nokeSDK.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="223" column="39" selection-start-line="223" selection-start-column="16" selection-end-line="223" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#18545#0" />
-                <element signature="e#0#18545#0" />
-                <element signature="e#0#18545#0" />
-                <element signature="e#0#18545#0" />
-                <element signature="e#0#18545#0" />
-              </folding>
+            <state relative-caret-position="1530">
+              <caret line="102" column="55" selection-start-line="102" selection-start-column="55" selection-end-line="102" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -90,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/nokeSDK.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="465">
-              <caret line="31" column="55" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="55" />
+              <caret line="31" column="29" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -98,7 +84,7 @@
       <file leaf-file-name="nokeDevice.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nokeDevice.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
+            <state relative-caret-position="2340">
               <caret line="156" column="26" selection-start-line="156" selection-start-column="11" selection-end-line="156" selection-end-column="26" />
             </state>
           </provider>
@@ -124,8 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nokeClient unlock</find>
-      <find>getActivityCallback</find>
       <find>FobsViewController</find>
       <find>LoginViewC</find>
       <find>LoginView</find>
@@ -154,6 +138,8 @@
       <find>didDiscoverNokeDevice</find>
       <find>scanForPeripheralsWithServices</find>
       <find>startScanForNokeDevices</find>
+      <find>retrieveKnownPeripherals</find>
+      <find>_nokeDevices</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -179,10 +165,10 @@
         <option value="$PROJECT_DIR$/TI_aes_128.c" />
         <option value="$PROJECT_DIR$/Setup.py" />
         <option value="$PROJECT_DIR$/nokeClient.m" />
-        <option value="$PROJECT_DIR$/NokeViewController.h" />
         <option value="$PROJECT_DIR$/noke.pyx" />
         <option value="$PROJECT_DIR$/NokeViewController.m" />
         <option value="$PROJECT_DIR$/nokeSDK.m" />
+        <option value="$PROJECT_DIR$/NokeViewController.h" />
       </list>
     </option>
   </component>
@@ -196,7 +182,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -208,6 +193,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -252,39 +238,39 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -415,59 +401,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nokeDevice.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
+        <state relative-caret-position="2340">
           <caret line="156" column="26" selection-start-line="156" selection-start-column="11" selection-end-line="156" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NokeViewController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="137" column="28" selection-start-line="137" selection-start-column="7" selection-end-line="137" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#25757#0" />
-            <element signature="e#0#25757#0" />
-            <element signature="e#0#25757#0" />
-            <element signature="e#0#25642#0" />
-            <element signature="e#0#25757#0" />
-            <element signature="e#0#25757#0" />
-            <element signature="e#0#25757#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NokeViewController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nokeClient.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-405">
-          <caret line="604" column="1" lean-forward="true" selection-start-line="604" selection-start-column="1" selection-end-line="604" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nokeSDK.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
-          <caret line="31" column="55" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="55" />
+          <caret line="31" column="29" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NokeViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nokeClient.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="604" column="1" selection-start-line="604" selection-start-column="1" selection-end-line="604" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NokeViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nokeSDK.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="223" column="39" selection-start-line="223" selection-start-column="16" selection-end-line="223" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#18545#0" />
-            <element signature="e#0#18545#0" />
-            <element signature="e#0#18545#0" />
-            <element signature="e#0#18545#0" />
-            <element signature="e#0#18545#0" />
-          </folding>
+        <state relative-caret-position="1530">
+          <caret line="102" column="55" selection-start-line="102" selection-start-column="55" selection-end-line="102" selection-end-column="55" />
         </state>
       </provider>
     </entry>
