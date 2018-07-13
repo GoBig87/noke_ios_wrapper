@@ -43,7 +43,7 @@ static NokeViewController *nokeViewController;
     _client = client_func;
 
     //Stores viewcontroller in python utility object
-    viewcontroller([nokeSDK sharedInstance],util)
+    viewcontroller([nokeSDK sharedInstance],util);
 
     NSLog(@"Debug-Noke-1");
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
