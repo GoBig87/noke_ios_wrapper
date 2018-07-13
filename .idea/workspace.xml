@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,11 +32,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NokeViewController.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NokeViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NokeViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1163">
-              <caret line="155" column="9" lean-forward="true" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="9" />
+            <state relative-caret-position="660">
+              <caret line="138" selection-start-line="138" selection-end-line="138" />
+              <folding>
+                <element signature="e#0#25757#0" />
+                <element signature="e#0#25757#0" />
+                <element signature="e#0#25757#0" />
+                <element signature="e#0#25642#0" />
+                <element signature="e#0#25757#0" />
+                <element signature="e#0#25757#0" />
+                <element signature="e#0#25757#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nokeSDK.m" pinned="false" current-in-tab="false">
+      <file leaf-file-name="nokeSDK.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nokeSDK.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="174" column="51" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="51" />
+            <state relative-caret-position="321">
+              <caret line="169" column="64" selection-start-line="169" selection-start-column="54" selection-end-line="169" selection-end-column="64" />
               <folding>
                 <element signature="e#0#18545#0" />
               </folding>
@@ -111,11 +118,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>+ (void) uploadDataCallback:(NSDictionary*)data</find>
+      <find />
       <find>uploadTask</find>
       <find>connect</find>
       <find>unlock</find>
-      <find>nokeClient unlock</find>
+      <find />
       <find>getActivityCallback</find>
       <find>FobsViewController</find>
       <find>LoginViewC</find>
@@ -133,7 +140,7 @@
       <find>aes_enc_dec</find>
       <find>startC</find>
       <find>connectToNokeDevice</find>
-      <find>) un</find>
+      <find />
       <find>afterDataWaitReceive</find>
       <find>connected</find>
       <find>centralManagerDidUpdateState</find>
@@ -428,20 +435,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nokeSDK.m">
+    <entry file="file://$PROJECT_DIR$/NokeViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="174" column="51" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="51" />
+        <state relative-caret-position="660">
+          <caret line="138" selection-start-line="138" selection-end-line="138" />
           <folding>
-            <element signature="e#0#18545#0" />
+            <element signature="e#0#25757#0" />
+            <element signature="e#0#25757#0" />
+            <element signature="e#0#25757#0" />
+            <element signature="e#0#25642#0" />
+            <element signature="e#0#25757#0" />
+            <element signature="e#0#25757#0" />
+            <element signature="e#0#25757#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NokeViewController.m">
+    <entry file="file://$PROJECT_DIR$/nokeSDK.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1163">
-          <caret line="155" column="9" lean-forward="true" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="9" />
+        <state relative-caret-position="321">
+          <caret line="169" column="64" selection-start-line="169" selection-start-column="54" selection-end-line="169" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#18545#0" />
+          </folding>
         </state>
       </provider>
     </entry>

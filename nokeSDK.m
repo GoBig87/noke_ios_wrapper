@@ -174,8 +174,7 @@ static nokeSDK *sharedNokeSDK;
     NSLog(@"Debug-Noke-6");
     [cm scanForPeripheralsWithServices:serviceArray options:scanOptions];
     NSLog(@"Debug-Noke-7");
-    NSLog(serviceArray);
-    NSLog(scanOptions);
+
 }
 
 -(void) startScanForFirmwareDevices
