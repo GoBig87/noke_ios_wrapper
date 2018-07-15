@@ -30,7 +30,8 @@ static NokeController *nokeController;
     _callback = callback;
     _util = util;
     _client = client_func;
-
+    NSLog(@"Debug-Noke-0");
+    [nokeSDK sharedInstance].delegate = self;
     NSLog(@"Debug-Noke-1");
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
     NSString* NSname = [NSString stringWithUTF8String:name];
@@ -45,6 +46,7 @@ static NokeController *nokeController;
     //[[nokeSDK sharedInstance] startScanForNokeDevices];
 }
 
+#pragma mark - nokeSDK
  -(void) isBluetoothEnabled:(bool)enabled
 {
     NSLog(@"Bluetooth loop hit.");
