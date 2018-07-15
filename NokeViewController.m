@@ -137,63 +137,130 @@ static NokeViewController *nokeViewController;
 //TODO this function sends session to server
 -(void)didDiscoverNokeDevice:(nokeDevice *)noke RSSI:(NSNumber *)RSSI
 {
+    //ONLY ADD LOCKS TO LIST
     NSLog(@"Debug-Noke-6-a");
-
-    if([noke.mac isEqualToString:noke.mac])
+    if(noke.deviceType != NLDeviceTypeFob)
     {
-        NSLog(@"Debug-Noke-7-a");
-        noke.lastSeen = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]);
+        for(int i = 0; i < [connectedLocks count]; i++)
+        {
+            //UPDATES LOCK INFO IF LOCK IS ALREADY IN LIST
+            NSLog(@"Debug-Noke-7-a");
+            nokeDevice* tmpNoke = [connectedLocks objectAtIndex:i];
+            if([tmpNoke.mac isEqualToString:noke.mac])
+            {
+                tmpNoke.lastSeen = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]);
+                NSLog(@"Debug-Noke-8-a");
+                unsigned char *broadcastBytes = [noke getBroadcastData];
+                unsigned char statusByte = broadcastBytes[2];
+                int status = [[NSNumber numberWithUnsignedChar:statusByte] intValue];
+                int setupflag = (status) & 0x01;
+                int logflag = (status >> 1) &0x01;
 
+                if(setupflag == 1)
+                {
+                    noke.isSetup = true;
+                }
+                else
+                {
+                    noke.isSetup = false;
+                }
+                NSLog(@"Debug-Noke-9-a");
+                if(logflag == 1)
+                {
+                    noke.hasLogs = true;
+                    [[nokeSDK sharedInstance] connectToNokeDevice:noke];
+                }
+
+                return;
+            }
+        }
+
+        noke.lastSeen = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]);
+        noke.connectionStatus = NLConnectionStatusDisconnected;
+
+        //CHECK BROADCAST DATA
         unsigned char *broadcastBytes = [noke getBroadcastData];
         unsigned char statusByte = broadcastBytes[2];
         int status = [[NSNumber numberWithUnsignedChar:statusByte] intValue];
-        int setupflag = (status) & 0x01;
         int logflag = (status >> 1) &0x01;
-
-        if(setupflag == 1)
-        {
-            noke.isSetup = true;
-        }
-        else
-        {
-            noke.isSetup = false;
-        }
-        NSLog(@"Debug-Noke-8");
         if(logflag == 1)
         {
             noke.hasLogs = true;
-            NSLog(@"Debug-Noke-9");
-            [[nokeSDK sharedInstance] connectToNokeDevice:noke];
         }
 
-        return;
-    }
+        [connectedLocks insertObject:noke atIndex:0];
 
-    NSLog(@"Debug-Noke-7-b");
-    noke.lastSeen = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]);
-    noke.connectionStatus = NLConnectionStatusDisconnected;
-    NSLog(@"Debug-Noke-7-c");
-    //CHECK BROADCAST DATA
-    unsigned char *broadcastBytes = [noke getBroadcastData];
-    unsigned char statusByte = broadcastBytes[2];
-    int status = [[NSNumber numberWithUnsignedChar:statusByte] intValue];
-    int logflag = (status >> 1) &0x01;
-    if(logflag == 1)
-    {
-        noke.hasLogs = true;
-    }
-    NSLog(@"Debug-Noke-8-b");
-    [connectedLocks insertObject:noke atIndex:0];
-
-    //GETS LOCK INFO AFTER DISCOVERING
-    //FIN-TODO add function for sending data to my server here
-    [nokeClient findLock:noke.mac Noke:noke Delegate:self];
+        //GETS LOCK INFO AFTER DISCOVERING
+        [nokeClient findLock:noke.mac Noke:noke Delegate:self];
 
 //        NSIndexPath* index = [NSIndexPath indexPathForRow:[connectedLocks indexOfObject:noke] inSection:0];
 //        [_locksTableView reloadData];
 //        [_locksTableView  reloadRowsAtIndexPaths:[NSArray arrayWithObjects:index, nil] withRowAnimation:UITableViewRowAnimationFade];
 
+    }
+    else
+    {
+        //FOUND FOB
+    }
 }
+
+//    NSLog(@"Debug-Noke-6-a");
+//
+//    if([noke.mac isEqualToString:noke.mac])
+//    {
+//        NSLog(@"Debug-Noke-7-a");
+//        noke.lastSeen = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]);
+//
+//        unsigned char *broadcastBytes = [noke getBroadcastData];
+//        unsigned char statusByte = broadcastBytes[2];
+//        int status = [[NSNumber numberWithUnsignedChar:statusByte] intValue];
+//        int setupflag = (status) & 0x01;
+//        int logflag = (status >> 1) &0x01;
+//
+//        if(setupflag == 1)
+//        {
+//            noke.isSetup = true;
+//        }
+//        else
+//        {
+//            noke.isSetup = false;
+//        }
+//        NSLog(@"Debug-Noke-8");
+//        if(logflag == 1)
+//        {
+//            noke.hasLogs = true;
+//            NSLog(@"Debug-Noke-9");
+//            [[nokeSDK sharedInstance] connectToNokeDevice:noke];
+//        }
+//
+//        return;
+//    }
+//
+//    NSLog(@"Debug-Noke-7-b");
+//    noke.lastSeen = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]);
+//    noke.connectionStatus = NLConnectionStatusDisconnected;
+//    NSLog(@"Debug-Noke-7-c");
+//    //CHECK BROADCAST DATA
+//    unsigned char *broadcastBytes = [noke getBroadcastData];
+//    unsigned char statusByte = broadcastBytes[2];
+//    int status = [[NSNumber numberWithUnsignedChar:statusByte] intValue];
+//    int logflag = (status >> 1) &0x01;
+//    if(logflag == 1)
+//    {
+//        noke.hasLogs = true;
+//    }
+//    NSLog(@"Debug-Noke-8-b");
+//    [connectedLocks insertObject:noke atIndex:0];
+//
+//    //GETS LOCK INFO AFTER DISCOVERING
+//    //FIN-TODO add function for sending data to my server here
+//    [nokeClient findLock:noke.mac Noke:noke Delegate:self];
+//
+////        NSIndexPath* index = [NSIndexPath indexPathForRow:[connectedLocks indexOfObject:noke] inSection:0];
+////        [_locksTableView reloadData];
+////        [_locksTableView  reloadRowsAtIndexPaths:[NSArray arrayWithObjects:index, nil] withRowAnimation:UITableViewRowAnimationFade];
+//
+//}
 
 -(void)didConnect:(nokeDevice *)noke
 {
