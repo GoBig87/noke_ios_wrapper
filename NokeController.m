@@ -59,7 +59,7 @@ static NokeController *nokeController;
     //Called when bluetooth is enabled or disabled
 }
 
--(void) didDiscoverNokeDevice:(nokeDevice*)noke
+-(void) didDiscoverNokeDevice:(nokeDevice*)noke RSSI:(NSNumber*)RSSI
 {
     NSLog(@"Lock Discovered");
     //Is called when a noke device is discovered.

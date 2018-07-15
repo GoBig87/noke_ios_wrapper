@@ -24,7 +24,7 @@ typedef const char* (*clientfunc) (const char *session, const char *macAddr, voi
 
 +(NokeController*) sharedInstance;
 -(void) isBluetoothEnabled:(bool)enabled;
--(void) didDiscoverNokeDevice:(nokeDevice*)noke;
+-(void) didDiscoverNokeDevice:(nokeDevice*)noke RSSI:(NSNumber *)RSSI;;
 -(void) didConnect:(nokeDevice*) noke;
 -(void) didDisconnect:(nokeDevice*) noke;
 -(void) didReceiveData:(NSData*)data;
