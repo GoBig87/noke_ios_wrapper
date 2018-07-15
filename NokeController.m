@@ -62,12 +62,13 @@ static NokeController *nokeController;
 -(void) didDiscoverNokeDevice:(nokeDevice*)noke RSSI:(NSNumber*)RSSI
 {
     NSLog(@"Lock Discovered");
+    //[[nokeSDK sharedInstance] connectToNokeDevice:noke];
     //Is called when a noke device is discovered.
 }
 
 -(void) didConnect:(nokeDevice*) noke
 {
-    NSLog(@"Lock Discovered");
+    NSLog(@"Lock Connected");
     //Called when a noke device has successfully connected to the app
 }
 
