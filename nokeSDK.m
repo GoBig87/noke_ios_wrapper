@@ -76,6 +76,7 @@ static nokeSDK *sharedNokeSDK;
         NSLog(@"DEBUG-retKp-2");
         nokeDevice* noke = [_nokeDevices objectAtIndex:i];
         NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:noke.uuid];
+        NSLog(noke.uuid);
         if(uuid != nil)
         {
             NSLog(@"DEBUG-retKp-3");

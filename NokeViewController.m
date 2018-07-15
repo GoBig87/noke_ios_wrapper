@@ -42,6 +42,16 @@ static NokeViewController *nokeViewController;
     _util = util;
     _client = client_func;
 
+    self.hostReachability = [Reachability reachabilityWithHostName:@"www.nokepro.com"];
+    [self.hostReachability startNotifier];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object: nil];
+    [self logReachability:self.hostReachability];
+
+    [nokeSDK sharedInstance].delegate = self;
+
+    connectedLocks = [[NSMutableArray alloc] init];
+    locationManager = [[CLLocationManager alloc] init];
+
     //Stores viewcontroller in python utility object
     viewcontroller([nokeSDK sharedInstance],util);
 
