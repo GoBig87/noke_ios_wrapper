@@ -1,4 +1,5 @@
 #import <LocalAuthentication/LocalAuthentication.h>
+#import "NokeViewController.h"
 
 @interface NokeController ()
 
