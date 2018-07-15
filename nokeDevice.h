@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
-#import "TI_aes_128.h"
 
 //Destinations
 #define SERVER_Dest  0x50

@@ -8,7 +8,8 @@
 
 #import "nokeSDK.h"
 #import "nokeDevice.h"
-#import "NokeViewController.h"
+#import "LockSViewController.h"
+
 
 @implementation nokeSDK
 {
@@ -69,41 +70,33 @@ static nokeSDK *sharedNokeSDK;
 
 -(void) retrieveKnownPeripherals
 {
-    NSLog(@"DEBUG-retKp-1");
     NSMutableArray *uuidArray = [[NSMutableArray alloc] init];
     for(int i = 0; i<[_nokeDevices count]; i++)
     {
-        NSLog(@"DEBUG-retKp-2");
         nokeDevice* noke = [_nokeDevices objectAtIndex:i];
         NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:noke.uuid];
-        NSLog(noke.uuid);
         if(uuid != nil)
         {
-            NSLog(@"DEBUG-retKp-3");
             [uuidArray addObject:uuid];
         }
     }
-    NSLog(@"DEBUG-retKp-4");
+    
     NSArray *peripherals = [cm retrievePeripheralsWithIdentifiers:uuidArray];
-    NSLog(@"DEBUG-retKp-4.1");
+    
     //USED FOR ONE-STEP UNLOCKING FROM THE BACKGROUND
     for(CBPeripheral *periph in peripherals)
     {
-        NSLog(@"DEBUG-retKp-4.2");
         nokeDevice* noke = [self nokeWithUUID:periph.identifier.UUIDString];
-        NSLog(@"DEBUG-retKp-4.3");
         noke.peripheral = periph;
-        NSLog(@"DEBUG-retKp-5");
+        
         if(noke.unlockMethod == NLUnlockMethodOneStep)
         {
-            NSLog(@"DEBUG-retKp-6");
             if(noke.outOfRange)
             {
                 [self performSelector:@selector(delayConnect:) withObject:noke afterDelay:10.0];
             }
             else
             {
-                NSLog(@"DEBUG-retKp-7");
                 [self connectToNokeDevice:noke];
             }
         }
@@ -173,25 +166,20 @@ static nokeSDK *sharedNokeSDK;
 
 - (void) startScanForNokeDevices
 {
-    NSLog(@"Debug-Noke-4");
     NSDictionary* scanOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBCentralManagerScanOptionAllowDuplicatesKey];
     NSArray* serviceArray = [NSArray arrayWithObjects:nokeDevice.nokeServiceUUID, nokeDevice.firmwareUartServiceUUID, nil];
-    NSLog(@"Debug-Noke-5");
+    
     //Make sure we start scan from scratch
     [cm stopScan];
-    NSLog(@"Debug-Noke-6");
     [cm scanForPeripheralsWithServices:serviceArray options:scanOptions];
-    NSLog(@"Debug-Noke-7");
-
 }
 
 -(void) startScanForFirmwareDevices
 {
-    NSLog(@"Debug-Noke-7-sdk");
     NSDictionary* scanOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBCentralManagerScanOptionAllowDuplicatesKey];
     NSArray* serviceArray = [NSArray arrayWithObjects:nokeDevice.firmwareUartServiceUUID, nil];
     
-    NSLog(@"Debug-Noke-8-sdk");
+    
     //Make sure we start scan from scratch
     [cm stopScan];
     [cm scanForPeripheralsWithServices:serviceArray options:scanOptions];
@@ -206,7 +194,6 @@ static nokeSDK *sharedNokeSDK;
 {
     if(noke != nil)
     {
-         NSLog(@"Debug-Noke-7");
         [self insertNokeDevice:noke];
         NSDictionary* connectOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool: YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey];
         [cm connectPeripheral:[noke peripheral] options:connectOptions];
@@ -226,11 +213,8 @@ static nokeSDK *sharedNokeSDK;
     
     if([central state] == CBCentralManagerStatePoweredOn)
     {
-        NSLog(@"DEBUG-BT-1");
         [_delegate isBluetoothEnabled:YES];
-        NSLog(@"DEBUG-BT-2");
         [self retrieveKnownPeripherals];
-        NSLog(@"DEBUG-BT_3");
         _bluetoothState = YES;
         //[self startScanForNokeDevices];
     }
@@ -445,15 +429,13 @@ static nokeSDK *sharedNokeSDK;
 {
     if([self nokeDevices] == nil)
     {
-        NSLog(@"Creating noke array");
         self.nokeDevices = [[NSMutableArray alloc]init];
     }
     
     nokeDevice* tmpNoke = [self nokeWithMac:noke.mac];
-    NSLog(@"Made temp noke");
+    
     if(tmpNoke == nil)
     {
-        NSLog(@"Adding noke device to array");
         [self.nokeDevices addObject:noke];
         [self saveNokeDevices];
     }
