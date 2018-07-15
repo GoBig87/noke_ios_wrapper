@@ -8,8 +8,6 @@
 
 #import "nokeSDK.h"
 #import "nokeDevice.h"
-#import "LockSViewController.h"
-
 
 @implementation nokeSDK
 {
