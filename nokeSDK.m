@@ -445,13 +445,15 @@ static nokeSDK *sharedNokeSDK;
 {
     if([self nokeDevices] == nil)
     {
+        NSLog(@"Creating noke array");
         self.nokeDevices = [[NSMutableArray alloc]init];
     }
     
     nokeDevice* tmpNoke = [self nokeWithMac:noke.mac];
-    
+    NSLog(@"Made temp noke");
     if(tmpNoke == nil)
     {
+        NSLog(@"Adding noke device to array");
         [self.nokeDevices addObject:noke];
         [self saveNokeDevices];
     }
