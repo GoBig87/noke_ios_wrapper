@@ -47,6 +47,7 @@ static NokeController *nokeController;
 
  -(void) isBluetoothEnabled:(bool)enabled
 {
+    NSLog(@"Bluetooth loop hit.");
     if(enabled){
         [[nokeSDK sharedInstance] startScanForNokeDevices];
         NSLog(@"Bluetooth enabled");
