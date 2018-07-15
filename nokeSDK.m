@@ -83,7 +83,7 @@ static nokeSDK *sharedNokeSDK;
         }
     }
     NSLog(@"DEBUG-retKp-4");
-    CBPeripheral peripherals = [cm retrievePeripheralsWithIdentifiers:uuidArray];
+    NSArray *peripherals = [cm retrievePeripheralsWithIdentifiers:uuidArray];
     NSLog(@"DEBUG-retKp-4.1");
     //USED FOR ONE-STEP UNLOCKING FROM THE BACKGROUND
     for(CBPeripheral *periph in peripherals)
