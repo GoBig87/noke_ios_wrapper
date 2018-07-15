@@ -176,8 +176,8 @@
         
         _isSetup = [coder decodeBoolForKey:@"issetup"];
         _isOwned = [coder decodeBoolForKey:@"isowned"];
-        _accessStatus = [coder decodeIntForKey:@"accessstatus"];
-        _unlockMethod = [coder decodeIntForKey:@"unlockmethod"];
+        //_accessStatus = [coder decodeIntForKey:@"accessstatus"];
+        //_unlockMethod = [coder decodeIntForKey:@"unlockmethod"];
         _hasLogs = [coder decodeBoolForKey:@"haslogs"];
         _versionString = [coder decodeObjectForKey:@"versionstring"];
     }
@@ -434,11 +434,13 @@
     else if ([characteristic.UUID isEqual:self.class.hardwareRevisionStringUUID])
     {
         NSString *hwRevision = @"";
-        const uint8_t *bytes = characteristic.value.bytes;
+        NSData *data = [characteristic value];
+        unsigned char *bytePtr = (unsigned char *)[data bytes];
+        ///const uint8_t *bytes = characteristic.value.bytes;
         for (int i = 0; i <characteristic.value.length; i++)
         {
-            NSLog(@"%x", bytes[i]);
-            hwRevision = [hwRevision stringByAppendingFormat:@"0x%02x, ", bytes[i]];
+            NSLog(@"%x", bytePtr[i]);
+            hwRevision = [hwRevision stringByAppendingFormat:@"0x%02x, ", bytePtr[i]];
         }
         
         [self.delegate didReadHardwareRevisionString:[hwRevision substringToIndex:hwRevision.length-2]];
