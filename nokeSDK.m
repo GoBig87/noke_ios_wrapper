@@ -316,7 +316,7 @@ static nokeSDK *sharedNokeSDK;
         [self insertNokeDevice:noke];
         
         }
-        
+        NSLog(@"didDiscoverNokeDevice-2");
         [self.delegate didDiscoverNokeDevice:noke RSSI:RSSI];
 
         
@@ -382,6 +382,7 @@ static nokeSDK *sharedNokeSDK;
         noke.isOwned = false;
         
         [self insertNokeDevice:noke];
+        NSLog(@"didDiscoverNokeDevice-1");
         [self.delegate didDiscoverNokeDevice:noke RSSI:RSSI];
     }
 }
@@ -517,6 +518,7 @@ static nokeSDK *sharedNokeSDK;
         nokeDevice* noke = [self nokeWithMac:mac];
         if(noke.unlockMethod == NLUnlockMethodOneStep)
         {
+            NSLog(@"didDiscoverNokeDevice-3");
             [self.delegate didDiscoverNokeDevice:noke RSSI:noke.rssiLevel];
                 
         }

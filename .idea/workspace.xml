@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NokeController.m" beforeDir="false" afterPath="$PROJECT_DIR$/NokeController.m" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NokeController.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NokeController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NokeController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="282">
+              <caret line="52" column="16" lean-forward="true" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -53,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nokeSDK.m" pinned="false" current-in-tab="false">
+      <file leaf-file-name="nokeSDK.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nokeSDK.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="188" column="1" lean-forward="true" selection-start-line="188" selection-start-column="1" selection-end-line="188" selection-end-column="1" />
+            <state relative-caret-position="221">
+              <caret line="519" column="48" selection-start-line="519" selection-start-column="27" selection-end-line="519" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -107,7 +106,6 @@
       <find>findLock</find>
       <find>Debug-Noke-6</find>
       <find>nokeDevice</find>
-      <find>didDiscoverNokeDevice</find>
       <find>scanForPeripheralsWithServices</find>
       <find>startScanForNokeDevices</find>
       <find>NSL</find>
@@ -130,6 +128,7 @@
       <find>LockSViewController.h</find>
       <find>isBluetoothEnabled</find>
       <find>isBluetoothEnabled</find>
+      <find>didDiscoverNokeDevice</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -428,17 +427,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nokeSDK.m">
+    <entry file="file://$PROJECT_DIR$/NokeController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="188" column="1" lean-forward="true" selection-start-line="188" selection-start-column="1" selection-end-line="188" selection-end-column="1" />
+        <state relative-caret-position="282">
+          <caret line="52" column="16" lean-forward="true" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NokeController.m">
+    <entry file="file://$PROJECT_DIR$/nokeSDK.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="221">
+          <caret line="519" column="48" selection-start-line="519" selection-start-column="27" selection-end-line="519" selection-end-column="48" />
         </state>
       </provider>
     </entry>
