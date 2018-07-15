@@ -77,7 +77,7 @@ static NokeController *nokeController;
 {
     NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     const char *chars = [string UTF8String];
-    NSLog(string)
+    NSLog(string);
     NSLog(@"Data ready");
     //Called when the lock sends back data that needs to be passed to the server
 }
