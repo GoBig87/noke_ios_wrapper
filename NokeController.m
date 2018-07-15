@@ -81,6 +81,7 @@ static NokeController *nokeController;
     NSLog(@"Data ready");
     //Called when the lock sends back data that needs to be passed to the server
 }
+@end
 
 void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func,store_viewcontroller viewcontroller, void *util){
     [[NokeViewController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func viewcontroller:viewcontroller util:util];
