@@ -190,12 +190,17 @@ static nokeSDK *sharedNokeSDK;
 
 - (void) connectToNokeDevice:(nokeDevice *)noke
 {
+    NSLog(@"connectToNokeDevice-1");
     if(noke != nil)
     {
+        NSLog(@"connectToNokeDevice-2");
         [self insertNokeDevice:noke];
+        NSLog(@"connectToNokeDevice-3");
         NSDictionary* connectOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool: YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey];
+        NSLog(@"connectToNokeDevice-4");
         [cm connectPeripheral:[noke peripheral] options:connectOptions];
     }
+    NSLog(@"connectToNokeDevice-5");
 }
 
 - (void) disconnectNokeDevice:(nokeDevice *)noke

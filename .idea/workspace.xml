@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NokeController.m" beforeDir="false" afterPath="$PROJECT_DIR$/NokeController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nokeSDK.m" beforeDir="false" afterPath="$PROJECT_DIR$/nokeSDK.m" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,8 +56,8 @@
       <file leaf-file-name="nokeSDK.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nokeSDK.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="513" column="14" selection-start-line="513" selection-start-column="7" selection-end-line="513" selection-end-column="14" />
+            <state relative-caret-position="281">
+              <caret line="202" column="33" selection-start-line="202" selection-start-column="33" selection-end-line="202" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -100,10 +100,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>findLock</find>
-      <find>Debug-Noke-6</find>
-      <find>nokeDevice</find>
-      <find>scanForPeripheralsWithServices</find>
       <find>startScanForNokeDevices</find>
       <find>NSL</find>
       <find>-3</find>
@@ -128,8 +124,12 @@
       <find>didDiscoverNokeDevice-2</find>
       <find>Invalid parameter not satisfying</find>
       <find>didConnect</find>
-      <find>didDiscoverNokeDevice</find>
       <find>self.delegate did</find>
+      <find>didconn</find>
+      <find>-2</find>
+      <find>didDiscoverNokeDevice</find>
+      <find>connect</find>
+      <find>connectPeripheral</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,9 +160,9 @@
         <option value="$PROJECT_DIR$/nokeController.h" />
         <option value="$PROJECT_DIR$/nokeController.m" />
         <option value="$PROJECT_DIR$/nokeDevice.m" />
-        <option value="$PROJECT_DIR$/nokeSDK.m" />
         <option value="$PROJECT_DIR$/NokeController.h" />
         <option value="$PROJECT_DIR$/NokeController.m" />
+        <option value="$PROJECT_DIR$/nokeSDK.m" />
       </list>
     </option>
   </component>
@@ -387,13 +387,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noke.pyx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="56" lean-forward="true" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TI_aes_128.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -428,6 +421,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/noke.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="56" lean-forward="true" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NokeController.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -437,8 +437,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nokeSDK.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="513" column="14" selection-start-line="513" selection-start-column="7" selection-end-line="513" selection-end-column="14" />
+        <state relative-caret-position="281">
+          <caret line="202" column="33" selection-start-line="202" selection-start-column="33" selection-end-line="202" selection-end-column="33" />
         </state>
       </provider>
     </entry>
