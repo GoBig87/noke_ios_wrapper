@@ -42,12 +42,13 @@ static NokeController *nokeController;
     //Start scanning
     NSLog(@"Debug-Noke-3");
     //Scanning must start after bluetooth is enabled!!
-    [[nokeSDK sharedInstance] startScanForNokeDevices];
+    //[[nokeSDK sharedInstance] startScanForNokeDevices];
 }
 
  -(void) isBluetoothEnabled:(bool)enabled
 {
     if(enabled){
+        [[nokeSDK sharedInstance] startScanForNokeDevices];
         NSLog(@"Bluetooth enabled");
     }else{
         NSLog(@"Bluetooth disabled");
