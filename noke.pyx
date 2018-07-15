@@ -1,6 +1,6 @@
 STUFF = "Hi"
 
-cdef extern from "NokeViewController.h":
+cdef extern from "NokeController.h":
     ctypedef void (*store_viewcontroller)(void *viewcontroller,void *util)
     ctypedef void (*callbackfunc)(const char *name, void *user_data)
     ctypedef const char* (*clientfunc)(const char *session, const char *mac, void *util)
