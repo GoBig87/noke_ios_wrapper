@@ -8,7 +8,16 @@ typedef void (*callbackfunc) (const char *name, void *callback);
 typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *reqTokenFunc);
 
 @interface NokeController : NSObject <nokeSDKDelegate>
+{
+    BOOL isLoggedIn;
+    NSString* username;
+    NSString* useremail;
+    NSString* userpassword;
+    int installerFlag;
+    NSString* companyname;
+    NSMutableArray *connectedLocks;
 
+}
 @property (nonatomic, assign) clientfunc mClient;
 @property (nonatomic, assign) callbackfunc mCallback;
 @property (nonatomic, assign) void* mUtil;
