@@ -242,6 +242,7 @@ static nokeSDK *sharedNokeSDK;
     NSString* broadcastName = [advertisementData objectForKey:CBAdvertisementDataLocalNameKey];
     if(broadcastName == nil || broadcastName == NULL || [broadcastName length] != PERIPHERAL_NAME_LENGTH){
         broadcastName = peripheral.name;
+        NSLog(@"DEBUG-CM-0");
     }
     
     NSString* newMac;
@@ -275,10 +276,11 @@ static nokeSDK *sharedNokeSDK;
             newMac = @"??:??:??:??:??:??";
         }
     }
-    
+    NSLog(newMac);
     nokeDevice *noke = [self nokeWithMac:newMac];
     if(noke != nil)
     {
+        NSLog(@"DEBUG-CM-1");
         if(noke.isOwned)
         {
         noke.peripheral = peripheral;
@@ -288,8 +290,9 @@ static nokeSDK *sharedNokeSDK;
 
         if(broadcastData != nil && broadcastData != NULL)
         {
+            NSLog(@"DEBUG-CM-2");
             [noke setBroadcastData:broadcastData];
-            
+            NSLog(@"DEBUG-CM-3");
             unsigned char *broadcastBytes = [noke getBroadcastData];
             unsigned char statusByte = broadcastBytes[2];
             int status = [[NSNumber numberWithUnsignedChar:statusByte] intValue];
@@ -307,7 +310,7 @@ static nokeSDK *sharedNokeSDK;
             unsigned char majorVersion = broadcastData[3];
             unsigned char minorVersion = broadcastData[4];
             NSString* hardwareVersion = [[broadcastName substringFromIndex:4] substringToIndex:2];
-            
+            NSLog(@"DEBUG-CM-4");
             noke.versionString = [NSString stringWithFormat:@"%@-%d.%d", hardwareVersion, (int)majorVersion, (int)minorVersion];
             noke.version = 1;
         }
