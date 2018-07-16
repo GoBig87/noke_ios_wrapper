@@ -279,7 +279,7 @@ static nokeSDK *sharedNokeSDK;
             newMac = @"??:??:??:??:??:??";
         }
     }
-    NSLog(newMac);
+    NSLog("%@",newMac);
     nokeDevice *noke = [self nokeWithMac:newMac];
     if(noke != nil)
     {
