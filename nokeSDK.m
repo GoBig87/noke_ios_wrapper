@@ -198,7 +198,7 @@ static nokeSDK *sharedNokeSDK;
         NSLog(@"connectToNokeDevice-3");
         NSDictionary* connectOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool: YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey];
         NSLog(@"connectToNokeDevice-4");
-        [cm connectPeripheral:[noke peripheral] options:connectOptions];
+        [cm connectPeripheral:noke.peripheral options:connectOptions];
     }
     NSLog(@"connectToNokeDevice-5");
 }
@@ -207,7 +207,7 @@ static nokeSDK *sharedNokeSDK;
 {
     if (noke.peripheral)
     {
-        [cm cancelPeripheralConnection:[noke peripheral]];
+        [cm cancelPeripheralConnection:noke.peripheral];
     }
 }
 
