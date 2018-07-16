@@ -73,7 +73,6 @@ static nokeSDK *sharedNokeSDK;
     for(int i = 0; i<[_nokeDevices count]; i++)
     {
         nokeDevice* noke = [_nokeDevices objectAtIndex:i];
-        NSLog(noke.uuid);
         NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:noke.uuid];
         if(uuid != nil)
         {
