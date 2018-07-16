@@ -37,7 +37,7 @@ static NokeController *nokeController;
     NSString* NSname = [NSString stringWithUTF8String:name];
     NSLog(@"Debug-Noke-2");
     nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
-    noke.unlockMethod = NLUnlockMethodOneStep;
+    //noke.unlockMethod = NLUnlockMethodOneStep;
     noke.uuid = @"DF160001-30B1-49A5-8DC3-E9FDBDFEA489";
     //Hard coding this in nokeClient
     //[nokeClient setToken:'my token here'];
