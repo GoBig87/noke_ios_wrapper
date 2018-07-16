@@ -68,6 +68,7 @@ static nokeSDK *sharedNokeSDK;
 
 -(void) retrieveKnownPeripherals
 {
+    NSLog(@"ret-kp-0");
     NSMutableArray *uuidArray = [[NSMutableArray alloc] init];
     for(int i = 0; i<[_nokeDevices count]; i++)
     {
@@ -79,7 +80,7 @@ static nokeSDK *sharedNokeSDK;
             [uuidArray addObject:uuid];
         }
     }
-    
+    NSLog(@"ret-kp-0.1");
     NSArray *peripherals = [cm retrievePeripheralsWithIdentifiers:uuidArray];
     NSLog(@"ret-kp-1");
     //USED FOR ONE-STEP UNLOCKING FROM THE BACKGROUND
