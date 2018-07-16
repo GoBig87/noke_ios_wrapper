@@ -109,16 +109,16 @@
       <find>unlockmethod</find>
       <find>LockSViewController.h</find>
       <find>isBluetoothEnabled</find>
-      <find>isBluetoothEnabled</find>
-      <find>Invalid parameter not satisfying</find>
-      <find>self.delegate did</find>
+      <find />
+      <find />
+      <find />
       <find>didconn</find>
       <find>-2</find>
       <find>connectPeripheral</find>
       <find>CBConnectPeripheralOptionNotifyOnDisconnectionKey</find>
       <find>cm</find>
       <find>url</find>
-      <find>noke p</find>
+      <find />
       <find>delegate</find>
       <find>didDiscoverNokeDevice-2</find>
       <find>noke.</find>
