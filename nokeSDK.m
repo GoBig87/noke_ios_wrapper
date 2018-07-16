@@ -73,9 +73,12 @@ static nokeSDK *sharedNokeSDK;
     for(int i = 0; i<[_nokeDevices count]; i++)
     {
         nokeDevice* noke = [_nokeDevices objectAtIndex:i];
+        NSString *uuidstring = noke.uuid;
+        NSLog(uuidstring);
         NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:noke.uuid];
         if(uuid != nil)
         {
+            NSLog(@"ret-kp-0.0.1");
             [uuidArray addObject:uuid];
         }
     }
@@ -203,8 +206,7 @@ static nokeSDK *sharedNokeSDK;
         NSLog(@"connectToNokeDevice-3");
         NSDictionary* connectOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool: YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey];
         NSLog(@"connectToNokeDevice-4");
-        CBPeripheral *periph = [noke peripheral];
-        [cm connectPeripheral:periph options:connectOptions];
+        [cm connectPeripheral:[noke peripheral] options:connectOptions];
     }
     NSLog(@"connectToNokeDevice-5");
 }

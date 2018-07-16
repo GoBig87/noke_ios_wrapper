@@ -238,7 +238,7 @@
 
 - (unsigned char*)getBroadcastData
 {
-    return broadcastdata;
+    return getBroadcastData;
 }
 
 - (unsigned char*)getStatus
