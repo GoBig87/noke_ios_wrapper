@@ -72,6 +72,7 @@ static nokeSDK *sharedNokeSDK;
     for(int i = 0; i<[_nokeDevices count]; i++)
     {
         nokeDevice* noke = [_nokeDevices objectAtIndex:i];
+        NSLog(noke.uuid);
         NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:noke.uuid];
         if(uuid != nil)
         {
@@ -80,21 +81,25 @@ static nokeSDK *sharedNokeSDK;
     }
     
     NSArray *peripherals = [cm retrievePeripheralsWithIdentifiers:uuidArray];
-    
+    NSLog(@"ret-kp-1");
     //USED FOR ONE-STEP UNLOCKING FROM THE BACKGROUND
     for(CBPeripheral *periph in peripherals)
     {
+        NSLog(@"ret-kp-2");
         nokeDevice* noke = [self nokeWithUUID:periph.identifier.UUIDString];
         noke.peripheral = periph;
-        
+        NSLog(@"ret-kp-3");
         if(noke.unlockMethod == NLUnlockMethodOneStep)
         {
+            NSLog(@"ret-kp-4");
             if(noke.outOfRange)
             {
+                NSLog(@"ret-kp-5");
                 [self performSelector:@selector(delayConnect:) withObject:noke afterDelay:10.0];
             }
             else
             {
+                NSLog(@"ret-kp-6");
                 [self connectToNokeDevice:noke];
             }
         }
@@ -198,7 +203,7 @@ static nokeSDK *sharedNokeSDK;
         NSLog(@"connectToNokeDevice-3");
         NSDictionary* connectOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool: YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey];
         NSLog(@"connectToNokeDevice-4");
-        [cm connectPeripheral:noke.peripheral options:connectOptions];
+        [cm connectPeripheral:[noke peripheral] options:connectOptions];
     }
     NSLog(@"connectToNokeDevice-5");
 }
@@ -207,7 +212,7 @@ static nokeSDK *sharedNokeSDK;
 {
     if (noke.peripheral)
     {
-        [cm cancelPeripheralConnection:noke.peripheral];
+        [cm cancelPeripheralConnection:[noke peripheral]];
     }
 }
 
@@ -220,6 +225,7 @@ static nokeSDK *sharedNokeSDK;
         [_delegate isBluetoothEnabled:YES];
         [self retrieveKnownPeripherals];
         _bluetoothState = YES;
+        NSLog(@"Finished Bluetooth Enabled");
         //[self startScanForNokeDevices];
     }
     else
