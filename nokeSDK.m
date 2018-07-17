@@ -287,11 +287,13 @@ static nokeSDK *sharedNokeSDK;
     if(noke != nil)
     {
         NSLog(@"DEBUG-CM-1");
+        noke.isOwned = true;
         if(noke.isOwned)
         {
         noke.peripheral = peripheral;
         noke.delegate = sharedNokeSDK;
         noke.uuid = peripheral.identifier.UUIDString;
+        NSLog(@"%@",peripheral.identifier.UUIDString);
         [noke setBroadcastData:broadcastData];
 
         if(broadcastData != nil && broadcastData != NULL)
