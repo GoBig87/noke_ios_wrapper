@@ -1,5 +1,9 @@
 STUFF = "Hi"
 
+from userClient import connectToServer
+_host = '206.189.163.242'
+_port = 8080
+
 cdef extern from "NokeController.h":
     ctypedef void (*store_viewcontroller)(void *viewcontroller,void *util)
     ctypedef void (*callbackfunc)(const char *name, void *user_data)
@@ -19,6 +23,12 @@ cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))
 
 cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
-    rsp = (<object> util).sendNokeMessage((session.decode('utf-8')),(mac.decode('utf-8')))
-    if rsp:
-        return rsp.encode('utf-8')
+    msg = ast.literal_eval('{"function":"Noke_Unlock","session":"' + str(session.decode('utf-8')) + '","mac":"' + str(mac.decode('utf-8')) + '"}')
+    rsp = connectToServer(_host, _port, msg)
+    if rsp['result'] == "success":
+        commandStr = rsp['data']["commands"]
+        return commandStr.encode('utf-8')
+    else:
+        commandStr = "Access Denied"
+        print "Access Denied"
+        return commandStr.encode('utf-8')
