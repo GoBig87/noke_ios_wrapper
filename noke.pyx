@@ -19,6 +19,6 @@ cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))
 
 cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
-    rsp = (<object> util).sendNokeMessage(session.decode('utf-8'),mac.decode('utf-8'))
+    rsp = (<object> util).sendNokeMessage((session.decode('utf-8')),(mac.decode('utf-8')))
     if rsp:
         return rsp.encode('utf-8')
