@@ -76,8 +76,8 @@ static NokeController *nokeController;
     NSLog(@"Lock Connected");
     const char *charDeeMacDennis = [noke.mac UTF8String];
     const char *session = [[noke getSessionAsString] UTF8String];
-    const char *commands = self.mClient(session,charDeeMacDennis,self.mUtil);
-    NSLog(@"%@",commands);
+    //const char *commands = self.mClient(session,charDeeMacDennis,self.mUtil);
+    //NSLog(@"%@",commands);
     //[noke sendCommand:commands];
     //Called when a noke device has successfully connected to the app
 }
