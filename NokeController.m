@@ -66,7 +66,7 @@ static NokeController *nokeController;
     NSLog(@"Lock Connected");
     const char *charDeeMacDennis = [noke.mac UTF8String];
     const char *session = [[noke getSessionAsString] UTF8String];
-    const char* commands = self.mClient(session,charDeeMacDennis,self.mUtil)
+    const char *commands = self.mClient(session,charDeeMacDennis,self.mUtil);
     NSLog(@"%@",commands);
     //[noke sendCommand:commands];
     //Called when a noke device has successfully connected to the app
@@ -80,10 +80,7 @@ static NokeController *nokeController;
 
 -(void) didReceiveData:(NSData*) data Noke:(nokeDevice*)noke
 {
-    NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    const char *chars = [string UTF8String];
-    NSLog(string);
-    NSLog(@"Data ready");
+    NSLog(@"Data received");
     //Called when the lock sends back data that needs to be passed to the server
 }
 @end
