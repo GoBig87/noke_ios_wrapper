@@ -78,7 +78,7 @@ static NokeController *nokeController;
     //Called after a noke device has been disconnected
 }
 
--(void) didReceiveData:(NSData*)data
+-(void) didReceiveData:(NSData*) data Noke:(nokeDevice*)noke
 {
     NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     const char *chars = [string UTF8String];
