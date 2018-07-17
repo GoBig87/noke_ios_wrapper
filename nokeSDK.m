@@ -11,7 +11,6 @@
 
 @implementation nokeSDK
 {
-    _knownPeripherals = [NSMutableArray array];
     CBCentralManager *cm;
 }
 
@@ -291,7 +290,7 @@ static nokeSDK *sharedNokeSDK;
         noke.isOwned = true;
         if(noke.isOwned)
         {
-        [_knownPeripherals addObject:peripheral];
+        [self.nokeGroups addObject:peripheral];
         noke.peripheral = peripheral;
         noke.delegate = sharedNokeSDK;
         noke.uuid = peripheral.identifier.UUIDString;
