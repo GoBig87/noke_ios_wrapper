@@ -5,7 +5,7 @@
 
 typedef void (*store_viewcontroller) (void *viewcontroller,void *util);
 typedef void (*callbackfunc) (const char *name, void *callback);
-typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *reqTokenFunc);
+typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *util);
 
 @interface NokeController : NSObject <nokeSDKDelegate>
 {
