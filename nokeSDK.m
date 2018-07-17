@@ -244,6 +244,7 @@ static nokeSDK *sharedNokeSDK;
     unsigned char *broadcastData = (unsigned char*)[[advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey] bytes];
     //////////USE BROADCAST OR PERIPHERAL NAME/////////////
     NSString* broadcastName = [advertisementData objectForKey:CBAdvertisementDataLocalNameKey];
+    NSLog(@"%@",broadcastName);
     if(broadcastName == nil || broadcastName == NULL || [broadcastName length] != PERIPHERAL_NAME_LENGTH){
         broadcastName = peripheral.name;
         NSLog(@"DEBUG-CM-0");
@@ -266,6 +267,7 @@ static nokeSDK *sharedNokeSDK;
         }
         else if([broadcastName length] == PERIPHERAL_NAME_LENGTH && [broadcastName containsString:@"NOKE"])
         {
+            NSLog(@"DEBUG-CM-0.0.1");
             NSString* mac = [[broadcastName substringFromIndex:7] substringToIndex:12];
             NSMutableString *macWithColons = [NSMutableString stringWithString:mac];
             [macWithColons insertString:@":" atIndex:2];
