@@ -49,7 +49,7 @@ static NokeController *nokeController;
     if(enabled){
         NSString callbackStr = @"Bluetooth Enabled";
         const char *callbackChar = [callbackStr UTF8String];
-        self.mCallback(callbackChar,self.mUtil)
+        self.mCallback(callbackChar,self.mUtil);
         [[nokeSDK sharedInstance] startScanForNokeDevices];
         NSLog(@"Bluetooth enabled");
     }else{
@@ -63,7 +63,7 @@ static NokeController *nokeController;
     NSLog(@"Lock Discovered");
     NSString callbackStr = @"Lock Discovered";
     const char *callbackChar = [callbackStr UTF8String];
-    self.mCallback(callbackChar,self.mUtil)
+    self.mCallback(callbackChar,self.mUtil);
     [[nokeSDK sharedInstance] connectToNokeDevice:noke];
     //Is called when a noke device is discovered.
 }
@@ -72,7 +72,7 @@ static NokeController *nokeController;
 {
     NSString callbackStr = @"Lock Connected";
     const char *callbackChar = [callbackStr UTF8String];
-    self.mCallback(callbackChar,self.mUtil)
+    self.mCallback(callbackChar,self.mUtil);
     NSLog(@"Lock Connected");
     const char *charDeeMacDennis = [noke.mac UTF8String];
     const char *session = [[noke getSessionAsString] UTF8String];
