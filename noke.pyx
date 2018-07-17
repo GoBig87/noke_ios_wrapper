@@ -1,5 +1,5 @@
 STUFF = "Hi"
-
+import ast
 from userClient import connectToServer
 _host = '206.189.163.242'
 _port = 8080
@@ -23,7 +23,7 @@ cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))
 
 cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
-    msg = ast.literal_eval('{"function":"Noke_Unlock","session":"' + (session.decode('utf-8')) + '","mac":"' + (mac.decode('utf-8')) + '"}')
+    msg = ast.literal_eval('{"function":"Noke_Unlock","session":"' + str(session.decode('utf-8')) + '","mac":"' + str(mac.decode('utf-8')) + '"}')
     rsp = connectToServer(_host, _port, msg)
     if rsp['result'] == "success":
         commandStr = rsp['data']["commands"]
