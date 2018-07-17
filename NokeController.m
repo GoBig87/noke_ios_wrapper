@@ -30,22 +30,15 @@ static NokeController *nokeController;
     _callback = callback;
     _util = util;
     _client = client_func;
-    NSLog(@"Debug-Noke-0");
+
     [nokeSDK sharedInstance].delegate = self;
-    NSLog(@"Debug-Noke-1");
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
+    NSLog(@"%@",NSlockMacAddr);
     NSString* NSname = [NSString stringWithUTF8String:name];
-    NSLog(@"Debug-Noke-2");
+    NSLog(@"%@",NSlockMacAddr);
     nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
-    //noke.unlockMethod = NLUnlockMethodOneStep;
-    noke.uuid = @"DF160001-30B1-49A5-8DC3-E9FDBDFEA489";
-    //Hard coding this in nokeClient
-    //[nokeClient setToken:'my token here'];
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
-    //Start scanning
-    NSLog(@"Debug-Noke-3");
-    //Scanning must start after bluetooth is enabled!!
-    //[[nokeSDK sharedInstance] startScanForNokeDevices];
+
 }
 
 #pragma mark - nokeSDK
@@ -64,7 +57,7 @@ static NokeController *nokeController;
 -(void) didDiscoverNokeDevice:(nokeDevice*)noke RSSI:(NSNumber*)RSSI
 {
     NSLog(@"Lock Discovered");
-    [[nokeSDK sharedInstance] connectToNokeDevice:noke];
+    //[[nokeSDK sharedInstance] connectToNokeDevice:noke];
     //Is called when a noke device is discovered.
 }
 
