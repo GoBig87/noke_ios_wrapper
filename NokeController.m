@@ -47,7 +47,7 @@ static NokeController *nokeController;
     NSLog(@"Bluetooth loop hit.");
 
     if(enabled){
-        NSString callbackStr = @"Bluetooth Enabled";
+        NSString *callbackStr = @"Bluetooth Enabled";
         const char *callbackChar = [callbackStr UTF8String];
         self.mCallback(callbackChar,self.mUtil);
         [[nokeSDK sharedInstance] startScanForNokeDevices];
@@ -61,7 +61,7 @@ static NokeController *nokeController;
 -(void) didDiscoverNokeDevice:(nokeDevice*)noke RSSI:(NSNumber*)RSSI
 {
     NSLog(@"Lock Discovered");
-    NSString callbackStr = @"Lock Discovered";
+    NSString *callbackStr = @"Lock Discovered";
     const char *callbackChar = [callbackStr UTF8String];
     self.mCallback(callbackChar,self.mUtil);
     [[nokeSDK sharedInstance] connectToNokeDevice:noke];
@@ -70,7 +70,7 @@ static NokeController *nokeController;
 
 -(void) didConnect:(nokeDevice*) noke
 {
-    NSString callbackStr = @"Lock Connected";
+    NSString *callbackStr = @"Lock Connected";
     const char *callbackChar = [callbackStr UTF8String];
     self.mCallback(callbackChar,self.mUtil);
     NSLog(@"Lock Connected");
