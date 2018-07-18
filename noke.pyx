@@ -28,8 +28,10 @@ cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
     rsp = connectToServer(_host, _port, msg)
     if rsp['result'] == "success":
         commandStr = rsp['data']["commands"]
-        cdef bytes command_bytes = commandStr.encode('utf-8')
-        return commandStr
+    else:
+        commandStr = ''
+    cdef bytes command_bytes = commandStr.encode('utf-8')
+    return commandStr
     #rsp = (<object> util).sendNokeMessage((session.decode('utf-8')),(mac.decode('utf-8')))
     #if rsp:
     #    return rsp.encode('utf-8')
