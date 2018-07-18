@@ -45,7 +45,7 @@ static NokeController *nokeController;
 }
 
 -(void) submitTokenToBackend:(const char*)session mac:(const char*)mac compblock:(myCompletion)compblock{
-    const char rsp = self.mClient(session,mac,self.mUtil);
+    const char* rsp = self.mClient(session,mac,self.mUtil);
     NSString* NSrsp = [NSString stringWithUTF8String:rsp];
     compblock(NSrsp);
 }
