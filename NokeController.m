@@ -28,7 +28,7 @@ static NokeController *nokeController;
 }
 -(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func viewcontroller:(store_viewcontroller)viewcontroller util:(void*)util{
     _callback = callback;
-    _util = *util;
+    _util = util;
     _client = client_func;
 
     [nokeSDK sharedInstance].delegate = self;
