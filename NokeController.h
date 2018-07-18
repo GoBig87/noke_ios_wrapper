@@ -6,7 +6,7 @@
 typedef void (*store_viewcontroller) (void *viewcontroller,void *util);
 typedef void (*callbackfunc) (const char *name, void *callback);
 typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *util);
-typedef void(^myCompletion)(NSString);
+typedef void(^myCompletion)(NSString*);
 
 @interface NokeController : NSObject <nokeSDKDelegate>
 {
