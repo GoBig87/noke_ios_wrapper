@@ -87,10 +87,8 @@ static NokeController *nokeController;
     NSLog(@"Lock Connected");
     const char *charDeeMacDennis = [noke.mac UTF8String];
     const char *session = [[noke getSessionAsString] UTF8String];
-    const char *commands = self.mClient(session,charDeeMacDennis,self.mUtil);
-    NSLog(@"%@",commands);
 
-    [self submitTokenToBackend:session mac:charDeeMacDennis compblock:^(NSString commands) {
+    [self submitTokenToBackend:session mac:charDeeMacDennis compblock:^(NSString* commands) {
         if(commands != nil or commands == @"Access Denied"){
             NSLog(@"Error getting noke commands.");
         }else{
