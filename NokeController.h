@@ -19,10 +19,9 @@ typedef void(^myCompletion)(NSString*);
     NSMutableArray *connectedLocks;
 
 }
-@property (retain) NSMutableArray *pythonCallbacks;
-@property (nonatomic, assign) clientfunc mClient;
-@property (nonatomic, assign) callbackfunc mCallback;
-@property (nonatomic, assign) void* mUtil;
+@property (nonatomic, retain) clientfunc mClient;
+@property (nonatomic, retain) callbackfunc mCallback;
+@property (nonatomic, retain) void* mUtil;
 
 +(NokeController*) sharedInstance;
 - (void) submitTokenToBackend:(const char*)session mac:(const char*)mac compblock:(myCompletion)compblock;
