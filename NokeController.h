@@ -6,6 +6,7 @@
 typedef void (*store_viewcontroller) (void *viewcontroller,void *util);
 typedef void (*callbackfunc) (const char *name, void *callback);
 typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *util);
+typedef void(^myCompletion)(NSString);
 
 @interface NokeController : NSObject <nokeSDKDelegate>
 {
@@ -23,6 +24,7 @@ typedef const char* (*clientfunc) (const char *session, const char *macAddr, voi
 @property (nonatomic, assign) void* mUtil;
 
 +(NokeController*) sharedInstance;
+- (void) submitTokenToBackend:(const char*)session mac:(const char*)mac compblock:(myCompletion)compblock;
 - (void) isBluetoothEnabled:(bool) enabled;
 - (void) didDiscoverNokeDevice:(nokeDevice*) noke RSSI:(NSNumber *)RSSI;
 - (void) didConnect:(nokeDevice*) noke;

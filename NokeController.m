@@ -44,6 +44,12 @@ static NokeController *nokeController;
 
 }
 
+-(void) submitTokenToBackend:(const char*)session mac:(const char*)mac compblock:(myCompletion)compblock{
+    const char rsp = self.mClient(session,charDeeMacDennis,self.mUtil);
+    NSString* NSrsp = [NSString stringWithUTF8String:rsp];
+    compblock(NSrsp);
+}
+
 #pragma mark - nokeSDK
  -(void) isBluetoothEnabled:(bool)enabled
 {
@@ -83,6 +89,15 @@ static NokeController *nokeController;
     const char *session = [[noke getSessionAsString] UTF8String];
     const char *commands = self.mClient(session,charDeeMacDennis,self.mUtil);
     NSLog(@"%@",commands);
+
+    [self submitTokenToBackend:session mac:charDeeMacDennis compblock:^(NSString commands) {
+        if(commands != nil or commands == @"Access Denied"){
+            NSLog(@"Error getting noke commands.");
+        }else{
+            [noke addDataToArray:[commands dataUsingEncoding:NSUTF8StringEncoding]];
+            [noke writeDataArray];
+        }
+    }];
     //[noke sendCommand:commands];
     //Called when a noke device has successfully connected to the app
 }
