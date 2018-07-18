@@ -20,10 +20,10 @@ typedef const char* (*clientfunc) (const char *session, const char *macAddr, voi
 }
 @property (nonatomic, assign) clientfunc mClient;
 @property (nonatomic, assign) callbackfunc mCallback;
-@property (nonatomic, assign) void* mUtil;
+@property void* mUtil;
 
 +(NokeController*) sharedInstance;
-- (void) isBluetoothEnabled:(bool) enabled;
+- (void) isBluetoothEnabled:(bool) enabled;mUtil
 - (void) didDiscoverNokeDevice:(nokeDevice*) noke RSSI:(NSNumber *)RSSI;
 - (void) didConnect:(nokeDevice*) noke;
 - (void) didDisconnect:(nokeDevice*) noke;
