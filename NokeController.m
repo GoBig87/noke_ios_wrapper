@@ -89,11 +89,14 @@ static NokeController *nokeController;
     const char *session = [[noke getSessionAsString] UTF8String];
 
     [self submitTokenToBackend:session mac:charDeeMacDennis compblock:^(NSString* commands) {
-        if(commands != nil or commands == @"Access Denied"){
-            NSLog(@"Error getting noke commands.");
-        }else{
+        if(commands != nil){
+            NSLog(@"Noke Token Req:No response from server.");
+        }
+        if(![commands isEqualToString:@"Access Denied"]){
             [noke addDataToArray:[commands dataUsingEncoding:NSUTF8StringEncoding]];
             [noke writeDataArray];
+        }else{
+            NSLog(@"Error getting noke commands.  Access Denied");
         }
     }];
     //[noke sendCommand:commands];
