@@ -24,8 +24,9 @@ cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
     printf("%s\n", mac)
     sessionStr = (session.decode('utf-8'))
     macStr     = (mac.decode('utf-8'))
-    print (<object> util)
-    rsp = (<object> util).sendNokeMessage(sessionStr,macStr)
+    print (<object> util).NokeCallback
+    print util
+    rsp = util.sendNokeMessage(sessionStr,macStr)
     cdef bytes rsp_bytes = rsp.encode('utf-8')
     printf("%s\n", rsp_bytes)
     return rsp_bytes
