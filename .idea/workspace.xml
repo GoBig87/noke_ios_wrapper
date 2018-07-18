@@ -104,7 +104,7 @@
       <find>connect</find>
       <find>connectToNokeDevice</find>
       <find>retrieveKnownPeripherals</find>
-      <find>delegate = self</find>
+      <find />
       <find>uuid</find>
       <find>&quot;Noke&quot;</find>
       <find>didConnect</find>
