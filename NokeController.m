@@ -36,11 +36,11 @@ static NokeController *nokeController;
     NSLog(@"%@",NSlockMacAddr);
     NSString* NSname = [NSString stringWithUTF8String:name];
     NSLog(@"%@",NSname);
-    [NSlockMacAddr UTF8String];
-    [NSname UTF8String];
-    client_func(NSname,NSlockMacAddr,util);
-    self.mClient_func(NSname,NSlockMacAddr,util);
-    client_func(NSname,NSlockMacAddr,self.mUtil);
+    const char* charMac = [NSlockMacAddr UTF8String];
+    const char* charName = [NSname UTF8String];
+    client_func(charName,charMac,util);
+    self.mClient_func(charName,charMac,util);
+    client_func(charName,charMac,self.mUtil);
     nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
 
