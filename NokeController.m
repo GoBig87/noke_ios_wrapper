@@ -36,9 +36,6 @@ static NokeController *nokeController;
     NSLog(@"%@",NSlockMacAddr);
     NSString* NSname = [NSString stringWithUTF8String:name];
     NSLog(@"%@",NSname);
-    const char* charMac = [NSlockMacAddr UTF8String];
-    const char* charName = [NSname UTF8String];
-    self.mClient(charMac,charName,self.mUtil);
     nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
 
@@ -61,7 +58,6 @@ static NokeController *nokeController;
         self.mCallback(callbackChar,self.mUtil);
         [[nokeSDK sharedInstance] startScanForNokeDevices];
         NSLog(@"Bluetooth enabled");
-        self.mClient(callbackChar,callbackChar,self.mUtil);
     }else{
         NSLog(@"Bluetooth disabled");
     }
@@ -74,7 +70,6 @@ static NokeController *nokeController;
     NSString *callbackStr = @"Lock Discovered";
     const char *callbackChar = [callbackStr UTF8String];
     self.mCallback(callbackChar,self.mUtil);
-    self.mClient(callbackChar,callbackChar,self.mUtil);
     [[nokeSDK sharedInstance] connectToNokeDevice:noke];
     //Is called when a noke device is discovered.
 }
