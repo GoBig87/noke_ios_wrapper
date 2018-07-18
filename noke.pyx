@@ -1,8 +1,5 @@
 STUFF = "Hi"
-import ast
-from userClient import connectToServer
-_host = '206.189.163.242'
-_port = 8080
+from libc.stdio cimport printf
 
 cdef extern from "NokeController.h":
     ctypedef void (*store_viewcontroller)(void *viewcontroller,void *util)
@@ -23,16 +20,15 @@ cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))
 
 cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
-    from libc.stdio cimport printf
-    printf("%f\n", session)
-    printf("%f\n", mac)
+    printf("%s\n", session)
+    printf("%s\n", mac)
     sessionStr = (session.decode('utf-8'))
     macStr     = (mac.decode('utf-8'))
-    printf("%f\n", sessionStr)
-    printf("%f\n", macStr)
+    printf("%s\n", sessionStr)
+    printf("%s\n", macStr)
     rsp = (<object> util).sendNokeMessage(sessionStr,macStr)
-    printf("%f\n", rsp)
-    printf("%f\n",util)
+    printf("%s\n", rsp)
+    printf("%s\n",util)
     cdef bytes rsp_bytes = rsp.encode('utf-8')
     return rsp_bytes
     #rsp = (<object> util).sendNokeMessage((session.decode('utf-8')),(mac.decode('utf-8')))
