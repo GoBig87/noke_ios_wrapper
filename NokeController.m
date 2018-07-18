@@ -23,6 +23,7 @@ static NokeController *nokeController;
     if(nokeController == nil)
     {
         nokeController = [[NokeController alloc] init];
+        self.pythonCallbacks = [[NSMutableArray alloc] init];
     }
     return nokeController;
 }
@@ -30,6 +31,11 @@ static NokeController *nokeController;
     _callback = callback;
     _util = util;
     _client = client_func;
+
+    //Make strong refrence
+    [self.pythonCallbacks addObject:self.mCallback];
+    [self.pythonCallbacks addObject:self.mUtil];
+    [self.pythonCallbacks addObject:self.mClient];
 
     [nokeSDK sharedInstance].delegate = self;
     NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];

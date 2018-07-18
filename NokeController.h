@@ -19,6 +19,7 @@ typedef void(^myCompletion)(NSString*);
     NSMutableArray *connectedLocks;
 
 }
+@property (retain) NSMutableArray *pythonCallbacks;
 @property (nonatomic, assign) clientfunc mClient;
 @property (nonatomic, assign) callbackfunc mCallback;
 @property (nonatomic, assign) void* mUtil;
