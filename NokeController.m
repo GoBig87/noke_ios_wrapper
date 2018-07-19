@@ -31,7 +31,7 @@ static NokeController *nokeController;
     _util = CFBridgingRelease(util);
     _client = client_func;
 
-    NSLog(@"%@", self.mUtil);
+    NSLog(@"DEBUG-NC-1");
 //    //Make strong refrence
 //    [self.pythonCallbacks addObject:self.mCallback];
 //    [self.pythonCallbacks addObject:self.mClient];
@@ -43,6 +43,7 @@ static NokeController *nokeController;
     NSLog(@"%@",NSname);
     nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
+    NSLog(@"DEBUG-NC-2");
 
 }
 
