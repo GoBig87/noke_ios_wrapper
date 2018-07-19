@@ -15,5 +15,6 @@ typedef void(^myCompletion)(NSString*);
 @property (nonatomic, assign) void* mUtil;
 
 +(NokeCallback*) sharedInstance;
+-(void) setCallBacks:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util;
 +(NSString*) sendTokenToMyServer:(NSString*)session mac:(NSString*)mac;
 @end
