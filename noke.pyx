@@ -29,7 +29,7 @@ cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
     # rsp = (<object> util).sendNokeMessage(sessionStr,macStr)
     # cdef bytes rsp_bytes = rsp.encode('utf-8')
     # printf("%s\n", rsp_bytes)
-    return rsp.encode('utf-8')
+    #return rsp.encode('utf-8')
     #rsp = (<object> util).sendNokeMessage((session.decode('utf-8')),(mac.decode('utf-8')))
     #if rsp:
     #    return rsp.encode('utf-8')
