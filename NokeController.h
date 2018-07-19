@@ -20,7 +20,6 @@ typedef void(^myCompletion)(NSString*);
 
 }
 
-@property (retain) NSArray *pythonCallbacks;
 @property (nonatomic, assign) clientfunc mClient;
 @property (nonatomic, assign) callbackfunc mCallback;
 @property (nonatomic, retain) NSObject* mUtil;
