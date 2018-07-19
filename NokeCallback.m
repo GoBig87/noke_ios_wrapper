@@ -26,6 +26,11 @@ static NokeCallback *nokeCallback;
     _client = client_func;
 
 }
+- (void) sendCallBack:(NSString)message
+{
+    const char* messageChar = [message UTF8String];
+    self.mCallback(messageChar,self.mUtil)
+}
 - (NSString*) sendTokenToMyServer:(NSString*)session mac:(NSString*)mac{
     const char *charDeeMacDennis = [mac UTF8String];
     const char *sessionChar = [session UTF8String];
