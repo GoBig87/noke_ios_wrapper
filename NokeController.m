@@ -49,6 +49,10 @@ static NokeController *nokeController;
     nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
     NSLog(@"DEBUG-NC-2");
+    NSString *callbackStr = @"Bluetooth Enabled";
+    const char *callbackChar = [callbackStr UTF8String];
+    void* myUtilPointer = [self.mUtilSendMessage pointerValue];
+    self.mClient(callbackChar,callbackChar,myUtilPointer);
 
 }
 
