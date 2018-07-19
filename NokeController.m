@@ -31,8 +31,6 @@ static NokeController *nokeController;
 //    _util = util;
 //    _client = client_func;
 
-    [[NokeCallback sharedInstance] setCallBacks:callback client_func:client_func util:util];
-
     NSLog(@"DEBUG-NC-1");
 //    //Make strong refrence
 //    [self.pythonCallbacks addObject:self.mCallback];
@@ -127,5 +125,6 @@ static NokeController *nokeController;
 @end
 
 void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func,store_viewcontroller viewcontroller, void *util, void *utilSendMessage){
+    [[NokeCallback sharedInstance] setCallBacks:callback client_func:client_func util:util];
     [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func viewcontroller:viewcontroller util:util utilSendMessage:utilSendMessage];
 }
