@@ -158,7 +158,6 @@ static NokeCallback *nokeCallback;
     _util = util;
     _client = client_func;
 
-    return self;
 }
 + (NSString*) sendTokenToServer:(NSString*)session mac:(NSString*)mac{
     const char *charDeeMacDennis = [mac UTF8String];
