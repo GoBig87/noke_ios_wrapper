@@ -11,6 +11,7 @@ cdef extern from "NokeController.h":
 def requestUnlock(util,name,mac):
     cdef bytes name_bytes = name.encode('utf-8')
     cdef bytes mac_bytes  = mac.encode('utf-8')
+    Py_INCREF(util)
     StartUnlock(name_bytes,mac_bytes, callback, reqTokenFunc, storeviewcontroller, <void*>util, <void*>util.sendNokeMessage)
 
 cdef void storeviewcontroller(void *viewcontroller,void *util):
