@@ -26,7 +26,7 @@ typedef void(^myCompletion)(NSString*);
 @property (nonatomic, retain) NSValue* mUtilSendMessage;
 
 +(NokeController*) sharedInstance;
-- (void) submitTokenToBackend:(const char*)session mac:(const char*)mac compblock:(myCompletion)compblock;
+- (void) submitTokenToBackend:(NSString*)session mac:(NSString*)mac compblock:(myCompletion)compblock;
 - (void) isBluetoothEnabled:(bool) enabled;
 - (void) didDiscoverNokeDevice:(nokeDevice*) noke RSSI:(NSNumber *)RSSI;
 - (void) didConnect:(nokeDevice*) noke;

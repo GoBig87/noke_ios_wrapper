@@ -33,7 +33,7 @@ static NokeController *nokeController;
     _utilSendMessage = [NSValue valueWithPointer:utilSendMessage];
     _client = client_func;
 
-    [[NokeCallback sharedInstance] initWithCallBacks:callback client_func:client_func];
+    [[NokeCallback sharedInstance] initWithCallBacks:callback client_func:client_func util:util];
 
     self.mStrongObjectArray = [[NSMutableArray alloc] init];
     [self.mStrongObjectArray addObject:self.mUtil];
@@ -60,9 +60,9 @@ static NokeController *nokeController;
 
 -(void) submitTokenToBackend:(NSString*)session mac:(NSString*)mac compblock:(myCompletion)compblock{
 
-    NSString rsp = [[NokeCallback sharedInstance] sendTokenToServer:session mac:mac];
+    NSString *rsp = [[NokeCallback sharedInstance] sendTokenToServer:session mac:mac];
     NSLog(@"Got server rsp");
-    NSLog(@"%@",rsp)
+    NSLog(@"%@",rsp);
     compblock(rsp);
 }
 
@@ -105,7 +105,7 @@ static NokeController *nokeController;
     NSString *mac = noke.mac;
     NSString *session = [noke getSessionAsString];
 
-    [self submitTokenToBackend:[noke getSessionAsString] mac:mac compblock:^(NSString* commands) {
+    [self submitTokenToBackend:session mac:mac compblock:^(NSString* commands) {
         if(commands != nil){
             NSLog(@"Noke Token Req:No response from server.");
         }
