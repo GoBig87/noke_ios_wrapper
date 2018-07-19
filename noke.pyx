@@ -23,7 +23,7 @@ cdef void callback(const char *name, void *util):
 
 cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
     fprint("pointer to util: %p\n", util);
-    fprint("util refcount: %zu\n", ((PyObject*(util))->ob_refcnt));
+    fprint("util refcount: %zu\n", (((PyObject*)(util))->ob_refcnt));
     sessionStr = (session.decode('utf-8'))
     macStr     = (mac.decode('utf-8'))
     rsp = (<object>util).sendNokeMessage(sessionStr,macStr)
