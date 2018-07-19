@@ -1,6 +1,5 @@
 STUFF = "Hi"
 from libc.stdio cimport printf
-from libc.stdio cimport fprint
 from cpython.ref cimport Py_INCREF
 
 cdef extern from "NokeController.h":
@@ -25,7 +24,7 @@ cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
     sessionStr = (session.decode('utf-8'))
     macStr     = (mac.decode('utf-8'))
     rsp = (<object>util).sendNokeMessage(sessionStr,macStr)
-    fprint("pointer to util: %p\n", (<object>util));
+    printf("pointer to util: %p\n", (<object>util));
     printf("%s\n", session)
     return session
     #rsp = (<object> util).NokeCallback
