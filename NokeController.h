@@ -23,6 +23,7 @@ typedef void(^myCompletion)(NSString*);
 @property (nonatomic, assign) clientfunc mClient;
 @property (nonatomic, assign) callbackfunc mCallback;
 @property (nonatomic, retain) NSValue* mUtil;
+@property (nonatomic, retain) NSValue* mUtilSendMessage;
 
 +(NokeController*) sharedInstance;
 - (void) submitTokenToBackend:(const char*)session mac:(const char*)mac compblock:(myCompletion)compblock;
@@ -34,4 +35,4 @@ typedef void(^myCompletion)(NSString*);
 
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, store_viewcontroller viewcontroller, void *util);
+void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, store_viewcontroller viewcontroller, void *util, void *utilSendMessage);

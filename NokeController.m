@@ -13,6 +13,7 @@
 @synthesize mStrongObjectArray = _mStrongObjectArray;
 @synthesize mCallback = _callback;
 @synthesize mUtil = _util;
+@synthesize mUtilSendMessage = _utilSendMessage;
 @synthesize mClient = _client;
 
 
@@ -26,14 +27,15 @@ static NokeController *nokeController;
     }
     return nokeController;
 }
--(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func viewcontroller:(store_viewcontroller)viewcontroller util:(void*)util{
+-(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func viewcontroller:(store_viewcontroller)viewcontroller util:(void*)util utilSendMessage:(void*)utilSendMessage{
     _callback = callback;
     _util = [NSValue valueWithPointer:util];
+    _utilSendMessage = [NSValue valueWithPointer:utilSendMessage];
     _client = client_func;
 
     self.mStrongObjectArray = [[NSMutableArray alloc] init];
     [self.mStrongObjectArray addObject:self.mUtil];
-
+    [self.mStrongObjectArray addObject:self.mUtilSendMessage];
     NSLog(@"DEBUG-NC-1");
 //    //Make strong refrence
 //    [self.pythonCallbacks addObject:self.mCallback];
@@ -51,7 +53,7 @@ static NokeController *nokeController;
 }
 
 -(void) submitTokenToBackend:(const char*)session mac:(const char*)mac compblock:(myCompletion)compblock{
-    void* myUtilPointer = [self.mUtil pointerValue];
+    void* myUtilPointer = [self.mUtilSendMessage pointerValue];
     self.mClient(session,mac,myUtilPointer);
     NSString* NSrsp = @"ACCESS DENIED";//[NSString stringWithUTF8String:rsp];
     compblock(NSrsp);
@@ -124,6 +126,6 @@ static NokeController *nokeController;
 }
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func,store_viewcontroller viewcontroller, void *util){
-    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func viewcontroller:viewcontroller util:util];
+void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func,store_viewcontroller viewcontroller, void *util, void *utilSendMessage){
+    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func viewcontroller:viewcontroller util:util utilSendMessage:utilSendMessage];
 }
