@@ -26,7 +26,7 @@ static NokeCallback *nokeCallback;
     _client = client_func;
 
 }
-- (void) sendCallBack:(NSString)message
+- (void) sendCallBack:(NSString*)message
 {
     const char* messageChar = [message UTF8String];
     self.mCallback(messageChar,self.mUtil)
