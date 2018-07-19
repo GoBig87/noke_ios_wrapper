@@ -34,20 +34,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NokeController.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NokeController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NokeController.m">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
-              <caret line="164" column="33" selection-start-line="164" selection-start-column="33" selection-end-line="164" selection-end-column="33" />
+              <caret line="163" column="78" selection-start-line="163" selection-start-column="78" selection-end-line="163" selection-end-column="78" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NokeController.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NokeController.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NokeController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="30" column="49" lean-forward="true" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+            <state relative-caret-position="241">
+              <caret line="25" column="58" lean-forward="true" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -127,8 +127,8 @@
       <find>[self</find>
       <find>sharedInstance</find>
       <find>nClient</find>
-      <find>self.</find>
       <find>bluetoothState</find>
+      <find>self.</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -165,7 +165,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="823" />
@@ -364,13 +364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NokeController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="30" column="49" lean-forward="true" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nokeSDK.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -381,7 +374,14 @@
     <entry file="file://$PROJECT_DIR$/NokeController.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
-          <caret line="164" column="33" selection-start-line="164" selection-start-column="33" selection-end-line="164" selection-end-column="33" />
+          <caret line="163" column="78" selection-start-line="163" selection-start-column="78" selection-end-line="163" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NokeController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="25" column="58" lean-forward="true" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
         </state>
       </provider>
     </entry>

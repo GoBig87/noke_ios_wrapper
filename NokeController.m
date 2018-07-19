@@ -161,7 +161,7 @@ static NokeCallback *nokeCallback;
 + (NSString*) sendTokenToServer:(NSString*)session mac:(NSString*)mac{
     const char *charDeeMacDennis = [mac UTF8String];
     const char *sessionChar = [session UTF8String];
-    const char *rspChar = _client(sessionChar,charDeeMacDennis,_util);
+    const char *rspChar = self.nClient(sessionChar,charDeeMacDennis,self.nUtil);
     NSString* rsp = [NSString stringWithUTF8String:rspChar];
     return rsp;
 }
