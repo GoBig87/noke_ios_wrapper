@@ -30,7 +30,7 @@ static NokeController *nokeController;
     _callback = callback;
     _util = [NSValue valueWithPointer:util];
     _client = client_func;
-    
+
     self.mStrongObjectArray = [[NSMutableArray alloc] init];
     [self.mStrongObjectArray addObject:self.mUtil];
 
