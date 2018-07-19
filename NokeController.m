@@ -133,6 +133,10 @@ static NokeController *nokeController;
 }
 @end
 
+@interface NokeCallback ()
+
+@end
+
 @implementation NokeCallback
 
 static NokeCallback *nokeCallback;
