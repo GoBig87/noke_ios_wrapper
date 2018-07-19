@@ -11,6 +11,7 @@
     NSString* latitude;
 }
 
+@synthesize strongRefArray = _strongRefArray;
 
 static NokeController *nokeController;
 
@@ -25,7 +26,8 @@ static NokeController *nokeController;
 -(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func viewcontroller:(store_viewcontroller)viewcontroller util:(void*)util utilSendMessage:(void*)utilSendMessage{
 
     [[NokeCallback sharedInstance] setCallBacks:callback client_func:client_func util:util];
-
+    self.strongRefArray = [[NSMutableArray alloc] init];
+    [self.strongRefArray addObject:[NokeCallback sharedInstance]];
     NSLog(@"DEBUG-NC-1");
 
     [nokeSDK sharedInstance].delegate = self;
