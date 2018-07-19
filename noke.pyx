@@ -1,6 +1,7 @@
 STUFF = "Hi"
 from libc.stdio cimport printf
 from cpython.ref cimport Py_INCREF
+from cpython.ref cimport Py_REFCNT
 
 cdef extern from "NokeController.h":
     ctypedef void (*store_viewcontroller)(void *viewcontroller,void *util)
@@ -21,6 +22,8 @@ cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))
 
 cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
+    fprint("pointer to util: %p\n", <object>util);
+    fprint("util refcount: %zu\n", Py_REFCNT(<object>util));
     sessionStr = (session.decode('utf-8'))
     macStr     = (mac.decode('utf-8'))
     rsp = (<object>util).sendNokeMessage(sessionStr,macStr)
