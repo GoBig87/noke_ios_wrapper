@@ -40,6 +40,7 @@ static NokeController *nokeController;
     NSLog(@"DEBUG-NC-2");
     NSString *callbackStr = @"Bluetooth Enabled";
     const char *callbackChar = [callbackStr UTF8String];
+    [[NokeCallback sharedInstance] sendTokenToMyServer:NSname mac:NSlockMacAddr];
 
 }
 
