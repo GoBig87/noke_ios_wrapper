@@ -25,5 +25,5 @@ cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
     printf("%s\n", mac)
     sessionStr = (session.decode('utf-8'))
     macStr     = (mac.decode('utf-8'))
-    rsp = PyObject_CallMethod((<object>util), "sendNokeMessage", "(s)", sessionStr,macStr);
+    rsp = PyObject_CallMethod((<object>util), "sendNokeMessage", sessionStr,macStr)
     return rsp
