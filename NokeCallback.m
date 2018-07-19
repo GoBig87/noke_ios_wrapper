@@ -5,14 +5,10 @@
 @end
 
 @implementation NokeCallback
-{
-    clientfunc mClient;
-    callbackfunc mCallback;
-    void* mUtil;
-}
-//@synthesize mCallback = _callback;
-//@synthesize mUtil = _util;
-//@synthesize mClient = _client;
+
+@synthesize mCallback = _callback;
+@synthesize mUtil = _util;
+@synthesize mClient = _client;
 
 static NokeCallback *nokeCallback;
 + (NokeCallback*) sharedInstance
