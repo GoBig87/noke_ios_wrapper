@@ -139,13 +139,11 @@ static NokeController *nokeController;
 
 @implementation NokeCallback
 
-static NokeCallback *nokeCallback;
-
 @synthesize nCallback = _callback;
 @synthesize nUtil = _util;
 @synthesize nClient = _client;
 
-
+static NokeCallback *nokeCallback;
 + (NokeCallback*) sharedInstance
 {
     if(nokeCallback == nil)
