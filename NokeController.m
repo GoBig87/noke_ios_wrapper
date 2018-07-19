@@ -66,10 +66,10 @@ static NokeController *nokeController;
 
     if(enabled){
         NSString *callbackStr = @"Bluetooth Enabled";
-        const char *callbackChar = [callbackStr UTF8String];
-        void* myUtilPointer = [self.mUtil pointerValue];
+//        const char *callbackChar = [callbackStr UTF8String];
+//        void* myUtilPointer = [self.mUtil pointerValue];
 //        self.mCallback(callbackChar,myUtilPointer);
-//        [[nokeSDK sharedInstance] startScanForNokeDevices];
+        [[nokeSDK sharedInstance] startScanForNokeDevices];
         NSLog(@"Bluetooth enabled");
     }else{
         NSLog(@"Bluetooth disabled");
@@ -82,9 +82,9 @@ static NokeController *nokeController;
     NSLog(@"Lock Discovered");
     NSString *callbackStr = @"Lock Discovered";
     const char *callbackChar = [callbackStr UTF8String];
-    void* myUtilPointer = [self.mUtil pointerValue];
+//    void* myUtilPointer = [self.mUtil pointerValue];
 //    self.mCallback(callbackChar,myUtilPointer);
-//    [[nokeSDK sharedInstance] connectToNokeDevice:noke];
+    [[nokeSDK sharedInstance] connectToNokeDevice:noke];
     //Is called when a noke device is discovered.
 }
 
