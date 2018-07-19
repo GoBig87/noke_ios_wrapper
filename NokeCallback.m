@@ -21,9 +21,9 @@ static NokeCallback *nokeCallback;
 }
 - (void) setCallBacks:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util
 {
-    _Callback = callback;
-    _Util = util;
-    _Client = client_func;
+    _callback = callback;
+    _util = util;
+    _client = client_func;
 
 }
 - (NSString*) sendTokenToMyServer:(NSString*)session mac:(NSString*)mac{
