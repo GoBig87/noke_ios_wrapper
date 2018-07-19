@@ -1,6 +1,6 @@
 STUFF = "Hi"
 from libc.stdio cimport printf
-import time
+from cpython.ref cimport Py_INCREF
 
 cdef extern from "NokeController.h":
     ctypedef void (*store_viewcontroller)(void *viewcontroller,void *util)
