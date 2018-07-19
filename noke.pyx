@@ -21,6 +21,8 @@ cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))
 
 cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
+    printf("%s\n", session)
+    printf("%s\n", mac)
     sessionStr = (session.decode('utf-8'))
     macStr     = (mac.decode('utf-8'))
     pyObj = (<object>util)

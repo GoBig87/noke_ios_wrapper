@@ -83,18 +83,19 @@ static NokeController *nokeController;
     NSLog(@"Lock Connected");
     NSString *mac = noke.mac;
     NSString *session = [noke getSessionAsString];
+    [[NokeCallback sharedInstance] sendTokenToMyServer:session mac:mac];
 
-    [self submitTokenToBackend:session mac:mac compblock:^(NSString* commands) {
-        if(commands != nil){
-            NSLog(@"Noke Token Req:No response from server.");
-        }
-        if(![commands isEqualToString:@"Access Denied"]){
-            [noke addDataToArray:[commands dataUsingEncoding:NSUTF8StringEncoding]];
-            [noke writeDataArray];
-        }else{
-            NSLog(@"Error getting noke commands.  Access Denied");
-        }
-    }];
+//    [self submitTokenToBackend:session mac:mac compblock:^(NSString* commands) {
+//        if(commands != nil){
+//            NSLog(@"Noke Token Req:No response from server.");
+//        }
+//        if(![commands isEqualToString:@"Access Denied"]){
+//            [noke addDataToArray:[commands dataUsingEncoding:NSUTF8StringEncoding]];
+//            [noke writeDataArray];
+//        }else{
+//            NSLog(@"Error getting noke commands.  Access Denied");
+//        }
+//    }];
     //[noke sendCommand:commands];
     //Called when a noke device has successfully connected to the app
 }
