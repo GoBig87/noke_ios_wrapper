@@ -23,7 +23,7 @@ typedef void(^myCompletion)(NSString*);
 @property (retain) NSArray *pythonCallbacks;
 @property (nonatomic, assign) clientfunc mClient;
 @property (nonatomic, assign) callbackfunc mCallback;
-@property (nonatomic, assign) void* mUtil;
+@property (nonatomic, retain) NSObject* mUtil;
 
 +(NokeController*) sharedInstance;
 - (void) submitTokenToBackend:(const char*)session mac:(const char*)mac compblock:(myCompletion)compblock;
