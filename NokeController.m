@@ -33,6 +33,8 @@ static NokeController *nokeController;
     _utilSendMessage = [NSValue valueWithPointer:utilSendMessage];
     _client = client_func;
 
+    [[NokeCallback sharedInstance] initWithCallBacks:callback client_func:client_func];
+
     self.mStrongObjectArray = [[NSMutableArray alloc] init];
     [self.mStrongObjectArray addObject:self.mUtil];
     [self.mStrongObjectArray addObject:self.mUtilSendMessage];
@@ -56,11 +58,12 @@ static NokeController *nokeController;
 
 }
 
--(void) submitTokenToBackend:(const char*)session mac:(const char*)mac compblock:(myCompletion)compblock{
-    void* myUtilPointer = [self.mUtilSendMessage pointerValue];
-    self.mClient(session,mac,myUtilPointer);
-    NSString* NSrsp = @"ACCESS DENIED";//[NSString stringWithUTF8String:rsp];
-    compblock(NSrsp);
+-(void) submitTokenToBackend:(NSString*)session mac:(NSString*)mac compblock:(myCompletion)compblock{
+
+    NSString rsp = [[NokeCallback sharedInstance] sendTokenToServer:session mac:mac];
+    NSLog(@"Got server rsp");
+    NSLog(@"%@",rsp)
+    compblock(rsp);
 }
 
 #pragma mark - nokeSDK
@@ -99,10 +102,10 @@ static NokeController *nokeController;
     void* myUtilPointer = [self.mUtil pointerValue];
     self.mCallback(callbackChar,myUtilPointer);
     NSLog(@"Lock Connected");
-    const char *charDeeMacDennis = [noke.mac UTF8String];
-    const char *session = [[noke getSessionAsString] UTF8String];
+    NSString *mac = noke.mac;
+    NSString *session = [noke getSessionAsString];
 
-    [self submitTokenToBackend:session mac:charDeeMacDennis compblock:^(NSString* commands) {
+    [self submitTokenToBackend:[noke getSessionAsString] mac:mac compblock:^(NSString* commands) {
         if(commands != nil){
             NSLog(@"Noke Token Req:No response from server.");
         }
@@ -130,6 +133,39 @@ static NokeController *nokeController;
 }
 @end
 
+@implementation NokeCallback
+
+static NokeCallback *nokeCallback;
+
+@synthesize mCallback = _callback;
+@synthesize mUtil = _util;
+@synthesize mClient = _client;
+
++ (NokeCallback*) sharedInstance
+{
+    if(nokeCallback == nil)
+    {
+        nokeCallback = [[NokeCallback alloc] init];
+    }
+    return nokeCallback;
+}
+- (nokeCallback *) initWithCallBacks:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util
+{
+    _callback = callback;
+    _util = util;
+    _client = client_func;
+
+    return self;
+}
++ (NSString*) sendTokenToServer:(NSString*)session mac:(NSString*)mac{
+    const char *charDeeMacDennis = [mac UTF8String];
+    const char *session = [[noke session] UTF8String];
+    const char *rspChar = self.mClient(session,charDeeMacDennis,self.mUtil);
+    NSString* rsp = [NSString stringWithUTF8String:rspChar];
+    return rsp;
+}
+
+@end
 void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func,store_viewcontroller viewcontroller, void *util, void *utilSendMessage){
     [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func viewcontroller:viewcontroller util:util utilSendMessage:utilSendMessage];
 }

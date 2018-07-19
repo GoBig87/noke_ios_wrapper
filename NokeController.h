@@ -5,7 +5,7 @@
 
 typedef void (*store_viewcontroller) (void *viewcontroller,void *util);
 typedef void (*callbackfunc) (const char *name, void *callback);
-typedef void (*clientfunc) (const char *session, const char *macAddr, void *util);
+typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *util);
 typedef void(^myCompletion)(NSString*);
 
 @interface NokeController : NSObject <nokeSDKDelegate>
@@ -32,6 +32,17 @@ typedef void(^myCompletion)(NSString*);
 - (void) didConnect:(nokeDevice*) noke;
 - (void) didDisconnect:(nokeDevice*) noke;
 - (void) didReceiveData:(NSData*) data Noke:(nokeDevice*)noke;
+
+@end
+
+@interface NokeCallback
+
+@property (nonatomic, assign) clientfunc mClient;
+@property (nonatomic, assign) callbackfunc mCallback;
+@property (nonatomic, assign) void* mUtil;
+
++(NokeCallback*) sharedInstance;
++(NSString*) sendTokenToServer:(NSString*)session mac:(NSString*)mac;
 
 @end
 
