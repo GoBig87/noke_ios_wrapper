@@ -1,5 +1,6 @@
 STUFF = "Hi"
 from libc.stdio cimport printf
+import time
 
 cdef extern from "NokeController.h":
     ctypedef void (*store_viewcontroller)(void *viewcontroller,void *util)
@@ -24,6 +25,7 @@ cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
     printf("%s\n", mac)
     sessionStr = (session.decode('utf-8'))
     macStr     = (mac.decode('utf-8'))
+    time.sleep(10)
     rsp = (<object> util).sendNokeMessage(sessionStr,macStr)
     cdef bytes rsp_bytes = rsp.encode('utf-8')
     printf("%s\n", rsp_bytes)
