@@ -10,10 +10,9 @@
     NSString* longitude;
     NSString* latitude;
 }
-@synthesize mStrongObjectArray = _mStrongObjectArray;
+
 @synthesize mCallback = _callback;
 @synthesize mUtil = _util;
-@synthesize mUtilSendMessage = _utilSendMessage;
 @synthesize mClient = _client;
 
 
@@ -29,15 +28,11 @@ static NokeController *nokeController;
 }
 -(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func viewcontroller:(store_viewcontroller)viewcontroller util:(void*)util utilSendMessage:(void*)utilSendMessage{
     _callback = callback;
-    _util = [NSValue valueWithPointer:util];
-    _utilSendMessage = [NSValue valueWithPointer:utilSendMessage];
+    _util = util;
     _client = client_func;
 
     [[NokeCallback sharedInstance] setCallBacks:callback client_func:client_func util:util];
 
-    self.mStrongObjectArray = [[NSMutableArray alloc] init];
-    [self.mStrongObjectArray addObject:self.mUtil];
-    [self.mStrongObjectArray addObject:self.mUtilSendMessage];
     NSLog(@"DEBUG-NC-1");
 //    //Make strong refrence
 //    [self.pythonCallbacks addObject:self.mCallback];
