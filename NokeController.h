@@ -19,7 +19,7 @@ typedef void(^myCompletion)(NSString*);
     NSMutableArray *connectedLocks;
 
 }
-
+@property (retain) NSArray *mStrongObjectArray;
 @property (nonatomic, assign) clientfunc mClient;
 @property (nonatomic, assign) callbackfunc mCallback;
 @property (nonatomic, retain) NSValue* mUtil;

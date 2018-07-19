@@ -10,7 +10,7 @@
     NSString* longitude;
     NSString* latitude;
 }
-
+@synthesize mStrongObjectArray = _strongObjectArray;
 @synthesize mCallback = _callback;
 @synthesize mUtil = _util;
 @synthesize mClient = _client;
@@ -22,6 +22,7 @@ static NokeController *nokeController;
 {
     if(nokeController == nil)
     {
+        self.mStrongObjectArray = [[NSArray alloc] init];
         nokeController = [[NokeController alloc] init];
     }
     return nokeController;
@@ -30,6 +31,8 @@ static NokeController *nokeController;
     _callback = callback;
     _util = [NSValue valueWithPointer:util];
     _client = client_func;
+
+    [self.mStrongObjectArray addObject:value];
 
     NSLog(@"DEBUG-NC-1");
 //    //Make strong refrence
