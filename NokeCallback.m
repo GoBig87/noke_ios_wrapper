@@ -6,9 +6,9 @@
 
 @implementation NokeCallback
 
-@synthesize mCallback = _callback;
-@synthesize mUtil = _util;
-@synthesize mClient = _client;
+@synthesize nCallback = _callback;
+@synthesize nUtil = _util;
+@synthesize nClient = _client;
 
 static NokeCallback *nokeCallback;
 + (NokeCallback*) sharedInstance
@@ -26,10 +26,10 @@ static NokeCallback *nokeCallback;
     _client = client_func;
 
 }
-+ (NSString*) sendTokenToServer:(NSString*)session mac:(NSString*)mac{
++ (NSString*) sendTokenToMyServer:(NSString*)session mac:(NSString*)mac{
     const char *charDeeMacDennis = [mac UTF8String];
     const char *sessionChar = [session UTF8String];
-    const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
+    const char *rspChar = self.nClient(sessionChar,charDeeMacDennis,self.nUtil);
     NSString* rsp = [NSString stringWithUTF8String:rspChar];
     return rsp;
 }

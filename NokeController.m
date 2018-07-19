@@ -53,7 +53,7 @@ static NokeController *nokeController;
 
 -(void) submitTokenToBackend:(NSString*)session mac:(NSString*)mac compblock:(myCompletion)compblock{
 
-    NSString *rsp = [[NokeCallback sharedInstance] sendTokenToServer:session mac:mac];
+    NSString *rsp = [[NokeCallback sharedInstance] sendTokenToMyServer:session mac:mac];
     NSLog(@"Got server rsp");
     NSLog(@"%@",rsp);
     compblock(rsp);
