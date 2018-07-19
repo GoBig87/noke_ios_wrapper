@@ -83,8 +83,8 @@ static NokeController *nokeController;
     NSLog(@"Lock Connected");
     NSString *mac = noke.mac;
     NSString *session = [noke getSessionAsString];
-    NSLog(@"%@",mac)
-    NSLog(@"%@",session)
+    NSLog(@"%@",mac);
+    NSLog(@"%@",session);
     [[NokeCallback sharedInstance] sendTokenToMyServer:session mac:mac];
 
 //    [self submitTokenToBackend:session mac:mac compblock:^(NSString* commands) {
