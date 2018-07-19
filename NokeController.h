@@ -22,7 +22,7 @@ typedef void(^myCompletion)(NSString*);
 
 @property (nonatomic, assign) clientfunc mClient;
 @property (nonatomic, assign) callbackfunc mCallback;
-@property (nonatomic, retain) NSObject* mUtil;
+@property (nonatomic, retain) NSValue* mUtil;
 
 +(NokeController*) sharedInstance;
 - (void) submitTokenToBackend:(const char*)session mac:(const char*)mac compblock:(myCompletion)compblock;

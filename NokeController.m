@@ -28,7 +28,7 @@ static NokeController *nokeController;
 }
 -(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func viewcontroller:(store_viewcontroller)viewcontroller util:(void*)util{
     _callback = callback;
-    _util = CFBridgingRelease(util);
+    _util = [NSValue valueWithPointer:util];
     _client = client_func;
 
     NSLog(@"DEBUG-NC-1");
@@ -48,7 +48,8 @@ static NokeController *nokeController;
 }
 
 -(void) submitTokenToBackend:(const char*)session mac:(const char*)mac compblock:(myCompletion)compblock{
-    const char* rsp = self.mClient(session,mac,(void*)CFBridgingRetain(self.mUtil));
+    void* myUtilPointer = [self.mUtil pointerValue];
+    const char* rsp = self.mClient(session,mac,myUtilPointer);
     NSString* NSrsp = [NSString stringWithUTF8String:rsp];
     compblock(NSrsp);
 }
@@ -61,8 +62,8 @@ static NokeController *nokeController;
     if(enabled){
         NSString *callbackStr = @"Bluetooth Enabled";
         const char *callbackChar = [callbackStr UTF8String];
-
-        self.mCallback(callbackChar,(void*)CFBridgingRetain(self.mUtil));
+        void* myUtilPointer = [self.mUtil pointerValue];
+        self.mCallback(callbackChar,myUtilPointer);
         [[nokeSDK sharedInstance] startScanForNokeDevices];
         NSLog(@"Bluetooth enabled");
     }else{
@@ -76,7 +77,8 @@ static NokeController *nokeController;
     NSLog(@"Lock Discovered");
     NSString *callbackStr = @"Lock Discovered";
     const char *callbackChar = [callbackStr UTF8String];
-    self.mCallback(callbackChar,(void*)CFBridgingRetain(self.mUtil));
+    void* myUtilPointer = [self.mUtil pointerValue];
+    self.mCallback(callbackChar,myUtilPointer);
     [[nokeSDK sharedInstance] connectToNokeDevice:noke];
     //Is called when a noke device is discovered.
 }
@@ -85,7 +87,8 @@ static NokeController *nokeController;
 {
     NSString *callbackStr = @"Lock Connected";
     const char *callbackChar = [callbackStr UTF8String];
-    self.mCallback(callbackChar,(void*)CFBridgingRetain(self.mUtil));
+    void* myUtilPointer = [self.mUtil pointerValue];
+    self.mCallback(callbackChar,myUtilPointer);
     NSLog(@"Lock Connected");
     const char *charDeeMacDennis = [noke.mac UTF8String];
     const char *session = [[noke getSessionAsString] UTF8String];
