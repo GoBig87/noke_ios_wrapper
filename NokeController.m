@@ -10,11 +10,11 @@
     NSString* longitude;
     NSString* latitude;
 }
-//@synthesize mStrongObjectArray = _mStrongObjectArray;
-//@synthesize mCallback = _callback;
-//@synthesize mUtil = _util;
-//@synthesize mUtilSendMessage = _utilSendMessage;
-//@synthesize mClient = _client;
+@synthesize mStrongObjectArray = _mStrongObjectArray;
+@synthesize mCallback = _callback;
+@synthesize mUtil = _util;
+@synthesize mUtilSendMessage = _utilSendMessage;
+@synthesize mClient = _client;
 
 
 static NokeController *nokeController;
@@ -28,10 +28,10 @@ static NokeController *nokeController;
     return nokeController;
 }
 -(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func viewcontroller:(store_viewcontroller)viewcontroller util:(void*)util utilSendMessage:(void*)utilSendMessage{
-//    _callback = callback;
-//    _util = [NSValue valueWithPointer:util];
-//    _utilSendMessage = [NSValue valueWithPointer:utilSendMessage];
-//    _client = client_func;
+    _callback = callback;
+    _util = [NSValue valueWithPointer:util];
+    _utilSendMessage = [NSValue valueWithPointer:utilSendMessage];
+    _client = client_func;
 
     [[NokeCallback sharedInstance] initCallBacks:callback client_func:client_func util:util];
 
@@ -53,8 +53,8 @@ static NokeController *nokeController;
     NSLog(@"DEBUG-NC-2");
     NSString *callbackStr = @"Bluetooth Enabled";
     const char *callbackChar = [callbackStr UTF8String];
-//    void* myUtilPointer = [self.mUtilSendMessage pointerValue];
-//    self.mClient(callbackChar,callbackChar,myUtilPointer);
+    void* myUtilPointer = [self.mUtilSendMessage pointerValue];
+    self.mClient(callbackChar,callbackChar,myUtilPointer);
 
 }
 
@@ -74,8 +74,8 @@ static NokeController *nokeController;
     if(enabled){
         NSString *callbackStr = @"Bluetooth Enabled";
         const char *callbackChar = [callbackStr UTF8String];
-//        void* myUtilPointer = [self.mUtil pointerValue];
-//        self.mCallback(callbackChar,myUtilPointer);
+        void* myUtilPointer = [self.mUtil pointerValue];
+        self.mCallback(callbackChar,myUtilPointer);
         [[nokeSDK sharedInstance] startScanForNokeDevices];
         NSLog(@"Bluetooth enabled");
     }else{
@@ -89,8 +89,8 @@ static NokeController *nokeController;
     NSLog(@"Lock Discovered");
     NSString *callbackStr = @"Lock Discovered";
     const char *callbackChar = [callbackStr UTF8String];
-//    void* myUtilPointer = [self.mUtil pointerValue];
-//    self.mCallback(callbackChar,myUtilPointer);
+    void* myUtilPointer = [self.mUtil pointerValue];
+    self.mCallback(callbackChar,myUtilPointer);
     [[nokeSDK sharedInstance] connectToNokeDevice:noke];
     //Is called when a noke device is discovered.
 }
@@ -99,7 +99,8 @@ static NokeController *nokeController;
 {
     NSString *callbackStr = @"Lock Connected";
     const char *callbackChar = [callbackStr UTF8String];
-//f
+    void* myUtilPointer = [self.mUtil pointerValue];
+    self.mCallback(callbackChar,myUtilPointer);
     NSLog(@"Lock Connected");
     NSString *mac = noke.mac;
     NSString *session = [noke getSessionAsString];
@@ -138,9 +139,9 @@ static NokeController *nokeController;
 
 @implementation NokeCallback
 
-@synthesize nCallback = _callback;
-@synthesize nUtil = _util;
-@synthesize nClient = _client;
+@synthesize nCallback = _callbackNCB;
+@synthesize nUtil = _utilNCB;
+@synthesize nClient = _clientNCB;
 
 static NokeCallback *nokeCallback;
 + (NokeCallback*) sharedInstance
@@ -153,9 +154,9 @@ static NokeCallback *nokeCallback;
 }
 - (void) initCallBacks:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util
 {
-    _callback = callback;
-    _util = util;
-    _client = client_func;
+    _callbackNCB = callback;
+    _utilNCB = util;
+    _clientNCB = client_func;
 
 }
 + (NSString*) sendTokenToServer:(NSString*)session mac:(NSString*)mac{

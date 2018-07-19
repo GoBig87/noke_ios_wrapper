@@ -19,11 +19,11 @@ typedef void(^myCompletion)(NSString*);
     NSMutableArray *connectedLocks;
 
 }
-//@property (retain) NSMutableArray *mStrongObjectArray;
-//@property (nonatomic, assign) clientfunc mClient;
-//@property (nonatomic, assign) callbackfunc mCallback;
-//@property (nonatomic, retain) NSValue* mUtil;
-//@property (nonatomic, retain) NSValue* mUtilSendMessage;
+@property (retain) NSMutableArray *mStrongObjectArray;
+@property (nonatomic, assign) clientfunc mClient;
+@property (nonatomic, assign) callbackfunc mCallback;
+@property (nonatomic, retain) NSValue* mUtil;
+@property (nonatomic, retain) NSValue* mUtilSendMessage;
 
 +(NokeController*) sharedInstance;
 - (void) submitTokenToBackend:(NSString*)session mac:(NSString*)mac compblock:(myCompletion)compblock;
@@ -36,9 +36,7 @@ typedef void(^myCompletion)(NSString*);
 @end
 
 @interface NokeCallback : NSObject
-{
-    BOOL isLoggedIn;
-}
+
 @property (nonatomic, assign) clientfunc nClient;
 @property (nonatomic, assign) callbackfunc nCallback;
 @property (nonatomic, assign) void* nUtil;
