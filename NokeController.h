@@ -35,7 +35,7 @@ typedef void(^myCompletion)(NSString*);
 
 @end
 
-@interface NokeCallback
+@interface NokeCallback : NSObject
 
 @property (nonatomic, assign) clientfunc mClient;
 @property (nonatomic, assign) callbackfunc mCallback;

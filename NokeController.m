@@ -145,6 +145,7 @@ static NokeCallback *nokeCallback;
 @synthesize mUtil = _util;
 @synthesize mClient = _client;
 
+
 + (NokeCallback*) sharedInstance
 {
     if(nokeCallback == nil)
