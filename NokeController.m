@@ -154,7 +154,7 @@ static NokeCallback *nokeCallback;
     }
     return nokeCallback;
 }
-- (nokeCallback *) initWithCallBacks:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util
+- (NokeCallback *) initWithCallBacks:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util
 {
     _callback = callback;
     _util = util;
