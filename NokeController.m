@@ -32,7 +32,7 @@ static NokeController *nokeController;
     _util = [NSValue valueWithPointer:util];
     _client = client_func;
 
-    [self.mStrongObjectArray addObject:value];
+    [self.mStrongObjectArray addObject:self.mUtil];
 
     NSLog(@"DEBUG-NC-1");
 //    //Make strong refrence
