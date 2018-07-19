@@ -20,16 +20,16 @@ cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))
 
 cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
-    (<object> util).NokeCallback = (session.decode('utf-8'))
+    rsp = (<object> util).NokeCallback
     printf("%s\n", session)
     printf("%s\n", mac)
+    printf(rsp.encode('utf-8'))
     # sessionStr = (session.decode('utf-8'))
     # macStr     = (mac.decode('utf-8'))
-    # time.sleep(10)
     # rsp = (<object> util).sendNokeMessage(sessionStr,macStr)
     # cdef bytes rsp_bytes = rsp.encode('utf-8')
     # printf("%s\n", rsp_bytes)
-    return session
+    return rsp.encode('utf-8')
     #rsp = (<object> util).sendNokeMessage((session.decode('utf-8')),(mac.decode('utf-8')))
     #if rsp:
     #    return rsp.encode('utf-8')
