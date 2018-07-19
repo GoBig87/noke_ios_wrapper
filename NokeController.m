@@ -22,7 +22,7 @@ static NokeController *nokeController;
 {
     if(nokeController == nil)
     {
-        self.mStrongObjectArray = [[NSArray alloc] init];
+        _strongObjectArray = [[NSArray alloc] init];
         nokeController = [[NokeController alloc] init];
     }
     return nokeController;
