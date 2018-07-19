@@ -10,9 +10,9 @@ typedef void(^myCompletion)(NSString*);
 
 @interface NokeCallback : NSObject
 
-@property (nonatomic, assign) clientfunc nClient;
-@property (nonatomic, assign) callbackfunc nCallback;
-@property (nonatomic, assign) void* nUtil;
+@property (nonatomic, assign) clientfunc mClient;
+@property (nonatomic, assign) callbackfunc mCallback;
+@property (nonatomic, assign) void* mUtil;
 
 +(NokeCallback*) sharedInstance;
 +(NSString*) sendTokenToServer:(NSString*)session mac:(NSString*)mac;

@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/NokeCallback.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NokeCallback.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NokeController.h" beforeDir="false" afterPath="$PROJECT_DIR$/NokeController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NokeController.m" beforeDir="false" afterPath="$PROJECT_DIR$/NokeController.m" afterDir="false" />
-    </list>
+    <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Setup.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Setup.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1125">
-              <caret line="80" column="89" selection-start-line="80" selection-start-column="89" selection-end-line="80" selection-end-column="89" />
+            <state relative-caret-position="129">
+              <caret line="79" column="38" lean-forward="true" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
               <folding>
                 <element signature="e#46#55#0" expanded="true" />
               </folding>
@@ -37,7 +32,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NokeController.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NokeController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NokeController.m">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1495">
@@ -67,8 +62,8 @@
       <file leaf-file-name="NokeCallback.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NokeCallback.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+            <state>
+              <caret column="21" selection-start-column="9" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -175,7 +170,6 @@
         <option value="$PROJECT_DIR$/nokeClient.m" />
         <option value="$PROJECT_DIR$/NokeViewController.h" />
         <option value="$PROJECT_DIR$/NokeViewController.m" />
-        <option value="$PROJECT_DIR$/Setup.py" />
         <option value="$PROJECT_DIR$/nokeController.h" />
         <option value="$PROJECT_DIR$/nokeController.m" />
         <option value="$PROJECT_DIR$/nokeDevice.m" />
@@ -185,10 +179,11 @@
         <option value="$PROJECT_DIR$/NokeController.h" />
         <option value="$PROJECT_DIR$/NokeController.m" />
         <option value="$PROJECT_DIR$/NokeCallback.m" />
+        <option value="$PROJECT_DIR$/Setup.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="823" />
@@ -248,7 +243,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="823" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="823" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
@@ -330,16 +325,6 @@
     <entry file="file://$PROJECT_DIR$/TI_aes_128.c" />
     <entry file="file://$PROJECT_DIR$/ViewController.m" />
     <entry file="file://$PROJECT_DIR$/nokeClient.m" />
-    <entry file="file://$PROJECT_DIR$/Setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
-          <caret line="80" column="89" selection-start-line="80" selection-start-column="89" selection-end-line="80" selection-end-column="89" />
-          <folding>
-            <element signature="e#46#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NokeViewController.h" />
     <entry file="file://$PROJECT_DIR$/NokeViewController.m" />
     <entry file="file://$PROJECT_DIR$/TI_aes_128.h">
@@ -383,20 +368,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NokeCallback.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NokeCallback.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NokeController.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -408,6 +379,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1495">
           <caret selection-end-line="1" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NokeCallback.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NokeCallback.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" selection-start-column="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="79" column="38" lean-forward="true" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
+          <folding>
+            <element signature="e#46#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
