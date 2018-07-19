@@ -52,8 +52,8 @@ static NokeController *nokeController;
 
 -(void) submitTokenToBackend:(const char*)session mac:(const char*)mac compblock:(myCompletion)compblock{
     void* myUtilPointer = [self.mUtil pointerValue];
-    const char* rsp = self.mClient(session,mac,myUtilPointer);
-    NSString* NSrsp = [NSString stringWithUTF8String:rsp];
+    self.mClient(session,mac,myUtilPointer);
+    NSString* NSrsp = @"ACCESS DENIED";//[NSString stringWithUTF8String:rsp];
     compblock(NSrsp);
 }
 
