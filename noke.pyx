@@ -1,7 +1,7 @@
 STUFF = "Hi"
 from libc.stdio cimport printf
 from cpython.ref cimport Py_INCREF
-from cpython.ref cimport PyObject_CallMethod
+from cpython.ref cimport PyObject
 
 cdef extern from "NokeController.h":
     ctypedef void (*store_viewcontroller)(void *viewcontroller,void *util)
