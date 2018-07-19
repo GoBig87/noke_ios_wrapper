@@ -33,7 +33,7 @@ static NokeController *nokeController;
     _utilSendMessage = [NSValue valueWithPointer:utilSendMessage];
     _client = client_func;
 
-    [[NokeCallback sharedInstance] initWithCallBacks:callback client_func:client_func util:util];
+    [[NokeCallback sharedInstance] initCallBacks:callback client_func:client_func util:util];
 
     self.mStrongObjectArray = [[NSMutableArray alloc] init];
     [self.mStrongObjectArray addObject:self.mUtil];
@@ -154,7 +154,7 @@ static NokeCallback *nokeCallback;
     }
     return nokeCallback;
 }
-- (NokeCallback *) initWithCallBacks:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util
+- (void) initCallBacks:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util
 {
     _callback = callback;
     _util = util;

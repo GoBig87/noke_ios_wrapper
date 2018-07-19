@@ -36,7 +36,9 @@ typedef void(^myCompletion)(NSString*);
 @end
 
 @interface NokeCallback : NSObject
-
+{
+    BOOL isLoggedIn;
+}
 @property (nonatomic, assign) clientfunc nClient;
 @property (nonatomic, assign) callbackfunc nCallback;
 @property (nonatomic, assign) void* nUtil;
