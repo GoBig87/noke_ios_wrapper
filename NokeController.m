@@ -11,9 +11,9 @@
     NSString* latitude;
 }
 
-@synthesize mCallback = _callback;
-@synthesize mUtil = _util;
-@synthesize mClient = _client;
+//@synthesize mCallback = _callback;
+//@synthesize mUtil = _util;
+//@synthesize mClient = _client;
 
 
 static NokeController *nokeController;
@@ -27,9 +27,9 @@ static NokeController *nokeController;
     return nokeController;
 }
 -(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func viewcontroller:(store_viewcontroller)viewcontroller util:(void*)util utilSendMessage:(void*)utilSendMessage{
-    _callback = callback;
-    _util = util;
-    _client = client_func;
+//    _callback = callback;
+//    _util = util;
+//    _client = client_func;
 
     [[NokeCallback sharedInstance] setCallBacks:callback client_func:client_func util:util];
 
@@ -68,8 +68,8 @@ static NokeController *nokeController;
         NSString *callbackStr = @"Bluetooth Enabled";
         const char *callbackChar = [callbackStr UTF8String];
         void* myUtilPointer = [self.mUtil pointerValue];
-        self.mCallback(callbackChar,myUtilPointer);
-        [[nokeSDK sharedInstance] startScanForNokeDevices];
+//        self.mCallback(callbackChar,myUtilPointer);
+//        [[nokeSDK sharedInstance] startScanForNokeDevices];
         NSLog(@"Bluetooth enabled");
     }else{
         NSLog(@"Bluetooth disabled");
@@ -83,8 +83,8 @@ static NokeController *nokeController;
     NSString *callbackStr = @"Lock Discovered";
     const char *callbackChar = [callbackStr UTF8String];
     void* myUtilPointer = [self.mUtil pointerValue];
-    self.mCallback(callbackChar,myUtilPointer);
-    [[nokeSDK sharedInstance] connectToNokeDevice:noke];
+//    self.mCallback(callbackChar,myUtilPointer);
+//    [[nokeSDK sharedInstance] connectToNokeDevice:noke];
     //Is called when a noke device is discovered.
 }
 
@@ -92,8 +92,8 @@ static NokeController *nokeController;
 {
     NSString *callbackStr = @"Lock Connected";
     const char *callbackChar = [callbackStr UTF8String];
-    void* myUtilPointer = [self.mUtil pointerValue];
-    self.mCallback(callbackChar,myUtilPointer);
+//    void* myUtilPointer = [self.mUtil pointerValue];
+//    self.mCallback(callbackChar,myUtilPointer);
     NSLog(@"Lock Connected");
     NSString *mac = noke.mac;
     NSString *session = [noke getSessionAsString];
