@@ -50,6 +50,7 @@ static NokeController *nokeController;
     bool status = false;
 
     while(alive){
+        NSLog(@"Starting loop");
         status = self.mStatusfunc(self.mUtil);
         if(status){
             NSLog(@"Sending noke info to server.");
@@ -64,7 +65,7 @@ static NokeController *nokeController;
             [noke writeDataArray];
             alive = false;
          }
-        [NSThread sleepForTimeInterval:0.5];
+        [NSThread sleepForTimeInterval:1];
     }
 }
 
