@@ -27,9 +27,11 @@ cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))
 
 cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
+    printf("%s\n", session)
+    printf("%s\n", mac)
     (<object> util).NokeCallback = "Sending lock commands"
     msg = ast.literal_eval('{"function":"Noke_Unlock","session":"' + str(session.decode('utf-8')) + '","mac":"' + str(mac.decode('utf-8')) + '"}')
-    host = '206.189.163.242'
+    host = "206.189.163.242"
     port = 8080
     rsp = connectToServer(host, port, msg)
     if rsp['result'] == "success":
