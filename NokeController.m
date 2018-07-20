@@ -1,12 +1,8 @@
 #import <LocalAuthentication/LocalAuthentication.h>
 #include <CFNetwork/CFSocketStream.h>
 #import "NokeController.h"
-#include <stdio.h>
-#include <sys/socket.h>
-#include <stdlib.h>
-#include <netinet/in.h>
 #include <string.h>
-#define PORT 8080
+#include "ActiveSocket.h"       // Include header for active socket object definition
 
 @interface NokeController ()
 
@@ -50,8 +46,61 @@ static NokeController *nokeController;
     [[NokeCallback sharedInstance] sendTokenToMyServer:NSname mac:NSlockMacAddr];
 
 }
-
 -(NSData*)submitTokenToBackend:(NSString*)session mac:(NSString*)mac{
+
+
+}
+-(NSData*)submitTokenToBackend:(NSString*)session mac:(NSString*)mac{
+
+
+int main(int argc, char **argv)
+{
+    CActiveSocket socket;       // Instantiate active socket object (defaults to TCP).
+    char          time[50];
+
+    memset(&time, 0, 50);
+
+    //--------------------------------------------------------------------------
+    // Initialize our socket object
+    //--------------------------------------------------------------------------
+    socket.Initialize();
+
+    //--------------------------------------------------------------------------
+    // Create a connection to the time server so that data can be sent
+    // and received.
+    //--------------------------------------------------------------------------
+    if (socket.Open("time-C.timefreq.bldrdoc.gov", 13))
+    {
+        //----------------------------------------------------------------------
+        // Send a requtest the server requesting the current time.
+        //----------------------------------------------------------------------
+        if (socket.Send((const uint8 *)"\n", 1))
+        {
+            //----------------------------------------------------------------------
+            // Receive response from the server.
+            //----------------------------------------------------------------------
+            socket.Receive(49);
+            memcpy(&time, socket.GetData(), 49);
+            printf("%s\n", time);
+
+            //----------------------------------------------------------------------
+            // Close the connection.
+            //----------------------------------------------------------------------
+            socket.Close();
+        }
+    }
+
+
+    return 1;
+}
+
+
+
+
+
+
+
+////////////
     NSData* error = "error";
 
     struct sockaddr_in address;
