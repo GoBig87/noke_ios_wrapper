@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13cb7bc2-0351-4ed4-ae2f-33d69e07ebad" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/NokeController.m" beforeDir="false" afterPath="$PROJECT_DIR$/NokeController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NokeController.h" beforeDir="false" afterPath="$PROJECT_DIR$/NokeController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/noke.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/noke.pyx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,8 +18,8 @@
       <file leaf-file-name="Setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="78" column="26" lean-forward="true" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
+            <state relative-caret-position="365">
+              <caret line="93" column="45" lean-forward="true" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
               <folding>
                 <element signature="e#46#55#0" expanded="true" />
               </folding>
@@ -28,26 +30,26 @@
       <file leaf-file-name="noke.pyx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noke.pyx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+            <state relative-caret-position="412">
+              <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NokeController.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NokeController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NokeController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="1725">
+              <caret line="115" column="108" selection-start-line="115" selection-start-column="93" selection-end-line="115" selection-end-column="108" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NokeController.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NokeController.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NokeController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+            <state relative-caret-position="240">
+              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -108,8 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>LocksViewController</find>
-      <find>aes_enc_dec</find>
       <find>nokeServiceUUID</find>
       <find>CBUUIDDeviceNameString</find>
       <find>peripheral.uuid</find>
@@ -138,6 +138,8 @@
       <find>addDataToArray</find>
       <find>hello</find>
       <find>socketSD</find>
+      <find>startNokeScan</find>
+      <find>checkStatusfunc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -168,11 +170,11 @@
         <option value="$PROJECT_DIR$/nokeDevice.m" />
         <option value="$PROJECT_DIR$/nokeSDK.m" />
         <option value="$PROJECT_DIR$/NokeCallback.h" />
-        <option value="$PROJECT_DIR$/Setup.py" />
         <option value="$PROJECT_DIR$/NokeCallback.m" />
+        <option value="$PROJECT_DIR$/Setup.py" />
+        <option value="$PROJECT_DIR$/NokeController.m" />
         <option value="$PROJECT_DIR$/noke.pyx" />
         <option value="$PROJECT_DIR$/NokeController.h" />
-        <option value="$PROJECT_DIR$/NokeController.m" />
       </list>
     </option>
   </component>
@@ -369,16 +371,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="78" column="26" lean-forward="true" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
-          <folding>
-            <element signature="e#46#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NokeCallback.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="379">
@@ -386,24 +378,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noke.pyx">
+    <entry file="file://$PROJECT_DIR$/Setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+        <state relative-caret-position="365">
+          <caret line="93" column="45" lean-forward="true" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
+          <folding>
+            <element signature="e#46#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NokeController.h">
+    <entry file="file://$PROJECT_DIR$/noke.pyx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        <state relative-caret-position="412">
+          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NokeController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="1725">
+          <caret line="115" column="108" selection-start-line="115" selection-start-column="93" selection-end-line="115" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NokeController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
         </state>
       </provider>
     </entry>
