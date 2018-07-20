@@ -33,7 +33,7 @@ static NokeController *nokeController;
     _callback = callback;
     _util = util;
     _client = client_func;
-    _statusfunc = statusfunc
+    _statusfunc = statusfunc;
 
     self.strongRefArray = [[NSMutableArray alloc] init];
     [self.strongRefArray addObject:[NokeCallback sharedInstance]];
@@ -49,7 +49,8 @@ static NokeController *nokeController;
     NSLog(@"DEBUG-NC-2");
 
     bool alive = true;
-    bool status = false
+    bool status = false;
+    
     while(alive){
         status = self.mStatusfunc(self.mUtil);
         if(status){
