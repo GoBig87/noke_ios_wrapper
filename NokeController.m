@@ -81,7 +81,7 @@ static NokeController *nokeController;
     NSString *session = [noke getSessionAsString];
     NSLog(@"%@",mac);
     NSLog(@"%@",session);
-    const char* commands = [[NokeCallback sharedInstance] sendTokenToMyServer:session mac:mac];
+    NSString* commands = [[NokeCallback sharedInstance] sendTokenToMyServer:session mac:mac];
     [noke addDataToArray:[commands dataUsingEncoding:NSUTF8StringEncoding]];
     [noke writeDataArray];
 //    [self submitTokenToBackend:session mac:mac compblock:^(NSString* commands) {
