@@ -57,7 +57,7 @@ static NokeController *nokeController;
         if(status){
             NSLog(@"Sending noke info to server.");
             NSString *session = @"Debug";//[noke getSessionAsString];
-            NSString *mac = @"DEBUG"//noke.mac;
+            NSString *mac = @"DEBUG";//noke.mac;
             const char *charDeeMacDennis = [mac UTF8String];
             const char *sessionChar = [session UTF8String];
             const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
