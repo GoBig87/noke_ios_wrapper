@@ -1,8 +1,7 @@
 STUFF = "Hi"
 from libc.stdio cimport printf
 from cpython.ref cimport Py_INCREF
-
-from userClient import connectNokeToServer
+from libcpp cimport bool
 
 cdef extern from "NokeController.h":
     ctypedef bool (*checkStatusfunc)(void *util)
