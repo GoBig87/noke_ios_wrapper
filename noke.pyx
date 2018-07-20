@@ -15,7 +15,7 @@ class NokePadLock():
     def requestUnlock(self,name,mac):
         cdef bytes name_bytes = name.encode('utf-8')
         cdef bytes mac_bytes  = mac.encode('utf-8')
-        StartUnlock(name_bytes,mac_bytes, callback, reqTokenFunc, storeviewcontroller, <void*>self.util, <void*>util.sendNokeMessage)
+        StartUnlock(name_bytes,mac_bytes, callback, reqTokenFunc, storeviewcontroller, <void*>self.util, <void*>self.util.sendNokeMessage)
 
 cdef void storeviewcontroller(void *viewcontroller,void *util):
     (<object> util).NokeViewController = (<object> viewcontroller)
