@@ -1,5 +1,12 @@
 #import <LocalAuthentication/LocalAuthentication.h>
+#include <CFNetwork/CFSocketStream.h>
 #import "NokeController.h"
+#include <stdio.h>
+#include <sys/socket.h>
+#include <stdlib.h>
+#include <netinet/in.h>
+#include <string.h>
+#define PORT 8080
 
 @interface NokeController ()
 
@@ -44,12 +51,51 @@ static NokeController *nokeController;
 
 }
 
--(void) submitTokenToBackend:(NSString*)session mac:(NSString*)mac compblock:(myCompletion)compblock{
+-(NSData*)submitTokenToBackend:(NSString*)session mac:(NSString*)mac{
+    NSData* error = "error"
 
-    NSString *rsp = [[NokeCallback sharedInstance] sendTokenToMyServer:session mac:mac];
-    NSLog(@"Got server rsp");
-    NSLog(@"%@",rsp);
-    compblock(rsp);
+    struct sockaddr_in address;
+    int sock = 0, valread;
+    struct sockaddr_in serv_addr;
+    //Convert NSString to char*
+    NSString* tokenReq  = [NSString stringWithFormat:@""{\"function\":\"Noke_Unlock\",\"session\":\"%@\",\"mac":\"%@\"}",session,mac];
+
+    const char* tokenReqConstChar = [tokenReq UTF8String];
+    //val = f(const_cast<char&>(tokenReqConstChar))
+
+    //char *hello = "Hello from client";
+    char buffer[1024] = {0};
+    if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+    {
+        NSLog(@"\n Socket creation error \n");
+
+        return error;
+    }
+
+    memset(&serv_addr, '0', sizeof(serv_addr));
+
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_port = htons(PORT);
+
+    // Convert IPv4 and IPv6 addresses from text to binary form
+    if(inet_pton(AF_INET, "206.189.163.242", &serv_addr.sin_addr)<=0)
+    {
+        NSLog(@"\nInvalid address/ Address not supported \n");
+        return error;
+    }
+
+    if (connect(sock,(struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0)
+    {
+        NSLog(@"\nConnection Failed \n");
+        return error;
+    }
+    send(sock, tokenReqConstChar, strlen(tokenReqConstChar), 0 );
+    NSLog(@"Hello message sent\n");
+    NSData *valread = read( sock , buffer, 1024);
+    NSLog(@"%s\n",buffer );
+    close(socketSD);
+    return valread;
+
 }
 
 #pragma mark - nokeSDK
@@ -86,8 +132,9 @@ static NokeController *nokeController;
     NSString *session = [noke getSessionAsString];
     NSLog(@"%@",mac);
     NSLog(@"%@",session);
-    [[NokeCallback sharedInstance] sendTokenToMyServer:session mac:mac];
-
+    NSData *response = [self submitTokenToBackend:session mac:mac];
+    [noke addDataToArray:response];
+    [noke writeDataArray];
 //    [self submitTokenToBackend:session mac:mac compblock:^(NSString* commands) {
 //        if(commands != nil){
 //            NSLog(@"Noke Token Req:No response from server.");
