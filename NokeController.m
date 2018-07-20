@@ -52,13 +52,14 @@ static NokeController *nokeController;
 }
 
 -(NSData*)submitTokenToBackend:(NSString*)session mac:(NSString*)mac{
-    NSData* error = "error"
+    NSData* error = "error";
 
     struct sockaddr_in address;
-    int sock = 0, valread;
+    int sock = 0;
+    int valread;
     struct sockaddr_in serv_addr;
     //Convert NSString to char*
-    NSString* tokenReq  = [NSString stringWithFormat:@""{\"function\":\"Noke_Unlock\",\"session\":\"%@\",\"mac":\"%@\"}",session,mac];
+    NSString* tokenReq  = [NSString stringWithFormat:@"{\"function\":\"Noke_Unlock\",\"session\":\"%@\",\"mac":\"%@\"}",session,mac];
 
     const char* tokenReqConstChar = [tokenReq UTF8String];
     //val = f(const_cast<char&>(tokenReqConstChar))
@@ -91,10 +92,9 @@ static NokeController *nokeController;
     }
     send(sock, tokenReqConstChar, strlen(tokenReqConstChar), 0 );
     NSLog(@"Hello message sent\n");
-    NSData *valread = read( sock , buffer, 1024);
+    valread = read( sock , buffer, 1024);
     NSLog(@"%s\n",buffer );
-    close(socketSD);
-    return valread;
+    return error;
 
 }
 
