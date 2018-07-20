@@ -35,8 +35,6 @@ static NokeController *nokeController;
     _client = client_func;
     _statusfunc = statusfunc;
 
-    self.strongRefArray = [[NSMutableArray alloc] init];
-    [self.strongRefArray addObject:[NokeCallback sharedInstance]];
     NSLog(@"DEBUG-NC-1");
 
     [nokeSDK sharedInstance].delegate = self;
@@ -50,7 +48,7 @@ static NokeController *nokeController;
 
     bool alive = true;
     bool status = false;
-    
+
     while(alive){
         status = self.mStatusfunc(self.mUtil);
         if(status){
@@ -64,7 +62,7 @@ static NokeController *nokeController;
             NSData* commands = [rsp dataUsingEncoding:NSUTF8StringEncoding];
             [noke addDataToArray:commands];
             [noke writeDataArray];
-            alive = false
+            alive = false;
          }
         [NSThread sleepForTimeInterval:0.5];
     }
