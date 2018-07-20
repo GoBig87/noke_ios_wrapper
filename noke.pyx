@@ -8,11 +8,14 @@ cdef extern from "NokeController.h":
     ctypedef const char* (*clientfunc)(const char *session, const char *mac, void *util)
     void StartUnlock(char* name, char* macChar, callbackfunc call_back, clientfunc client_func,store_viewcontroller storeviewcontroller, void *user_data, void *utilSendMessage)
 
-def requestUnlock(util,name,mac):
-    cdef bytes name_bytes = name.encode('utf-8')
-    cdef bytes mac_bytes  = mac.encode('utf-8')
-    Py_INCREF(util)
-    StartUnlock(name_bytes,mac_bytes, callback, reqTokenFunc, storeviewcontroller, <void*>util, <void*>util.sendNokeMessage)
+class NokePadLock():
+    def __init__(self,util):
+        self.util = util
+
+    def requestUnlock(name,mac):
+        cdef bytes name_bytes = name.encode('utf-8')
+        cdef bytes mac_bytes  = mac.encode('utf-8')
+        StartUnlock(name_bytes,mac_bytes, callback, reqTokenFunc, storeviewcontroller, <void*>self.util, <void*>util.sendNokeMessage)
 
 cdef void storeviewcontroller(void *viewcontroller,void *util):
     (<object> util).NokeViewController = (<object> viewcontroller)
