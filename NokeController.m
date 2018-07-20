@@ -45,6 +45,8 @@ static NokeController *nokeController;
     nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
     NSLog(@"DEBUG-NC-2");
+}
+-(void) startCallbackLoop{
 
     bool alive = true;
     bool status = false;
@@ -54,15 +56,15 @@ static NokeController *nokeController;
         status = self.mStatusfunc(self.mUtil);
         if(status){
             NSLog(@"Sending noke info to server.");
-            NSString *session = [noke getSessionAsString];
-            NSString *mac = noke.mac;
+            NSString *session = @"Debug";//[noke getSessionAsString];
+            NSString *mac = @"DEBUG"//noke.mac;
             const char *charDeeMacDennis = [mac UTF8String];
             const char *sessionChar = [session UTF8String];
             const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
             NSString* rsp = [NSString stringWithUTF8String:rspChar];
             NSData* commands = [rsp dataUsingEncoding:NSUTF8StringEncoding];
-            [noke addDataToArray:commands];
-            [noke writeDataArray];
+            //[noke addDataToArray:commands];
+            //[noke writeDataArray];
             alive = false;
          }
         [NSThread sleepForTimeInterval:1];
@@ -116,4 +118,5 @@ static NokeController *nokeController;
 
 void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func,checkStatusfunc statusfunc, void *util){
     [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func statusfunc:statusfunc util:util];
+    [[NokeController sharedInstance] startCallbackLoop];
 }
