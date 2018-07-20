@@ -2,8 +2,7 @@ STUFF = "Hi"
 from libc.stdio cimport printf
 from cpython.ref cimport Py_INCREF
 
-from userClient import connectToServer
-import ast
+from userClient import connectNokeToServer
 
 cdef extern from "NokeController.h":
     ctypedef void (*store_viewcontroller)(void *viewcontroller,void *util)
@@ -30,16 +29,10 @@ cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
     printf("%s\n", session)
     printf("%s\n", mac)
     (<object> util).NokeCallback = "Sending lock commands"
-    msg = ast.literal_eval('{"function":"Noke_Unlock","session":"' + str(session.decode('utf-8')) + '","mac":"' + str(mac.decode('utf-8')) + '"}')
-    host = "206.189.163.242"
-    port = 8080
-    rsp = connectToServer(host, port, msg)
-    if rsp['result'] == "success":
-        commandStr = rsp['data']["commands"]
-        return commandStr.encode('utf-8')
-    else:
-        error = "Access Denied"
-        return error.encode('utf-8')
+    commands = connectNokeToServer(session.decode('utf-8'), mac.decode('utf-8'))
+    if len(commands) < 1:
+        commands = "Acces denied."
+    return commands.encode('utf-8')
     # printf("%s\n", session)
     # printf("%s\n", mac)
     # sessionStr = (session.decode('utf-8'))
