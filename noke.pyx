@@ -8,7 +8,7 @@ cdef extern from "NokeController.h":
     ctypedef bool (*checkStatusfunc)(void *util)
     ctypedef void (*callbackfunc)(const char *name, void *user_data)
     ctypedef const char* (*clientfunc)(const char *session, const char *mac, void *util)
-    void StartUnlock(char* name, char* macChar, callbackfunc call_back, clientfunc client_func, checkStatusfunc statusfunc, void *user_data, void *utilSendMessage)
+    void StartUnlock(char* name, char* macChar, callbackfunc call_back, clientfunc client_func, checkStatusfunc statusfunc, void *user_data)
 
 class NokePadLock():
     def __init__(self,util):
