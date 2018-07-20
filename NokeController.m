@@ -13,7 +13,10 @@
     NSString* latitude;
 }
 
-@synthesize strongRefArray = _strongRefArray;
+@synthesize mCallback = _callback;
+@synthesize mUtil = _util;
+@synthesize mClient = _client;
+@synthesize mStatusfunc = _statusfunc;
 
 static NokeController *nokeController;
 
@@ -25,9 +28,13 @@ static NokeController *nokeController;
     }
     return nokeController;
 }
--(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func viewcontroller:(store_viewcontroller)viewcontroller util:(void*)util utilSendMessage:(void*)utilSendMessage{
+-(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func statusfunc:(checkStatusfunc)statusfunc util:(void*)util utilSendMessage:(void*)utilSendMessage{
 
-    [[NokeCallback sharedInstance] setCallBacks:callback client_func:client_func util:util];
+    _callback = callback;
+    _util = util;
+    _client = client_func;
+    _statusfunc = statusfunc
+
     self.strongRefArray = [[NSMutableArray alloc] init];
     [self.strongRefArray addObject:[NokeCallback sharedInstance]];
     NSLog(@"DEBUG-NC-1");
@@ -40,10 +47,26 @@ static NokeController *nokeController;
     nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
     NSLog(@"DEBUG-NC-2");
-    NSString *callbackStr = @"Bluetooth Enabled";
-    const char *callbackChar = [callbackStr UTF8String];
-    [[NokeCallback sharedInstance] sendTokenToMyServer:NSname mac:NSlockMacAddr];
 
+    bool alive = true;
+    bool status = false
+    while(alive){
+        status = self.mStatusfunc(self.mUtil);
+        if(status){
+            NSLog(@"Sending noke info to server.");
+            NSString *session = [noke getSessionAsString];
+            NSString *mac = noke.mac;
+            const char *charDeeMacDennis = [mac UTF8String];
+            const char *sessionChar = [session UTF8String];
+            const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
+            NSString* rsp = [NSString stringWithUTF8String:rspChar];
+            NSData* commands = [rsp dataUsingEncoding:NSUTF8StringEncoding];
+            [noke addDataToArray:commands];
+            [noke writeDataArray];
+            alive = false
+         }
+        [NSThread sleepForTimeInterval:0.5];
+    }
 }
 
 
@@ -60,7 +83,6 @@ static NokeController *nokeController;
     }else{
         NSLog(@"Bluetooth disabled");
     }
-    //Called when bluetooth is enabled or disabled
 }
 
 -(void) didDiscoverNokeDevice:(nokeDevice*)noke RSSI:(NSNumber*)RSSI
@@ -74,29 +96,9 @@ static NokeController *nokeController;
 
 -(void) didConnect:(nokeDevice*) noke
 {
-    NSString *callbackStr = @"Lock Connected";
+    NSString *callbackStr = @"Connected";
     [[NokeCallback sharedInstance] sendCallBack:callbackStr];
     NSLog(@"Lock Connected");
-    NSString *mac = noke.mac;
-    NSString *session = [noke getSessionAsString];
-    NSLog(@"%@",mac);
-    NSLog(@"%@",session);
-    NSString* commands = [[NokeCallback sharedInstance] sendTokenToMyServer:session mac:mac];
-    [noke addDataToArray:[commands dataUsingEncoding:NSUTF8StringEncoding]];
-    [noke writeDataArray];
-//    [self submitTokenToBackend:session mac:mac compblock:^(NSString* commands) {
-//        if(commands != nil){
-//            NSLog(@"Noke Token Req:No response from server.");
-//        }
-//        if(![commands isEqualToString:@"Access Denied"]){
-//            [noke addDataToArray:[commands dataUsingEncoding:NSUTF8StringEncoding]];
-//            [noke writeDataArray];
-//        }else{
-//            NSLog(@"Error getting noke commands.  Access Denied");
-//        }
-//    }];
-    //[noke sendCommand:commands];
-    //Called when a noke device has successfully connected to the app
 }
 
 -(void) didDisconnect:(nokeDevice*) noke
@@ -112,6 +114,6 @@ static NokeController *nokeController;
 }
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func,store_viewcontroller viewcontroller, void *util, void *utilSendMessage){
-    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func viewcontroller:viewcontroller util:util utilSendMessage:utilSendMessage];
+void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func,checkStatusfunc statusfunc, void *util){
+    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func statusfunc:statusfunc util:util];
 }

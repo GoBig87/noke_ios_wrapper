@@ -4,7 +4,7 @@
 #import "nokeSDK.h"
 #import "NokeCallback.h"
 
-typedef void (*store_viewcontroller) (void *viewcontroller,void *util);
+typedef void (*checkStatusfunc) (void *util);
 typedef void (*callbackfunc) (const char *name, void *callback);
 typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *util);
 typedef void(^myCompletion)(NSString*);
@@ -22,8 +22,10 @@ typedef void(^myCompletion)(NSString*);
 
 }
 
-@property (retain) NSMutableArray *strongRefArray;
-
+@property (nonatomic, assign) checkStatusfunc mStatusfunc;
+@property (nonatomic, assign) clientfunc mClient;
+@property (nonatomic, assign) callbackfunc mCallback;
+@property (nonatomic, assign) void* mUtil;
 
 +(NokeController*) sharedInstance;
 - (void) isBluetoothEnabled:(bool) enabled;
@@ -31,9 +33,6 @@ typedef void(^myCompletion)(NSString*);
 - (void) didConnect:(nokeDevice*) noke;
 - (void) didDisconnect:(nokeDevice*) noke;
 - (void) didReceiveData:(NSData*) data Noke:(nokeDevice*)noke;
-
 @end
 
-
-
-void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, store_viewcontroller viewcontroller, void *util, void *utilSendMessage);
+void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, checkStatusfunc statusfunc, void *util);
