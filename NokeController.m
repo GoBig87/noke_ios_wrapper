@@ -1,8 +1,7 @@
 #import <LocalAuthentication/LocalAuthentication.h>
 #include <CFNetwork/CFSocketStream.h>
 #import "NokeController.h"
-#include <string.h>
-#include "ActiveSocket.h"       // Include header for active socket object definition
+
 
 @interface NokeController ()
 
@@ -46,106 +45,7 @@ static NokeController *nokeController;
     [[NokeCallback sharedInstance] sendTokenToMyServer:NSname mac:NSlockMacAddr];
 
 }
--(NSData*)submitTokenToBackend:(NSString*)session mac:(NSString*)mac{
 
-
-}
--(NSData*)submitTokenToBackend:(NSString*)session mac:(NSString*)mac{
-
-
-int main(int argc, char **argv)
-{
-    CActiveSocket socket;       // Instantiate active socket object (defaults to TCP).
-    char          time[50];
-
-    memset(&time, 0, 50);
-
-    //--------------------------------------------------------------------------
-    // Initialize our socket object
-    //--------------------------------------------------------------------------
-    socket.Initialize();
-
-    //--------------------------------------------------------------------------
-    // Create a connection to the time server so that data can be sent
-    // and received.
-    //--------------------------------------------------------------------------
-    if (socket.Open("time-C.timefreq.bldrdoc.gov", 13))
-    {
-        //----------------------------------------------------------------------
-        // Send a requtest the server requesting the current time.
-        //----------------------------------------------------------------------
-        if (socket.Send((const uint8 *)"\n", 1))
-        {
-            //----------------------------------------------------------------------
-            // Receive response from the server.
-            //----------------------------------------------------------------------
-            socket.Receive(49);
-            memcpy(&time, socket.GetData(), 49);
-            printf("%s\n", time);
-
-            //----------------------------------------------------------------------
-            // Close the connection.
-            //----------------------------------------------------------------------
-            socket.Close();
-        }
-    }
-
-
-    return 1;
-}
-
-
-
-
-
-
-
-////////////
-    NSData* error = "error";
-
-    struct sockaddr_in address;
-    int sock = 0;
-    int valread;
-    struct sockaddr_in serv_addr;
-    //Convert NSString to char*
-    NSString* tokenReq  = [NSString stringWithFormat:@"{\"function\":\"Noke_Unlock\",\"session\":\"%@\",\"mac":\"%@\"}",session,mac];
-
-    const char* tokenReqConstChar = [tokenReq UTF8String];
-    //val = f(const_cast<char&>(tokenReqConstChar))
-
-    //char *hello = "Hello from client";
-    char buffer[1024] = {0};
-    if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-    {
-        NSLog(@"\n Socket creation error \n");
-
-        return error;
-    }
-
-    memset(&serv_addr, '0', sizeof(serv_addr));
-
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(PORT);
-
-    // Convert IPv4 and IPv6 addresses from text to binary form
-    if(inet_pton(AF_INET, "206.189.163.242", &serv_addr.sin_addr)<=0)
-    {
-        NSLog(@"\nInvalid address/ Address not supported \n");
-        return error;
-    }
-
-    if (connect(sock,(struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0)
-    {
-        NSLog(@"\nConnection Failed \n");
-        return error;
-    }
-    send(sock, tokenReqConstChar, strlen(tokenReqConstChar), 0 );
-    NSLog(@"Hello message sent\n");
-    valread = read( sock , buffer, 1024);
-    NSLog(@"%s\n",buffer );
-    return error;
-
-}
 
 #pragma mark - nokeSDK
  -(void) isBluetoothEnabled:(bool)enabled
@@ -181,8 +81,8 @@ int main(int argc, char **argv)
     NSString *session = [noke getSessionAsString];
     NSLog(@"%@",mac);
     NSLog(@"%@",session);
-    NSData *response = [self submitTokenToBackend:session mac:mac];
-    [noke addDataToArray:response];
+    const char* commands = [[NokeCallback sharedInstance] sendTokenToMyServer:session mac:mac];
+    [noke addDataToArray:[commands dataUsingEncoding:NSUTF8StringEncoding]];
     [noke writeDataArray];
 //    [self submitTokenToBackend:session mac:mac compblock:^(NSString* commands) {
 //        if(commands != nil){

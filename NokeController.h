@@ -26,7 +26,6 @@ typedef void(^myCompletion)(NSString*);
 
 
 +(NokeController*) sharedInstance;
-- (NSData*)submitTokenToBackend:(NSString*)session mac:(NSString*)mac;
 - (void) isBluetoothEnabled:(bool) enabled;
 - (void) didDiscoverNokeDevice:(nokeDevice*) noke RSSI:(NSNumber *)RSSI;
 - (void) didConnect:(nokeDevice*) noke;
