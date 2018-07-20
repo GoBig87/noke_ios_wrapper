@@ -29,9 +29,14 @@ cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
     printf("%s\n", session)
     printf("%s\n", mac)
     (<object> util).NokeCallback = "Sending lock commands"
+    printf("%s\n", mac)
     commands = connectNokeToServer(session.decode('utf-8'), mac.decode('utf-8'))
+    printf("%s\n", session)
     if len(commands) < 1:
+        printf("%s\n", mac)
         commands = "Acces denied."
+        printf("%s\n", mac)
+    printf("%s\n", session)
     return commands.encode('utf-8')
     # printf("%s\n", session)
     # printf("%s\n", mac)
