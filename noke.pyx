@@ -12,7 +12,7 @@ class NokePadLock():
     def __init__(self,util):
         self.util = util
 
-    def requestUnlock(name,mac):
+    def requestUnlock(self,name,mac):
         cdef bytes name_bytes = name.encode('utf-8')
         cdef bytes mac_bytes  = mac.encode('utf-8')
         StartUnlock(name_bytes,mac_bytes, callback, reqTokenFunc, storeviewcontroller, <void*>self.util, <void*>util.sendNokeMessage)
