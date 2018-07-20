@@ -24,9 +24,11 @@ cdef void callback(const char *name, void *util):
 
 cdef const char* checkNokeStatus(void *util):
     if (<object> util).NokeCallback == 'Connected':
-        return 1
+        char = '1'
+        return char.encode('utf-8')
     else:
-        return 0
+        char = '0'
+        return char.encode('utf-8')
 
 cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
     printf("%s\n", session)
