@@ -93,6 +93,7 @@ static NokeController *nokeController;
     NSString *callbackStr = @"Lock Discovered";
     [[NokeCallback sharedInstance] sendCallBack:callbackStr];
     [[nokeSDK sharedInstance] connectToNokeDevice:noke];
+    self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
     //Is called when a noke device is discovered.
 }
 
@@ -118,5 +119,4 @@ static NokeController *nokeController;
 
 void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func,checkStatusfunc statusfunc, void *util){
     [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func statusfunc:statusfunc util:util];
-    [[NokeController sharedInstance] startCallbackLoop];
 }
