@@ -2,7 +2,6 @@
 #import <CoreLocation/CoreLocation.h>
 #import <LocalAuthentication/LocalAuthentication.h>
 #import "nokeSDK.h"
-#import "NokeCallback.h"
 
 typedef void (*callbackfunc) (const char *name, void *callback);
 typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *util);
