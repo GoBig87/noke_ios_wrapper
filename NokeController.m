@@ -102,7 +102,7 @@ static NokeController *nokeController;
     {
         [[noke dataPackets] removeAllObjects];
     }
-    [noke addDataToArray:commandData];
+    [noke addDataToArray:cmdData];
     NSLog(@"Adding data to array");
     [noke writeDataArray];
     NSLog(@" Sending data to lock");
