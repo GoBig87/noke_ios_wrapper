@@ -32,4 +32,4 @@ typedef void(^myCompletion)(NSString*);
 - (void) didReceiveData:(NSData*) data Noke:(nokeDevice*)noke;
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util);
+void StartUnlock(char* name, char* lockMacAddr,bool lockState, callbackfunc callback, clientfunc client_func, void *util);
