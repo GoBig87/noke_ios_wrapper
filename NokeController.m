@@ -85,12 +85,23 @@ static NokeController *nokeController;
     NSString* rsp = [NSString stringWithUTF8String:rspChar];
 
     const char* commands = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
-    NSString* commandsStr = [NSString stringWithUTF8String:commands];
-    NSLog(@"Printing command string");
-    NSLog(@"%@",commandsStr);
-    NSLog(@"Convert to NS data");
-    NSData* commandData = [commandsStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSString* hexString = [NSString stringWithUTF8String:commands];
+    char * myBuffer = (char *)malloc((int)[hexString length] / 2 + 1);
+    bzero(myBuffer, [hexString length] / 2 + 1);
+    for (int i = 0; i < [hexString length] - 1; i += 2)
+    {
+        unsigned int anInt;
+        NSString * hexCharStr = [hexString substringWithRange:NSMakeRange(i, 2)];
+        NSScanner * scanner = [[NSScanner alloc] initWithString:hexCharStr];
+        [scanner scanHexInt:&anInt];
+        myBuffer[i / 2] = (char)anInt;
+    }
+    NSData* cmdData = [NSData dataWithBytes:myBuffer length:20];
     NSLog(@"Fineshed converting to NS data");
+    if([noke dataPackets] != nil)
+    {
+        [[noke dataPackets] removeAllObjects];
+    }
     [noke addDataToArray:commandData];
     NSLog(@"Adding data to array");
     [noke writeDataArray];
