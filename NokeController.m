@@ -16,7 +16,6 @@
 @synthesize mCallback = _callback;
 @synthesize mUtil = _util;
 @synthesize mClient = _client;
-@synthesize mStatusfunc = _statusfunc;
 
 static NokeController *nokeController;
 
@@ -28,12 +27,11 @@ static NokeController *nokeController;
     }
     return nokeController;
 }
--(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func statusfunc:(checkStatusfunc)statusfunc util:(void*)util{
+-(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
 
     _callback = callback;
     _util = util;
     _client = client_func;
-    _statusfunc = statusfunc;
 
     NSLog(@"DEBUG-NC-1");
 
@@ -46,31 +44,6 @@ static NokeController *nokeController;
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
     NSLog(@"DEBUG-NC-2");
 }
--(void) startCallbackLoop{
-
-    bool alive = true;
-    bool status = false;
-
-    while(alive){
-        NSLog(@"Starting loop");
-        status = self.mStatusfunc(self.mUtil);
-        if(status){
-            NSLog(@"Sending noke info to server.");
-            NSString *session = @"Debug";//[noke getSessionAsString];
-            NSString *mac = @"DEBUG";//noke.mac;
-            const char *charDeeMacDennis = [mac UTF8String];
-            const char *sessionChar = [session UTF8String];
-            const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
-            NSString* rsp = [NSString stringWithUTF8String:rspChar];
-            NSData* commands = [rsp dataUsingEncoding:NSUTF8StringEncoding];
-            //[noke addDataToArray:commands];
-            //[noke writeDataArray];
-            alive = false;
-         }
-        [NSThread sleepForTimeInterval:1];
-    }
-}
-
 
 #pragma mark - nokeSDK
  -(void) isBluetoothEnabled:(bool)enabled
@@ -117,6 +90,6 @@ static NokeController *nokeController;
 }
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func,checkStatusfunc statusfunc, void *util){
-    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func statusfunc:statusfunc util:util];
+void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
+    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func util:util];
 }

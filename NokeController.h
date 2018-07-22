@@ -4,7 +4,6 @@
 #import "nokeSDK.h"
 #import "NokeCallback.h"
 
-typedef bool (*checkStatusfunc) (void *util);
 typedef void (*callbackfunc) (const char *name, void *callback);
 typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *util);
 typedef void(^myCompletion)(NSString*);
@@ -36,4 +35,4 @@ typedef void(^myCompletion)(NSString*);
 - (void) didReceiveData:(NSData*) data Noke:(nokeDevice*)noke;
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, checkStatusfunc statusfunc, void *util);
+void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util);

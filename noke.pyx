@@ -4,7 +4,6 @@ from cpython.ref cimport Py_INCREF
 from libcpp cimport bool
 
 cdef extern from "NokeController.h":
-    ctypedef bool (*checkStatusfunc)(void *util)
     ctypedef void (*callbackfunc)(const char *name, void *user_data)
     ctypedef const char* (*clientfunc)(const char *session, const char *mac, void *util)
     void StartUnlock(char* name, char* macChar, callbackfunc call_back, clientfunc client_func, checkStatusfunc statusfunc, void *user_data)
@@ -22,13 +21,8 @@ class NokePadLock():
 cdef void callback(const char *name, void *util):
     (<object> util).NokeCallback = (name.decode('utf-8'))
 
-cdef bool checkNokeStatus(void *util):
-    if (<object> util).NokeCallback == 'Connected':
-        return True
-    else:
-        return False
 
-cdef const char* reqTokenFunc(const char *session, const char *mac, void *util):
+cdef const char* reqTokenFunc(const char *session, const char *mac, void *util) with gil:
     printf("%s\n", session)
     printf("%s\n", mac)
     (<object> util).NokeCallback = "Sending lock commands"
