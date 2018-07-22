@@ -123,6 +123,7 @@ static NokeController *nokeController;
     NSString *callbackStr = @"Received Data";
     const char *callbackChar = [callbackStr UTF8String];
     self.mCallback(callbackChar,self.mUtil);
+    [[nokeSDK sharedInstance] disconnectNokeDevice:noke];
     //Called when the lock sends back data that needs to be passed to the server
 }
 @end
