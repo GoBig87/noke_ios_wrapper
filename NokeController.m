@@ -74,7 +74,7 @@ static NokeController *nokeController;
 {
     NSString *callbackStr = @"Connected";
     const char *callbackChar = [callbackStr UTF8String];
-    self.mCallback(callbackChar,self.mUtil)
+    self.mCallback(callbackChar,self.mUtil);
     NSString *mac = noke.mac;
     NSString *session = [noke getSessionAsString];
     const char *charDeeMacDennis = [mac UTF8String];
@@ -90,7 +90,7 @@ static NokeController *nokeController;
 {
     NSString *callbackStr = @"Disconnected";
     const char *callbackChar = [callbackStr UTF8String];
-    self.mCallback(callbackChar,self.mUtil)
+    self.mCallback(callbackChar,self.mUtil);
     NSLog(@"Lock Disconnected");
     //Called after a noke device has been disconnected
 }
@@ -100,7 +100,7 @@ static NokeController *nokeController;
     NSLog(@"Data received");
     NSString *callbackStr = @"Received Data";
     const char *callbackChar = [callbackStr UTF8String];
-    self.mCallback(callbackChar,self.mUtil)
+    self.mCallback(callbackChar,self.mUtil);
     //Called when the lock sends back data that needs to be passed to the server
 }
 @end
