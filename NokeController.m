@@ -64,9 +64,6 @@ static NokeController *nokeController;
 {
     NSLog(@"Lock Discovered");
     NSString *callbackStr = @"Lock Discovered";
-    [[NokeCallback sharedInstance] sendCallBack:callbackStr];
-    [[nokeSDK sharedInstance] connectToNokeDevice:noke];
-    self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
     //Is called when a noke device is discovered.
 }
 
@@ -74,6 +71,14 @@ static NokeController *nokeController;
 {
     NSString *callbackStr = @"Connected";
     [[NokeCallback sharedInstance] sendCallBack:callbackStr];
+    NSString *mac = noke.mac;
+    NSString *session = [noke getSessionAsString];
+    const char *charDeeMacDennis = [mac UTF8String];
+    const char *sessionChar = [session UTF8String];
+    const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
+    NSString* rsp = [NSString stringWithUTF8String:rspChar];
+
+    self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
     NSLog(@"Lock Connected");
 }
 
