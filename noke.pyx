@@ -6,7 +6,7 @@ from libcpp cimport bool
 cdef extern from "NokeController.h":
     ctypedef void (*callbackfunc)(const char *name, void *user_data)
     ctypedef const char* (*clientfunc)(const char *session, const char *mac, void *util)
-    void StartUnlock(char* name, char* macChar, callbackfunc call_back, clientfunc client_func, checkStatusfunc statusfunc, void *user_data)
+    void StartUnlock(char* name, char* macChar, callbackfunc call_back, clientfunc client_func, void *user_data)
 
 class NokePadLock():
     def __init__(self,util):
@@ -15,7 +15,7 @@ class NokePadLock():
     def requestUnlock(self,name,mac):
         cdef bytes name_bytes = name.encode('utf-8')
         cdef bytes mac_bytes  = mac.encode('utf-8')
-        StartUnlock(name_bytes,mac_bytes, callback, reqTokenFunc, checkNokeStatus, <void*>self.util)
+        StartUnlock(name_bytes,mac_bytes, callback, reqTokenFunc, <void*>self.util)
 
 
 cdef void callback(const char *name, void *util):
