@@ -21,7 +21,6 @@ typedef void(^myCompletion)(NSString*);
 
 }
 
-@property (nonatomic, assign) checkStatusfunc mStatusfunc;
 @property (nonatomic, assign) clientfunc mClient;
 @property (nonatomic, assign) callbackfunc mCallback;
 @property (nonatomic, assign) void* mUtil;
