@@ -44,9 +44,9 @@ static NokeController *nokeController;
     nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
     NSLog(@"DEBUG-NC-2");
-    if(lockState){
-        [[nokeSDK sharedInstance] startScanForNokeDevices];
-    }
+//    if(lockState){
+//        [[nokeSDK sharedInstance] startScanForNokeDevices];
+//    }
 }
 
 #pragma mark - nokeSDK
@@ -118,7 +118,7 @@ static NokeController *nokeController;
     const char *callbackChar = [callbackStr UTF8String];
     self.mCallback(callbackChar,self.mUtil);
     NSLog(@"Lock Disconnected");
-    [[nokeSDK sharedInstance] removeAllLocks];
+    //[[nokeSDK sharedInstance] removeAllLocks];
     [[nokeSDK sharedInstance] stopScan];
     //Called after a noke device has been disconnected
 }
