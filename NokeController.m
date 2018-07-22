@@ -40,6 +40,7 @@ static NokeController *nokeController;
     NSLog(@"%@",NSlockMacAddr);
     NSString* NSname = [NSString stringWithUTF8String:name];
     NSLog(@"%@",NSname);
+    [[nokeSDK sharedInstance] resetCMDelegate];
     nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
     NSLog(@"DEBUG-NC-2");
