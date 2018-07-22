@@ -29,8 +29,8 @@
       <file leaf-file-name="nokeDevice.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nokeDevice.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="139" column="32" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="32" />
+            <state relative-caret-position="538">
+              <caret line="301" column="15" selection-start-line="301" selection-start-column="9" selection-end-line="301" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -47,8 +47,8 @@
       <file leaf-file-name="NokeController.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NokeController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
+            <state relative-caret-position="254">
+              <caret line="91" column="32" lean-forward="true" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -65,8 +65,8 @@
       <file leaf-file-name="nokeSDK.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nokeSDK.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="132" column="76" selection-start-line="132" selection-start-column="69" selection-end-line="132" selection-end-column="76" />
+            <state relative-caret-position="221">
+              <caret line="541" column="22" selection-start-line="541" selection-start-column="16" selection-end-line="541" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -100,10 +100,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CBPeripheral</find>
-      <find>get</find>
       <find>sendCommand</find>
-      <find>unlock</find>
       <find>reqTokenFunc</find>
       <find>charDeeMacDennis</find>
       <find>isEqual</find>
@@ -129,7 +126,10 @@
       <find>mac</find>
       <find>session</find>
       <find>callbackStr</find>
+      <find>mCallback</find>
+      <find>unlock</find>
       <find>add</find>
+      <find>writed</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -318,13 +318,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/userClient.py" />
-    <entry file="file://$PROJECT_DIR$/nokeSDK.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="132" column="76" selection-start-line="132" selection-start-column="69" selection-end-line="132" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nokeSDK.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="434">
@@ -339,13 +332,6 @@
           <folding>
             <element signature="e#46#55#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nokeDevice.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="139" column="32" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -370,13 +356,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nokeDevice.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="139" column="23" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noke.pyx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -384,10 +363,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/nokeSDK.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="541" column="22" selection-start-line="541" selection-start-column="16" selection-end-line="541" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nokeDevice.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="139" column="23" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nokeDevice.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="301" column="15" selection-start-line="301" selection-start-column="9" selection-end-line="301" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NokeController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
+        <state relative-caret-position="254">
+          <caret line="91" column="32" lean-forward="true" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="32" />
         </state>
       </provider>
     </entry>

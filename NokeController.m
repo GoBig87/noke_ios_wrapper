@@ -86,9 +86,15 @@ static NokeController *nokeController;
 
     const char* commands = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
     NSString* commandsStr = [NSString stringWithUTF8String:commands];
+    NSLog(@"Printing command string");
+    NSLog(@"%@",commandsStr);
+    NSLog(@"Convert to NS data");
     NSData* commandData = [commandsStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"Fineshed converting to NS data");
     [noke addDataToArray:commandData];
+    NSLog(@"Adding data to array");
     [noke writeDataArray];
+    NSLog(@" Sending data to lock");
 }
 
 -(void) didDisconnect:(nokeDevice*) noke
