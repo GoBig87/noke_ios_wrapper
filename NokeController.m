@@ -67,7 +67,6 @@ static NokeController *nokeController;
     NSString *callbackStr = @"Lock Discovered";
     const char *callbackChar = [callbackStr UTF8String];
     self.mCallback(callbackChar,self.mUtil);
-    NSString *callbackStr = @"Lock Discovered";
     //Is called when a noke device is discovered.
 }
 
@@ -99,7 +98,6 @@ static NokeController *nokeController;
 
 -(void) didReceiveData:(NSData*) data Noke:(nokeDevice*)noke
 {
-    NSLog(@"Data received");
     NSLog(@"Data received");
     NSString *callbackStr = @"Received Data";
     const char *callbackChar = [callbackStr UTF8String];
