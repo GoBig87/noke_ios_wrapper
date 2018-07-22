@@ -52,7 +52,8 @@ static NokeController *nokeController;
 
     if(enabled){
         NSString *callbackStr = @"Bluetooth Enabled";
-        [[NokeCallback sharedInstance] sendCallBack:callbackStr];
+        const char *callbackChar = [callbackStr UTF8String];
+        self.mCallback(callbackChar,self.mUtil);
         [[nokeSDK sharedInstance] startScanForNokeDevices];
         NSLog(@"Bluetooth enabled");
     }else{
@@ -63,6 +64,8 @@ static NokeController *nokeController;
 -(void) didDiscoverNokeDevice:(nokeDevice*)noke RSSI:(NSNumber*)RSSI
 {
     NSLog(@"Lock Discovered");
+    const char *callbackChar = [callbackStr UTF8String];
+    self.mCallback(callbackChar,self.mUtil);
     NSString *callbackStr = @"Lock Discovered";
     //Is called when a noke device is discovered.
 }
@@ -70,7 +73,8 @@ static NokeController *nokeController;
 -(void) didConnect:(nokeDevice*) noke
 {
     NSString *callbackStr = @"Connected";
-    [[NokeCallback sharedInstance] sendCallBack:callbackStr];
+    const char *callbackChar = [callbackStr UTF8String];
+    self.mCallback(callbackChar,self.mUtil)
     NSString *mac = noke.mac;
     NSString *session = [noke getSessionAsString];
     const char *charDeeMacDennis = [mac UTF8String];
@@ -84,6 +88,9 @@ static NokeController *nokeController;
 
 -(void) didDisconnect:(nokeDevice*) noke
 {
+    NSString *callbackStr = @"Disconnected";
+    const char *callbackChar = [callbackStr UTF8String];
+    self.mCallback(callbackChar,self.mUtil)
     NSLog(@"Lock Disconnected");
     //Called after a noke device has been disconnected
 }
@@ -91,6 +98,9 @@ static NokeController *nokeController;
 -(void) didReceiveData:(NSData*) data Noke:(nokeDevice*)noke
 {
     NSLog(@"Data received");
+    NSString *callbackStr = @"Received Data";
+    const char *callbackChar = [callbackStr UTF8String];
+    self.mCallback(callbackChar,self.mUtil)
     //Called when the lock sends back data that needs to be passed to the server
 }
 @end
