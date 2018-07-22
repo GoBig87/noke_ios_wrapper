@@ -45,7 +45,7 @@ static nokeSDK *sharedNokeSDK;
         self.nokeGroups = [[NSMutableArray alloc] init];
         
         //TODO enable 'bluetooth-central' background mode for State restoration of CBCentralManager
-        //dispatch_queue_t centralQueue = dispatch_queue_create("central", DISPATCH_QUEUE_SERIAL);
+        dispatch_queue_t centralQueue = dispatch_queue_create("central", DISPATCH_QUEUE_SERIAL);
         cm = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue() options:@{CBCentralManagerOptionRestoreIdentifierKey:@"nokeCentralManagerIdentifier"}];
     }
     return self;
