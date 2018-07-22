@@ -64,6 +64,7 @@ static NokeController *nokeController;
 -(void) didDiscoverNokeDevice:(nokeDevice*)noke RSSI:(NSNumber*)RSSI
 {
     NSLog(@"Lock Discovered");
+    NSString *callbackStr = @"Lock Discovered";
     const char *callbackChar = [callbackStr UTF8String];
     self.mCallback(callbackChar,self.mUtil);
     NSString *callbackStr = @"Lock Discovered";
@@ -72,6 +73,7 @@ static NokeController *nokeController;
 
 -(void) didConnect:(nokeDevice*) noke
 {
+    NSLog(@"Connected");
     NSString *callbackStr = @"Connected";
     const char *callbackChar = [callbackStr UTF8String];
     self.mCallback(callbackChar,self.mUtil);
@@ -97,6 +99,7 @@ static NokeController *nokeController;
 
 -(void) didReceiveData:(NSData*) data Noke:(nokeDevice*)noke
 {
+    NSLog(@"Data received");
     NSLog(@"Data received");
     NSString *callbackStr = @"Received Data";
     const char *callbackChar = [callbackStr UTF8String];
