@@ -27,7 +27,7 @@ static NokeController *nokeController;
     }
     return nokeController;
 }
--(void) startNokeScan:(char*)name mac:(char*)lockMacAddr lockState:(bool):lockState callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
+-(void) startNokeScan:(char*)name mac:(char*)lockMacAddr lockState:(bool)lockState callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
 
     _callback = callback;
     _util = util;
