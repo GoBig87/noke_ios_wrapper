@@ -31,11 +31,6 @@ cdef const char* reqTokenFunc(const char *session, const char *mac, void *util) 
     macStr     = (mac.decode('utf-8'))
     commands = (<object>util).sendNokeMessage(sessionStr,macStr)
     printf("%s\n", session)
-    if len(commands) < 1:
-        printf("%s\n", mac)
-        commands = "Acces denied."
-        printf("%s\n", mac)
-    printf("%s\n", session)
     return commands.encode('utf-8')
     # printf("%s\n", session)
     # printf("%s\n", mac)
