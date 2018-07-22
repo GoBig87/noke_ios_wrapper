@@ -67,7 +67,6 @@ static NokeController *nokeController;
     NSString *callbackStr = @"Lock Discovered";
     const char *callbackChar = [callbackStr UTF8String];
     self.mCallback(callbackChar,self.mUtil);
-    [[NokeCallback sharedInstance] sendCallBack:callbackStr];
     [[nokeSDK sharedInstance] connectToNokeDevice:noke];
     //Is called when a noke device is discovered.
 }
