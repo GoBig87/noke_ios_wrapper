@@ -84,8 +84,11 @@ static NokeController *nokeController;
     const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
     NSString* rsp = [NSString stringWithUTF8String:rspChar];
 
-    self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
-    NSLog(@"Lock Connected");
+    const char* commands = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
+    NSString* commandsStr = [NSString stringWithUTF8String:commands];
+    NSData* commandData = [commandsStr dataUsingEncoding:NSUTF8StringEncoding];
+    [noke addDataToArray:commandData];
+    [noke writeDataArray];
 }
 
 -(void) didDisconnect:(nokeDevice*) noke
