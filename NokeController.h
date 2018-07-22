@@ -26,7 +26,6 @@ typedef void(^myCompletion)(NSString*);
 @property (nonatomic, assign) void* mUtil;
 
 +(NokeController*) sharedInstance;
-- (void) startCallbackLoop;
 - (void) isBluetoothEnabled:(bool) enabled;
 - (void) didDiscoverNokeDevice:(nokeDevice*) noke RSSI:(NSNumber *)RSSI;
 - (void) didConnect:(nokeDevice*) noke;
