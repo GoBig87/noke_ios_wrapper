@@ -131,7 +131,7 @@
       <find>session</find>
       <find>mCallback</find>
       <find>add</find>
-      <find>Util debug 2</find>
+      <find />
     </findStrings>
   </component>
   <component name="Git.Settings">

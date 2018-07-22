@@ -15,7 +15,7 @@ class NokePadLock():
     def requestUnlock(self,name,mac,lockState):
         cdef bytes name_bytes = name.encode('utf-8')
         cdef bytes mac_bytes  = mac.encode('utf-8')
-        StartUnlock(name_bytes,mac_bytes, callback,lockState, reqTokenFunc, <void*>self.util)
+        StartUnlock(name_bytes,mac_bytes, lockState, callback, reqTokenFunc, <void*>self.util)
 
 
 cdef void callback(const char *name, void *util):
