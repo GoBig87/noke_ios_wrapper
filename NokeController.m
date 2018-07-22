@@ -27,7 +27,7 @@ static NokeController *nokeController;
     }
     return nokeController;
 }
--(void) startNokeScan:(char*)name mac:(char*)lockMacAddr callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
+-(void) startNokeScan:(char*)name mac:(char*)lockMacAddr lockState:(bool):lockState callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
 
     _callback = callback;
     _util = util;
@@ -44,6 +44,9 @@ static NokeController *nokeController;
     nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
     NSLog(@"DEBUG-NC-2");
+    if(lockState){
+        [nokeSDK sharedInstance] startScanForNokeDevices];
+    }
 }
 
 #pragma mark - nokeSDK
@@ -115,15 +118,15 @@ static NokeController *nokeController;
     const char *callbackChar = [callbackStr UTF8String];
     self.mCallback(callbackChar,self.mUtil);
     NSLog(@"Lock Disconnected");
+    [[nokeSDK sharedInstance] removeAllLocks];
     [[nokeSDK sharedInstance] stopScan];
-    [[nokeSDK sharedInstance] removeLockFromArray:noke];
     //Called after a noke device has been disconnected
 }
 
 -(void) didReceiveData:(NSData*) data Noke:(nokeDevice*)noke
 {
     NSLog(@"Data received");
-    NSString *callbackStr = @"Received Data";
+    NSString *callbackStr = @"Unlocked";
     const char *callbackChar = [callbackStr UTF8String];
     self.mCallback(callbackChar,self.mUtil);
     [[nokeSDK sharedInstance] disconnectNokeDevice:noke];
@@ -131,6 +134,6 @@ static NokeController *nokeController;
 }
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,callbackfunc callback, clientfunc client_func, void *util){
-    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr callback:callback client_func:client_func util:util];
+void StartUnlock(char* name, char* lockMacAddr,bool lockState, callbackfunc callback, clientfunc client_func, void *util){
+    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr lockState:lockState callback:callback client_func:client_func util:util];
 }
