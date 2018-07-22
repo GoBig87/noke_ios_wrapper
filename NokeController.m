@@ -115,6 +115,7 @@ static NokeController *nokeController;
     self.mCallback(callbackChar,self.mUtil);
     NSLog(@"Lock Disconnected");
     [[nokeSDK sharedInstance] stopScan];
+    [[nokeSDK sharedInstance] removeLockFromArray:noke];
     //Called after a noke device has been disconnected
 }
 
