@@ -45,7 +45,7 @@ static NokeController *nokeController;
     [[nokeSDK sharedInstance] insertNokeDevice:noke];
     NSLog(@"DEBUG-NC-2");
     if(lockState){
-        [nokeSDK sharedInstance] startScanForNokeDevices];
+        [[nokeSDK sharedInstance] startScanForNokeDevices];
     }
 }
 
