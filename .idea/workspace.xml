@@ -126,7 +126,7 @@
       <find>writed</find>
       <find>restoration</find>
       <find>willRestoreState</find>
-      <find>Util debug 2</find>
+      <find />
       <find>bluetooth-central</find>
       <find>TODO</find>
       <find>restore</find>
@@ -168,7 +168,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="823" />
