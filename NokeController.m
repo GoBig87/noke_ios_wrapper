@@ -120,6 +120,8 @@ static NokeController *nokeController;
     NSLog(@"Lock Disconnected");
     [[nokeSDK sharedInstance] removeAllLocks];
     [[nokeSDK sharedInstance] stopScan];
+    [nokeClient uploadData:self];
+    [[nokeSDK sharedInstance] retrieveKnownPeripherals];
     //Called after a noke device has been disconnected
 }
 
