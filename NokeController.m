@@ -34,19 +34,30 @@ static NokeController *nokeController;
     _client = client_func;
 
     NSLog(@"DEBUG-NC-1");
+    if(sharedNokeSDK == nil){
+        [nokeSDK sharedInstance].delegate = self;
+        NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
+        NSLog(@"%@",NSlockMacAddr);
+        NSString* NSname = [NSString stringWithUTF8String:name];
+        NSLog(@"%@",NSname);
+        //[[nokeSDK sharedInstance] resetCMDelegate];
+        nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
+        [[nokeSDK sharedInstance] insertNokeDevice:noke];
+        NSLog(@"DEBUG-NC-2");
+    }else{
+        NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
+        NSLog(@"%@",NSlockMacAddr);
+        NSString* NSname = [NSString stringWithUTF8String:name];
+        NSLog(@"%@",NSname);
+        //[[nokeSDK sharedInstance] resetCMDelegate];
+        nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
+        [[nokeSDK sharedInstance] insertNokeDevice:noke];
+        NSLog(@"DEBUG-NC-3");
+        [[nokeSDK sharedInstance] startScanForNokeDevices];
+    }
 
-    [nokeSDK sharedInstance].delegate = self;
-    NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
-    NSLog(@"%@",NSlockMacAddr);
-    NSString* NSname = [NSString stringWithUTF8String:name];
-    NSLog(@"%@",NSname);
-    [[nokeSDK sharedInstance] resetCMDelegate];
-    nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
-    [[nokeSDK sharedInstance] insertNokeDevice:noke];
-    NSLog(@"DEBUG-NC-2");
-//    if(lockState){
-//        [[nokeSDK sharedInstance] startScanForNokeDevices];
-//    }
+
+
 }
 
 #pragma mark - nokeSDK
