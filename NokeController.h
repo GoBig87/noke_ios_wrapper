@@ -23,6 +23,7 @@ typedef void(^myCompletion)(NSString*);
 @property (nonatomic, assign) clientfunc mClient;
 @property (nonatomic, assign) callbackfunc mCallback;
 @property (nonatomic, assign) void* mUtil;
+@property (nonatomic, assign) bool mLockState;
 
 +(NokeController*) sharedInstance;
 - (void) isBluetoothEnabled:(bool) enabled;
