@@ -16,7 +16,7 @@
 @synthesize mCallback = _callback;
 @synthesize mUtil = _util;
 @synthesize mClient = _client;
-@synthesize mLockState = _lockState
+@synthesize mLockState = _lockState;
 
 static NokeController *nokeController;
 
