@@ -33,7 +33,7 @@ static NokeController *nokeController;
     _callback = callback;
     _util = util;
     _client = client_func;
-    _lockState = lockState
+    _lockState = lockState;
 
     NSLog(@"DEBUG-NC-1");
 //    if(sharedNokeSDK == nil){
@@ -90,7 +90,7 @@ static NokeController *nokeController;
 
 -(void) didConnect:(nokeDevice*) noke
 {
-    if(mLockState){
+    if(self.mLockState){
         NSLog(@"Connected");
         NSString *callbackStr = @"Connected";
         const char *callbackChar = [callbackStr UTF8String];
@@ -99,8 +99,8 @@ static NokeController *nokeController;
         NSString *session = [noke getSessionAsString];
         const char *charDeeMacDennis = [mac UTF8String];
         const char *sessionChar = [session UTF8String];
-        const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
-        NSString* rsp = [NSString stringWithUTF8String:rspChar];
+//        const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
+//        NSString* rsp = [NSString stringWithUTF8String:rspChar];
 
         const char* commands = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
         NSString* hexString = [NSString stringWithUTF8String:commands];
@@ -125,7 +125,7 @@ static NokeController *nokeController;
         [noke writeDataArray];
         NSLog(@" Sending data to lock");
     }
-    mLockState = false;
+    self.mLockState = false;
 }
 
 -(void) didDisconnect:(nokeDevice*) noke
