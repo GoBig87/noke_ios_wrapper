@@ -135,7 +135,7 @@ static NokeController *nokeController;
     self.mCallback(callbackChar,self.mUtil);
     NSLog(@"Lock Disconnected");
     [[nokeSDK sharedInstance] removeAllLocks];
-    [[nokeSDK sharedInstance] stopScan];
+    //[[nokeSDK sharedInstance] stopScan];
     noke.isConnected = false;
     [[nokeSDK sharedInstance] retrieveKnownPeripherals];
 
