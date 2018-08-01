@@ -36,7 +36,7 @@ static NokeController *nokeController;
     _lockState = lockState;
 
     NSLog(@"DEBUG-NC-1");
-    if(sharedNokeSDK == nil){
+    if([nokeSDK sharedInstance].delegate == nil){
         [nokeSDK sharedInstance].delegate = self;
         NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
         NSLog(@"%@",NSlockMacAddr);
