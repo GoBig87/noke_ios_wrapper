@@ -36,27 +36,27 @@ static NokeController *nokeController;
     _lockState = lockState;
 
     NSLog(@"DEBUG-NC-1");
-//    if(sharedNokeSDK == nil){
-    [nokeSDK sharedInstance].delegate = self;
-    NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
-    NSLog(@"%@",NSlockMacAddr);
-    NSString* NSname = [NSString stringWithUTF8String:name];
-    NSLog(@"%@",NSname);
-    //[[nokeSDK sharedInstance] resetCMDelegate];
-    nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
-    [[nokeSDK sharedInstance] insertNokeDevice:noke];
-    NSLog(@"DEBUG-NC-2");
-//    }else{
-//        NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
-//        NSLog(@"%@",NSlockMacAddr);
-//        NSString* NSname = [NSString stringWithUTF8String:name];
-//        NSLog(@"%@",NSname);
-//        //[[nokeSDK sharedInstance] resetCMDelegate];
-//        nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
-//        [[nokeSDK sharedInstance] insertNokeDevice:noke];
-//        NSLog(@"DEBUG-NC-3");
-//        [[nokeSDK sharedInstance] startScanForNokeDevices];
-//    }
+    if(sharedNokeSDK == nil){
+        [nokeSDK sharedInstance].delegate = self;
+        NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
+        NSLog(@"%@",NSlockMacAddr);
+        NSString* NSname = [NSString stringWithUTF8String:name];
+        NSLog(@"%@",NSname);
+        //[[nokeSDK sharedInstance] resetCMDelegate];
+        nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
+        [[nokeSDK sharedInstance] insertNokeDevice:noke];
+        NSLog(@"DEBUG-NC-2");
+    }else{
+        NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
+        NSLog(@"%@",NSlockMacAddr);
+        NSString* NSname = [NSString stringWithUTF8String:name];
+        NSLog(@"%@",NSname);
+        //[[nokeSDK sharedInstance] resetCMDelegate];
+        nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
+        [[nokeSDK sharedInstance] insertNokeDevice:noke];
+        NSLog(@"DEBUG-NC-3");
+        [[nokeSDK sharedInstance] startScanForNokeDevices];
+    }
 
 
 
@@ -90,42 +90,42 @@ static NokeController *nokeController;
 
 -(void) didConnect:(nokeDevice*) noke
 {
-    if(self.mLockState){
-        NSLog(@"Connected");
-        NSString *callbackStr = @"Connected";
-        const char *callbackChar = [callbackStr UTF8String];
-        self.mCallback(callbackChar,self.mUtil);
-        NSString *mac = noke.mac;
-        NSString *session = [noke getSessionAsString];
-        const char *charDeeMacDennis = [mac UTF8String];
-        const char *sessionChar = [session UTF8String];
+    //if(self.mLockState){
+    NSLog(@"Connected");
+    NSString *callbackStr = @"Connected";
+    const char *callbackChar = [callbackStr UTF8String];
+    self.mCallback(callbackChar,self.mUtil);
+    NSString *mac = noke.mac;
+    NSString *session = [noke getSessionAsString];
+    const char *charDeeMacDennis = [mac UTF8String];
+    const char *sessionChar = [session UTF8String];
 //        const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
 //        NSString* rsp = [NSString stringWithUTF8String:rspChar];
 
-        const char* commands = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
-        NSString* hexString = [NSString stringWithUTF8String:commands];
-        char * myBuffer = (char *)malloc((int)[hexString length] / 2 + 1);
-        bzero(myBuffer, [hexString length] / 2 + 1);
-        for (int i = 0; i < [hexString length] - 1; i += 2)
-        {
-            unsigned int anInt;
-            NSString * hexCharStr = [hexString substringWithRange:NSMakeRange(i, 2)];
-            NSScanner * scanner = [[NSScanner alloc] initWithString:hexCharStr];
-            [scanner scanHexInt:&anInt];
-            myBuffer[i / 2] = (char)anInt;
-        }
-        NSData* cmdData = [NSData dataWithBytes:myBuffer length:20];
-        NSLog(@"Fineshed converting to NS data");
-        if([noke dataPackets] != nil)
-        {
-            [[noke dataPackets] removeAllObjects];
-        }
-        [noke addDataToArray:cmdData];
-        NSLog(@"Adding data to array");
-        [noke writeDataArray];
-        NSLog(@" Sending data to lock");
+    const char* commands = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
+    NSString* hexString = [NSString stringWithUTF8String:commands];
+    char * myBuffer = (char *)malloc((int)[hexString length] / 2 + 1);
+    bzero(myBuffer, [hexString length] / 2 + 1);
+    for (int i = 0; i < [hexString length] - 1; i += 2)
+    {
+        unsigned int anInt;
+        NSString * hexCharStr = [hexString substringWithRange:NSMakeRange(i, 2)];
+        NSScanner * scanner = [[NSScanner alloc] initWithString:hexCharStr];
+        [scanner scanHexInt:&anInt];
+        myBuffer[i / 2] = (char)anInt;
     }
-    self.mLockState = false;
+    NSData* cmdData = [NSData dataWithBytes:myBuffer length:20];
+    NSLog(@"Fineshed converting to NS data");
+    if([noke dataPackets] != nil)
+    {
+        [[noke dataPackets] removeAllObjects];
+    }
+    [noke addDataToArray:cmdData];
+    NSLog(@"Adding data to array");
+    [noke writeDataArray];
+    NSLog(@" Sending data to lock");
+//    }
+//    self.mLockState = false;
 }
 
 -(void) didDisconnect:(nokeDevice*) noke
@@ -135,7 +135,7 @@ static NokeController *nokeController;
     self.mCallback(callbackChar,self.mUtil);
     NSLog(@"Lock Disconnected");
     [[nokeSDK sharedInstance] removeAllLocks];
-    //[[nokeSDK sharedInstance] stopScan];
+    [[nokeSDK sharedInstance] stopScan];
     noke.isConnected = false;
     [[nokeSDK sharedInstance] retrieveKnownPeripherals];
 
