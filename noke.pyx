@@ -33,6 +33,6 @@ cdef const char* reqTokenFunc(const char *session, const char *mac, void *util) 
     commands = (<object>util).sendNokeMessage(sessionStr,macStr)
     return commands.encode('utf-8')
 
-cdef int char* blockunlockcb(void *util) with gil:
+cdef int blockunlockcb(void *util) with gil:
     cdef int cblockunlock = (< object > util).blockunlock
     return cblockunlock
