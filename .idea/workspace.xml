@@ -32,8 +32,8 @@
       <file leaf-file-name="noke.pyx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noke.pyx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="57" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="57" />
+            <state relative-caret-position="525">
+              <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -41,8 +41,8 @@
       <file leaf-file-name="NokeController.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NokeController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="158" column="6" selection-start-line="158" selection-start-column="6" selection-end-line="158" selection-end-column="6" />
+            <state relative-caret-position="2460">
+              <caret line="164" column="167" selection-start-line="164" selection-start-column="167" selection-end-line="164" selection-end-column="167" />
             </state>
           </provider>
         </entry>
@@ -120,10 +120,10 @@
       <find>rsp</find>
       <find>mUtil</find>
       <find>reqTokenFunc</find>
-      <find>clientfunc</find>
-      <find>bool</find>
       <find>_client</find>
       <find>didReceiveData</find>
+      <find>bool</find>
+      <find>clientfunc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,8 +156,8 @@
         <option value="$PROJECT_DIR$/NokeCallback.m" />
         <option value="$PROJECT_DIR$/Setup.py" />
         <option value="$PROJECT_DIR$/nokeSDK.m" />
-        <option value="$PROJECT_DIR$/noke.pyx" />
         <option value="$PROJECT_DIR$/NokeController.h" />
+        <option value="$PROJECT_DIR$/noke.pyx" />
         <option value="$PROJECT_DIR$/NokeController.m" />
       </list>
     </option>
@@ -369,15 +369,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/noke.pyx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="57" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="57" />
+        <state relative-caret-position="525">
+          <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NokeController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="158" column="6" selection-start-line="158" selection-start-column="6" selection-end-line="158" selection-end-column="6" />
+        <state relative-caret-position="2460">
+          <caret line="164" column="167" selection-start-line="164" selection-start-column="167" selection-end-line="164" selection-end-column="167" />
         </state>
       </provider>
     </entry>
