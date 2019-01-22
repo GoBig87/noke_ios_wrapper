@@ -108,10 +108,10 @@
       <find>session</find>
       <find>stop</find>
       <find>isconn</find>
-      <find>= false</find>
+      <find />
       <find>isOwned</find>
       <find>restore</find>
-      <find>Util debug 2</find>
+      <find />
       <find>CBCentralManagerScanOptionAllowDuplicatesKey</find>
       <find>cancelPeripheralConnection</find>
       <find>CBCentralManagerStatePoweredOn</find>
