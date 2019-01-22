@@ -161,6 +161,6 @@ static NokeController *nokeController;
 }
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,bool lockState, callbackfunc callback, clientfunc client_func, void *util){
-    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr lockState:lockState callback:callback client_func:client_func util:util];
+void StartUnlock(char* name, char* lockMacAddr,bool lockState, callbackfunc callback, clientfunc client_func, blockunlockfunc blockunlock_func, void *util){
+    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr lockState:lockState callback:callback client_func:client_func blockunlock_func:blockunlock_func util:util];
 }
