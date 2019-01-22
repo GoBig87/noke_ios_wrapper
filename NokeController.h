@@ -22,7 +22,7 @@ typedef void(^myCompletion)(NSString*);
 }
 
 @property (nonatomic, assign) clientfunc mClient;
-@property (nonatomic, assign) int mBlockunlock;
+@property (nonatomic, assign) blockunlockfunc mBlockunlock;
 @property (nonatomic, assign) callbackfunc mCallback;
 @property (nonatomic, assign) void* mUtil;
 @property (nonatomic, assign) bool mLockState;
