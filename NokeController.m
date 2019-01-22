@@ -92,7 +92,7 @@ static NokeController *nokeController;
 
 -(void) didConnect:(nokeDevice*) noke
 {
-    int blockUnlock = mBlockunlock(self.mUtil);
+    int blockUnlock = self.mBlockunlock(self.mUtil);
 
     if(blockUnlock == 0){
         NSLog(@"Connected");
