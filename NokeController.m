@@ -16,7 +16,6 @@
 @synthesize mCallback = _callback;
 @synthesize mUtil = _util;
 @synthesize mClient = _client;
-@synthesize mBlockunlock = _blockunlock;
 @synthesize mLockState = _lockState;
 
 static NokeController *nokeController;
@@ -29,12 +28,11 @@ static NokeController *nokeController;
     }
     return nokeController;
 }
--(void) startNokeScan:(char*)name mac:(char*)lockMacAddr lockState:(bool)lockState callback:(callbackfunc)callback client_func:(clientfunc)client_func blockunlock_func:(blockunlockfunc)blockunlock_func util:(void*)util{
+-(void) startNokeScan:(char*)name mac:(char*)lockMacAddr lockState:(bool)lockState callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
 
     _callback = callback;
     _util = util;
     _client = client_func;
-    _blockunlock = blockunlock_func;
     _lockState = lockState;
 
     NSLog(@"DEBUG-NC-1");
@@ -92,47 +90,40 @@ static NokeController *nokeController;
 
 -(void) didConnect:(nokeDevice*) noke
 {
-    int blockUnlock = self.mBlockunlock(self.mUtil);
+    NSLog(@"Connected");
+    NSString *callbackStr = @"Connected";
+    const char *callbackChar = [callbackStr UTF8String];
+    self.mCallback(callbackChar,self.mUtil);
+    NSString *mac = noke.mac;
+    NSString *session = [noke getSessionAsString];
+    const char *charDeeMacDennis = [mac UTF8String];
+    const char *sessionChar = [session UTF8String];
+//        const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
+//        NSString* rsp = [NSString stringWithUTF8String:rspChar];
 
-    if(blockUnlock == 0){
-        NSLog(@"Connected");
-        NSString *callbackStr = @"Connected";
-        const char *callbackChar = [callbackStr UTF8String];
-        self.mCallback(callbackChar,self.mUtil);
-        NSString *mac = noke.mac;
-        NSString *session = [noke getSessionAsString];
-        const char *charDeeMacDennis = [mac UTF8String];
-        const char *sessionChar = [session UTF8String];
-    //        const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
-    //        NSString* rsp = [NSString stringWithUTF8String:rspChar];
-
-        const char* commands = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
-        NSString* hexString = [NSString stringWithUTF8String:commands];
-        char * myBuffer = (char *)malloc((int)[hexString length] / 2 + 1);
-        bzero(myBuffer, [hexString length] / 2 + 1);
-        for (int i = 0; i < [hexString length] - 1; i += 2)
-        {
-            unsigned int anInt;
-            NSString * hexCharStr = [hexString substringWithRange:NSMakeRange(i, 2)];
-            NSScanner * scanner = [[NSScanner alloc] initWithString:hexCharStr];
-            [scanner scanHexInt:&anInt];
-            myBuffer[i / 2] = (char)anInt;
-        }
-        NSData* cmdData = [NSData dataWithBytes:myBuffer length:20];
-        NSLog(@"Fineshed converting to NS data");
-        if([noke dataPackets] != nil)
-        {
-            [[noke dataPackets] removeAllObjects];
-        }
-        [noke addDataToArray:cmdData];
-        NSLog(@"Adding data to array");
-        [noke writeDataArray];
-        NSLog(@" Sending data to lock");
-    }else{
-        NSString *callbackStr = @"Blocking Unlock";
-        const char *callbackChar = [callbackStr UTF8String];
-        self.mCallback(callbackChar,self.mUtil);
+    const char* commands = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
+    NSString* hexString = [NSString stringWithUTF8String:commands];
+    char * myBuffer = (char *)malloc((int)[hexString length] / 2 + 1);
+    bzero(myBuffer, [hexString length] / 2 + 1);
+    for (int i = 0; i < [hexString length] - 1; i += 2)
+    {
+        unsigned int anInt;
+        NSString * hexCharStr = [hexString substringWithRange:NSMakeRange(i, 2)];
+        NSScanner * scanner = [[NSScanner alloc] initWithString:hexCharStr];
+        [scanner scanHexInt:&anInt];
+        myBuffer[i / 2] = (char)anInt;
     }
+    NSData* cmdData = [NSData dataWithBytes:myBuffer length:20];
+    NSLog(@"Fineshed converting to NS data");
+    if([noke dataPackets] != nil)
+    {
+        [[noke dataPackets] removeAllObjects];
+    }
+    [noke addDataToArray:cmdData];
+    NSLog(@"Adding data to array");
+    [noke writeDataArray];
+    NSLog(@" Sending data to lock");
+
 //    self.mLockState = false;
 }
 
@@ -161,6 +152,6 @@ static NokeController *nokeController;
 }
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,bool lockState, callbackfunc callback, clientfunc client_func, blockunlockfunc blockunlock_func, void *util){
-    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr lockState:lockState callback:callback client_func:client_func blockunlock_func:blockunlock_func util:util];
+void StartUnlock(char* name, char* lockMacAddr,bool lockState, callbackfunc callback, clientfunc client_func, void *util){
+    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr lockState:lockState callback:callback client_func:client_func util:util];
 }

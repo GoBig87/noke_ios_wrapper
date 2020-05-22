@@ -6,8 +6,7 @@ from libcpp cimport bool
 cdef extern from "NokeController.h":
     ctypedef void (*callbackfunc)(const char *name, void *user_data)
     ctypedef const char* (*clientfunc)(const char *session, const char *mac, void *util)
-    ctypedef int (*blockunlockfunc)(void * util)
-    void StartUnlock(char* name, char* macChar,lockState ,callbackfunc call_back, clientfunc client_func, blockunlockfunc blockunlock_func, void *user_data)
+    void StartUnlock(char* name, char* macChar,lockState ,callbackfunc call_back, clientfunc client_func, void *user_data)
 
 class NokePadLock():
     def __init__(self,util):
@@ -16,7 +15,7 @@ class NokePadLock():
     def requestUnlock(self,name,mac,lockState):
         cdef bytes name_bytes = name.encode('utf-8')
         cdef bytes mac_bytes  = mac.encode('utf-8')
-        StartUnlock(name_bytes,mac_bytes, lockState, callback, reqTokenFunc, blockunlockcb,<void*>self.util)
+        StartUnlock(name_bytes,mac_bytes, lockState, callback, reqTokenFunc, <void*>self.util)
 
 
 cdef void callback(const char *name, void *util):
@@ -32,7 +31,3 @@ cdef const char* reqTokenFunc(const char *session, const char *mac, void *util) 
     macStr     = (mac.decode('utf-8'))
     commands = (<object>util).sendNokeMessage(sessionStr,macStr)
     return commands.encode('utf-8')
-
-cdef int blockunlockcb(void *util) with gil:
-    cdef int cblockunlock = (< object > util).blockunlock
-    return cblockunlock
