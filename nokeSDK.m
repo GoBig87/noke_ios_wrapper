@@ -404,7 +404,7 @@ static nokeSDK *sharedNokeSDK;
         }
         
         noke.isOwned = false;
-        if([newMac containsString:@"??:??:??:??:??:??"] = nil)
+        if([newMac containsString:@"??:??:??:??:??:??"] == nil)
         {
         [self insertNokeDevice:noke];
         NSLog(@"didDiscoverNokeDevice-1");
