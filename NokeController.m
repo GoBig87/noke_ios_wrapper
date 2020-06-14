@@ -169,5 +169,5 @@ void StartUnlock(char* name, char* lockMacAddr,bool lockState, callbackfunc call
 }
 
 void DisconnectLock(char* name, char* lockMacAddr){
-    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr];
+    [[NokeController sharedInstance] endNokeScan:name mac:lockMacAddr];
 }
