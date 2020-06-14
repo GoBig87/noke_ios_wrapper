@@ -50,13 +50,14 @@ static NokeController *nokeController;
     }else{
         NSLog(@"NokeController: Delegate Already Exists");
         NSLog(@"NokeController: Removing All Locks");
-        //[[nokeSDK sharedInstance] removeAllLocks];
+        [[nokeSDK sharedInstance] removeAllLocks];
+        [[nokeSDK sharedInstance] stopScan];
 
         NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
         NSLog(@"NokeController:%@",NSlockMacAddr);
         NSString* NSname = [NSString stringWithUTF8String:name];
         NSLog(@"NokeController:%@",NSname);
-        //[[nokeSDK sharedInstance] resetCMDelegate];
+        [[nokeSDK sharedInstance] resetCMDelegate];
         nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
         [[nokeSDK sharedInstance] insertNokeDevice:noke];
         NSLog(@"DEBUG-NC-3");
@@ -72,7 +73,12 @@ static NokeController *nokeController;
         NSLog(@"NokeController:%@",NSname);
         NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
         NSLog(@"%@",NSlockMacAddr);
-        nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
+        //nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
+        NSLog(@"Lock Disconnected");
+        [[nokeSDK sharedInstance] removeAllLocks];
+        [[nokeSDK sharedInstance] stopScan];
+        [[nokeSDK sharedInstance] resetCMDelegate];
+        //noke.isConnected = false;
 }
 
 #pragma mark - nokeSDK
@@ -144,10 +150,10 @@ static NokeController *nokeController;
     NSString *callbackStr = @"Disconnected";
     const char *callbackChar = [callbackStr UTF8String];
     self.mCallback(callbackChar,self.mUtil);
-    NSLog(@"Lock Disconnected");
-    [[nokeSDK sharedInstance] removeAllLocks];
-    [[nokeSDK sharedInstance] stopScan];
-    noke.isConnected = false;
+//    NSLog(@"Lock Disconnected");
+//    [[nokeSDK sharedInstance] removeAllLocks];
+//    [[nokeSDK sharedInstance] stopScan];
+//    noke.isConnected = false;
     //[[nokeSDK sharedInstance] retrieveKnownPeripherals];
 
     //Called after a noke device has been disconnected
