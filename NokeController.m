@@ -70,6 +70,8 @@ static NokeController *nokeController;
 }
 -(void) endNokeScan:(char*)name mac:(char*)lockMacAddr{
         NSLog(@"Noke: Ending Noke Scan");
+        NSString* NSname = [NSString stringWithUTF8String:name];
+        NSLog(@"NokeController:%@",NSname);
         NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
         NSLog(@"%@",NSlockMacAddr);
         nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
