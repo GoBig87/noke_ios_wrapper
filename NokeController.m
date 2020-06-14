@@ -16,6 +16,7 @@
 @synthesize mCallback = _callback;
 @synthesize mUtil = _util;
 @synthesize mClient = _client;
+@synthesize mBlockunlock = _blockunlock;
 @synthesize mLockState = _lockState;
 
 static NokeController *nokeController;
@@ -28,38 +29,50 @@ static NokeController *nokeController;
     }
     return nokeController;
 }
--(void) startNokeScan:(char*)name mac:(char*)lockMacAddr lockState:(bool)lockState callback:(callbackfunc)callback client_func:(clientfunc)client_func util:(void*)util{
+-(void) startNokeScan:(char*)name mac:(char*)lockMacAddr lockState:(bool)lockState callback:(callbackfunc)callback client_func:(clientfunc)client_func blockunlock_func:(blockunlockfunc)blockunlock_func util:(void*)util{
 
     _callback = callback;
     _util = util;
     _client = client_func;
+    _blockunlock = blockunlock_func;
     _lockState = lockState;
 
-    NSLog(@"DEBUG-NC-1");
+    NSLog(@"NokeController: Starting Scan");
     if([nokeSDK sharedInstance].delegate == nil){
+        NSLog(@"NokeController: Creating Delegate Scan");
         [nokeSDK sharedInstance].delegate = self;
         NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
-        NSLog(@"%@",NSlockMacAddr);
+        NSLog(@"NokeController:%@",NSlockMacAddr);
         NSString* NSname = [NSString stringWithUTF8String:name];
-        NSLog(@"%@",NSname);
+        NSLog(@"NokeController:%@",NSname);
         //[[nokeSDK sharedInstance] resetCMDelegate];
         nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
         [[nokeSDK sharedInstance] insertNokeDevice:noke];
-        NSLog(@"DEBUG-NC-2");
+        NSLog(@"NokeController: Lock Insterted");
     }else{
+        NSLog(@"NokeController: Delegate Already Exists");
+        NSLog(@"NokeController: Removing All Locks");
+        [[nokeSDK sharedInstance] removeAllLocks];
+
         NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
-        NSLog(@"%@",NSlockMacAddr);
+        NSLog(@"NokeController:%@",NSlockMacAddr);
         NSString* NSname = [NSString stringWithUTF8String:name];
-        NSLog(@"%@",NSname);
+        NSLog(@"NokeController:%@",NSname);
         //[[nokeSDK sharedInstance] resetCMDelegate];
         nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
         [[nokeSDK sharedInstance] insertNokeDevice:noke];
         NSLog(@"DEBUG-NC-3");
-        [[nokeSDK sharedInstance] startScanForNokeDevices];
+        //[[nokeSDK sharedInstance] startScanForNokeDevices];
     }
 
 
 
+}
+-(void) endNokeScan:(char*)name mac:(char*)lockMacAddr{
+        NSLog(@"Noke: Ending Noke Scan");
+        NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
+        NSLog(@"%@",NSlockMacAddr);
+        nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
 }
 
 #pragma mark - nokeSDK
@@ -98,8 +111,8 @@ static NokeController *nokeController;
     NSString *session = [noke getSessionAsString];
     const char *charDeeMacDennis = [mac UTF8String];
     const char *sessionChar = [session UTF8String];
-//        const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
-//        NSString* rsp = [NSString stringWithUTF8String:rspChar];
+    //        const char *rspChar = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
+    //        NSString* rsp = [NSString stringWithUTF8String:rspChar];
 
     const char* commands = self.mClient(sessionChar,charDeeMacDennis,self.mUtil);
     NSString* hexString = [NSString stringWithUTF8String:commands];
@@ -123,7 +136,6 @@ static NokeController *nokeController;
     NSLog(@"Adding data to array");
     [noke writeDataArray];
     NSLog(@" Sending data to lock");
-
 //    self.mLockState = false;
 }
 
@@ -133,9 +145,9 @@ static NokeController *nokeController;
     const char *callbackChar = [callbackStr UTF8String];
     self.mCallback(callbackChar,self.mUtil);
     NSLog(@"Lock Disconnected");
-    //[[nokeSDK sharedInstance] removeAllLocks];
-    //[[nokeSDK sharedInstance] stopScan];
-    //noke.isConnected = false;
+    [[nokeSDK sharedInstance] removeAllLocks];
+    [[nokeSDK sharedInstance] stopScan];
+    noke.isConnected = false;
     //[[nokeSDK sharedInstance] retrieveKnownPeripherals];
 
     //Called after a noke device has been disconnected
@@ -152,6 +164,10 @@ static NokeController *nokeController;
 }
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,bool lockState, callbackfunc callback, clientfunc client_func, void *util){
-    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr lockState:lockState callback:callback client_func:client_func util:util];
+void StartUnlock(char* name, char* lockMacAddr,bool lockState, callbackfunc callback, clientfunc client_func, blockunlockfunc blockunlock_func, void *util){
+    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr lockState:lockState callback:callback client_func:client_func blockunlock_func:blockunlock_func util:util];
+}
+
+void DisconnectLock(char* name, char* lockMacAddr){
+    [[NokeController sharedInstance] startNokeScan:name mac:lockMacAddr];
 }

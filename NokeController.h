@@ -5,6 +5,7 @@
 
 typedef void (*callbackfunc) (const char *name, void *callback);
 typedef const char* (*clientfunc) (const char *session, const char *macAddr, void *util);
+typedef int (*blockunlockfunc) (void *util);
 typedef void(^myCompletion)(NSString*);
 
 
@@ -21,6 +22,7 @@ typedef void(^myCompletion)(NSString*);
 }
 
 @property (nonatomic, assign) clientfunc mClient;
+@property (nonatomic, assign) blockunlockfunc mBlockunlock;
 @property (nonatomic, assign) callbackfunc mCallback;
 @property (nonatomic, assign) void* mUtil;
 @property (nonatomic, assign) bool mLockState;
@@ -33,4 +35,5 @@ typedef void(^myCompletion)(NSString*);
 - (void) didReceiveData:(NSData*) data Noke:(nokeDevice*)noke;
 @end
 
-void StartUnlock(char* name, char* lockMacAddr,bool lockState, callbackfunc callback, clientfunc client_func, void *util);
+void StartUnlock(char* name, char* lockMacAddr,bool lockState, callbackfunc callback, clientfunc client_func,blockunlockfunc blockunlock_func, void *util);
+void DisconnectLock(char* name, char* lockMacAddr);
