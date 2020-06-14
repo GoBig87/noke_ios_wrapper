@@ -16,7 +16,6 @@
 @synthesize mCallback = _callback;
 @synthesize mUtil = _util;
 @synthesize mClient = _client;
-@synthesize mBlockunlock = _blockunlock;
 @synthesize mLockState = _lockState;
 
 static NokeController *nokeController;
@@ -34,7 +33,6 @@ static NokeController *nokeController;
     _callback = callback;
     _util = util;
     _client = client_func;
-    _blockunlock = blockunlock_func;
     _lockState = lockState;
 
     NSLog(@"NokeController: Starting Scan");
