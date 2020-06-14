@@ -51,7 +51,7 @@ static NokeController *nokeController;
         NSLog(@"NokeController: Delegate Already Exists");
         NSLog(@"NokeController: Removing All Locks");
         [[nokeSDK sharedInstance] removeAllLocks];
-        [[nokeSDK sharedInstance] stopScan];
+        //[[nokeSDK sharedInstance] stopScan];
 
         NSString* NSlockMacAddr = [NSString stringWithUTF8String:lockMacAddr];
         NSLog(@"NokeController:%@",NSlockMacAddr);
@@ -76,7 +76,7 @@ static NokeController *nokeController;
         //nokeDevice *noke = [[nokeDevice alloc] initWithName:NSname Mac:NSlockMacAddr];
         NSLog(@"Lock Disconnected");
         [[nokeSDK sharedInstance] removeAllLocks];
-        [[nokeSDK sharedInstance] stopScan];
+        //[[nokeSDK sharedInstance] stopScan];
         [[nokeSDK sharedInstance] resetCMDelegate];
         //noke.isConnected = false;
 }
